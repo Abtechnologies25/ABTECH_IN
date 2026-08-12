@@ -1,0 +1,79 @@
+{% load static %}
+<header class="site-header">
+  <div class="header-container">
+    <a href="{% url 'home' %}" class="brand-logo">
+      <img src="{% static 'abtapp/images/ABT_LOGO_BLACK_NO_BG.png' %}" alt="AB Technologies Logo" class="navbar-logo-img" />
+    </a>
+    
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="{% url 'home' %}" class="nav-link {% if active_page == 'home' %}active{% endif %}">
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'projects' %}" class="nav-link {% if active_page == 'projects' %}active{% endif %}">
+            Projects
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'research_guidance' %}" class="nav-link {% if active_page == 'research_guidance' %}active{% endif %}">
+            Research Guidance
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'training_workshop' %}" class="nav-link {% if active_page == 'training_workshop' %}active{% endif %}">
+            Training & Workshop
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'products' %}" class="nav-link {% if active_page == 'products' %}active{% endif %}">
+            Products
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'mou' %}" class="nav-link {% if active_page == 'mou' %}active{% endif %}">
+            MoU
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'gallery' %}" class="nav-link {% if active_page == 'gallery' %}active{% endif %}">
+            Gallery
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'videos' %}" class="nav-link {% if active_page == 'videos' %}active{% endif %}">
+            Videos
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'career' %}" class="nav-link {% if active_page == 'career' %}active{% endif %}">
+            Career
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'our_team' %}" class="nav-link {% if active_page == 'our_team' %}active{% endif %}">
+            Our Team
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'our_branches' %}" class="nav-link {% if active_page == 'our_branches' %}active{% endif %}">
+            Our Branches
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'contact_us' %}" class="nav-link nav-btn {% if active_page == 'contact_us' %}active{% endif %}">
+            Contact Us
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

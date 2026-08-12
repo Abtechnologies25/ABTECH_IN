@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Projects - AB Technologies{% endblock %}
+
+{% block banner %}
+<div class="page-banner">
+    <div class="page-banner-content">
+        <!-- <div class="banner-badge">💡 Innovation Portfolio</div> -->
+        <h1 class="page-banner-title">
+            <span class="title-modern">From Imagination to</span>
+            <span class="title-highlight"> Implementation</span>
+        </h1>
+        <!-- <p class="page-banner-subtitle">Discover our cutting-edge projects that transform academic concepts into real-world innovations, empowering the next generation of engineers and researchers.</p> -->
+        <!-- <div class="banner-stats-mini">
+            <div class="stat-mini">
+                <span class="stat-number-mini">200+</span>
+                <span class="stat-label-mini">Projects Delivered</span>
+            </div>
+            <div class="stat-mini">
+                <span class="stat-number-mini">15+</span>
+                <span class="stat-label-mini">Domains</span>
+            </div>
+            <div class="stat-mini">
+                <span class="stat-number-mini">98%</span>
+                <span class="stat-label-mini">Success Rate</span>
+            </div>
+        </div> -->
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<section class="about-section py-4 ">
+    <div class="container ">
+        <div class="row align-items-center justify-content-center">
+            <!-- Left Side Hexagon Gallery (3 Hexagons) -->
+            <div class="col-md-5 d-flex justify-content-center align-items-center mb-4 mb-md-0">
+                <!-- SVG filter for rounded corners on clip-path hexagon -->
+                <svg width="0" height="0" style="position: absolute;">
+                    <defs>
+                        <filter id="round-corner-hex">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+                        </filter>
+                    </defs>
+                </svg>
+
+                <div class="hexagon-gallery">
+                    <div class="hex-item hex-1">
+                        <div class="hex-inner">
+                            <img src="{% static 'abtapp/images/PO3.jpg' %}" alt="Project Image 1" loading="lazy" decoding="async"/>
+                        </div>
+                    </div>
+                    <div class="hex-item hex-2">
+                        <div class="hex-inner">
+                            <img src="{% static 'abtapp/images/PRO2.jpg' %}" alt="Project Image 2" loading="lazy" decoding="async"/>
+                        </div>
+                    </div>
+                    <div class="hex-item hex-3">
+                        <div class="hex-inner">
+                            <img src="{% static 'abtapp/images/PRO4.jpg' %}" alt="Project Image 3" loading="lazy" decoding="async"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side Content -->
+            <div class="col-md-7 text-center d-flex flex-column justify-content-center align-items-center h-100">
+                <div class="about-all-text-projects">
+                    <h2 class="section-title"><span class="about-word">Our</span> <span class="company-name">Projects</span></h2>
+                    <p>AB Technologies is well established in guiding students to develop their own real time projects. We guide the students in knowing the concepts from basics to advanced and help them in completing their projects. We focus on creative, novel and trending ideas that are emerging in the field of Engineering, Science and Technology.</p>
+                </div>
+            </div>
+        </div>
+</section>
+
+<!-- Project Categories Grid Section -->
+<section class="project-cards-section py-5 bg-light w-100">
+    <center>
+    <h2 class="section-title pb-5 text-light">We are involved in development of:</h2></center>
+    <div class="container px-4 px-md-5">
+        <div class="row g-4">
+            <!-- Row 1: Large Card (IEEE) + Dark Card (School & Mini) -->
+            <div class="col-lg-8">
+                <div class="project-card p-4 h-100 bg-white rounded-4 shadow-sm border-0 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="card-icon-box mb-3">
+                            <i class="bi bi-laptop fs-3 text-primary"></i>
+                        </div>
+                        <h3 class="card-title fw-bold text-dark mb-3">IEEE & Non-IEEE Real-Time Projects</h3>
+                        <p class="card-text text-muted mb-4">We specialize in the latest IEEE transactions and non-IEEE cutting-edge domains, ensuring your project meets global academic and industry standards. Our real-time implementations bridge the gap between complex algorithms and practical utility.</p>
+                    </div>
+                    <div class="card-tags d-flex flex-wrap gap-2">
+                        <span class="badge bg-dark px-3 py-2 rounded-pill">ELECTRICAL</span>
+                        <span class="badge bg-dark px-3 py-2 rounded-pill">MECHANICAL</span>
+                        <span class="badge bg-dark px-3 py-2 rounded-pill">COMPUTER SCIENCE</span>
+                        <span class="badge bg-dark px-3 py-2 rounded-pill">ELECTRONICS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="project-card dark-card p-4 h-100 rounded-4 text-white shadow-sm d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="card-icon-box mb-3">
+                            <i class="bi bi-mortarboard fs-3 text-warning"></i>
+                        </div>
+                        <h3 class="card-title fw-bold mb-3">School & Mini-Projects</h3>
+                        <p class="card-text text-white-50 mb-4">Building foundational skills for young innovators through hands-on learning modules, simplified engineering models, and creative working prototypes.</p>
+                    </div>
+                    <a href="#contact" class="text-warning text-decoration-none fw-bold d-inline-flex align-items-center gap-1">
+                        Start Learning <i class="bi bi-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Row 2: Card (Patent) + Card with Image (Funded Projects, Research Proposals & Prototypes) -->
+            <div class="col-lg-4">
+                <div class="project-card p-4 h-100 bg-white rounded-4 shadow-sm border-0 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="card-icon-box mb-3">
+                            <i class="bi bi-award fs-3 text-primary"></i>
+                        </div>
+                        <h3 class="card-title fw-bold text-dark mb-3">Novel Projects for Patent</h3>
+                        <p class="card-text text-muted mb-4">Transform your original research into valuable intellectual property. Our experts guide you through novelty search, prototype refinement, and patent filing support.</p>
+                    </div>
+                    <div>
+                        <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-semibold">IP SUPPORT PROVIDED</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="project-card p-0 h-100 bg-white rounded-4 shadow-sm border-0 overflow-hidden">
+                    <div class="row g-0 h-100 align-items-center">
+                        <div class="col-md-7 p-4">
+                            <div class="card-icon-box mb-3">
+                                <i class="bi bi-journal-check fs-3 text-primary"></i>
+                            </div>
+                            <h3 class="card-title fw-bold text-dark mb-3">Funded Projects, Research Proposals & Prototypes</h3>
+                            <p class="card-text text-muted mb-3">Expert guidance for securing government and private grants. We assist in academic documentation, feasibility studies, research proposals, and developing working hardware/software prototypes.</p>
+                            <ul class="list-unstyled text-muted small mb-0">
+                                <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i> Grant Writing & Proposal Support</li>
+                                <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i> Hardware & Software Prototype Development</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Rigorous Documentation & Budget Planning</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-5 h-100">
+                            <img src="{% static 'abtapp/images/ha.jpg' %}" alt="Research & Prototypes" class="w-100 h-100 object-fit-cover" style="min-height: 240px;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Research Guidance - AB Technologies{% endblock %}
+{% block banner %}
+<div class="page-banner">
+    <div class="page-banner-content">
+        <!-- <div class="banner-badge">💡 Innovation Portfolio</div> -->
+        <h1 class="page-banner-title">
+            <span class="title-modern">Transforming  </span>
+            <span class="title-highlight"> Research into Results</span>
+        </h1>
+        <!-- <p class="page-banner-subtitle">Discover our cutting-edge projects that transform academic concepts into real-world innovations, empowering the next generation of engineers and researchers.</p> -->
+        <!-- <div class="banner-stats-mini">
+            <div class="stat-mini">
+                <span class="stat-number-mini">200+</span>
+                <span class="stat-label-mini">Projects Delivered</span>
+            </div>
+            <div class="stat-mini">
+                <span class="stat-number-mini">15+</span>
+                <span class="stat-label-mini">Domains</span>
+            </div>
+            <div class="stat-mini">
+                <span class="stat-number-mini">98%</span>
+                <span class="stat-label-mini">Success Rate</span>
+            </div>
+        </div> -->
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<!-- Research Intro Section with Hexagon Gallery -->
+<section class="about-section" style="padding-top: 3rem; padding-bottom: 0 !important;">
+    <div class="container" style="margin-bottom: 0; padding-bottom: 0;">
+        <div class="row align-items-center justify-content-center" style="margin-bottom: 0;">
+            <!-- Left Side Text Content (Vertically Centered) -->
+            <div class="col-md-7 text-center d-flex flex-column justify-content-center align-items-center py-5">
+                <div class="about-all-text-projects">
+                    <h2 class="section-title"><span class="about-word">Our</span> <span class="company-name">Guidance </span></h2>
+                    <p>We provide step by step guidance to research scholars in developing their ideas into real time manuscripts. We assist them in putting their ideas into paper and mentor them in publishing their work in reputed journals. We also assist the scholars in writing Thesis.</p>
+                </div>
+            </div>
+            <!-- Right Side Image Content (Flush to Bottom) -->
+            <div class="col-md-5 d-flex justify-content-end align-items-end p-0 m-0">
+                <img src="{% static 'abtapp/images/rese2.png' %}" alt="Research Guidance" class="img-fluid d-block m-0 p-0" loading="lazy" decoding="async" style="margin-bottom: 0 !important; padding-bottom: 0 !important; display: block; width: 100%; max-width: 500px; height: auto;" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Publication Types and Process -->
+<section class="research-guidance-section">
+    <div class="container">
+        
+        <!-- Focus Areas -->
+        <div class="research-focus">
+<center>
+            <h3 class="section-title text-center pb-3">Types of <span class="company-name"> Publications</span></h3></center>
+            <p class="text-center pb-5">We focus on guiding scholars in all types of publications such as</p>
+            <div class="row align-items-stretch g-4">
+                <!-- Left Side: Research Image (Full Height) -->
+                <div class="col-lg-5 col-md-6 d-flex flex-column">
+                    <div class="research-image-wrapper flex-grow-1">
+                        <img src="{% static 'abtapp/images/research.jpg' %}" alt="Research Publications" class="research-full-img rounded-4 shadow-lg" loading="lazy" decoding="async" />
+                    </div>
+                </div>
+
+                <!-- Right Side: Publication Cards -->
+                <div class="col-lg-7 col-md-6">
+                    <div class="row g-3">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="publication-card h-100">
+                                <div class="publication-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <h4 class="publication-name">SCI / SCIE / Annexure I Journals</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="publication-card h-100">
+                                <div class="publication-icon">
+                                    <i class="bi bi-globe"></i>
+                                </div>
+                                <h4 class="publication-name">SCOPUS</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="publication-card h-100">
+                                <div class="publication-icon">
+                                    <i class="bi bi-diagram-3"></i>
+                                </div>
+                                <h4 class="publication-name">Web of Science</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6">
+                            <div class="publication-card h-100">
+                                <div class="publication-icon">
+                                    <i class="bi bi-chat-dots"></i>
+                                </div>
+                                <h4 class="publication-name">Conference Papers</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6">
+                            <div class="publication-card h-100">
+                                <div class="publication-icon">
+                                    <i class="bi bi-book"></i>
+                                </div>
+                                <h4 class="publication-name">Book Chapter</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guidance Process -->
+        <!-- <div class="guidance-process">
+            <h3 class="process-title">Our Step-by-Step Guidance Process</h3>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4 class="step-title">Idea Development</h4>
+                    <p class="step-desc">Help you refine and structure your research concepts into viable research proposals</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4 class="step-title">Manuscript Preparation</h4>
+                    <p class="step-desc">Assist in writing and organizing your findings into professional manuscript format</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4 class="step-title">Journal Selection</h4>
+                    <p class="step-desc">Guide you in selecting the most appropriate journal for your research</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4 class="step-title">Publication Support</h4>
+                    <p class="step-desc">Provide mentorship through the submission and publication process</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h4 class="step-title">Thesis Assistance</h4>
+                    <p class="step-desc">Complete support in structuring and finalizing your Ph.D. or Master's thesis</p>
+                </div>
+            </div>
+        </div> -->
+
+    </div>
+</section>
+{% endblock %}

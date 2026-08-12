@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Videos - AB Technologies{% endblock %}
+
+{% block content %}
+<div class="bg-light">
+  <div class="container-fluid py-5">
+
+    <table class="table table-bordered mt-4">
+      <thead class="bg-dark text-light text-center">
+        <tr>
+          <th style="width: 5%;">S.NO</th>
+          <th style="width: 10%;">CODE</th>
+          <th style="width: 12%;">UPLOADED DATE</th>
+          <th style="width: 38%;">TITLE</th>
+          <th style="width: 10%;">TYPE</th>
+          <th style="width: 25%;">YOUTUBE LINK</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for v in videos %}
+        <tr>
+          <td class="text-center" style="vertical-align: middle;">{{ forloop.counter }}</td>
+          <td class="text-center" style="vertical-align: middle;">{{ v.CODE }}</td>
+          <td class="text-center" style="vertical-align: middle;">{{ v.UPLOADED_DATE|date:"d-m-Y" }}</td>
+          <td style="vertical-align: middle;">
+            <h2 style="font-size: 1rem; margin: 0;">
+              <a href="{{ v.YOUTUBE_LINK }}" target="_blank" rel="noopener" style="text-decoration: none; color: #000;">
+                {{ v.TITLE }}
+              </a>
+            </h2>
+          </td>
+          <td class="text-center" style="vertical-align: middle;">{{ v.TYPE }}</td>
+          <td class="text-center" style="vertical-align: middle;">
+            <a href="{{ v.YOUTUBE_LINK }}" target="_blank" style="color: #0000FF;">
+              {{ v.YOUTUBE_LINK }}
+            </a>
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="6" class="text-center">No videos available</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

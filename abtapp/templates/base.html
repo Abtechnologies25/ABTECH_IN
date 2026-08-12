@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AB Technologies{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'abtapp/css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <style>
+        /* Smooth Scrolling for the entire page */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Enhanced smooth scrolling with custom easing */
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        /* Webkit browsers smooth scrolling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    {% block banner %}{% endblock %}
+
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
+    {% include 'footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobileMenuBtn');
+            const nav = document.getElementById('mainNav');
+            if (btn && nav) {
+                btn.addEventListener('click', () => {
+                    nav.classList.toggle('show');
+                });
+            }
+
+            // Modern Directors Section JavaScript
+            
+            // Toggle Bio Function
+            window.toggleBio = function(button) {
+                const card = button.closest('.modern-director-card');
+                const bio = card.querySelector('.director-modern-bio');
+                const isExpanded = card.classList.contains('expanded');
+                
+                if (isExpanded) {
+                    card.classList.remove('expanded');
+                    button.querySelector('span').textContent = 'Learn More';
+                    button.querySelector('i').className = 'bi bi-arrow-right';
+                } else {
+                    card.classList.add('expanded');
+                    button.querySelector('span').textContent = 'Show Less';
+                    button.querySelector('i').className = 'bi bi-arrow-up';
+                }
+            };
+
+            // Animated Counter for Statistics
+            function animateCounter() {
+                const counters = document.querySelectorAll('.stat-count');
+                const observerOptions = {
+                    threshold: 0.7
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const counter = entry.target;
+                            const target = parseInt(counter.getAttribute('data-count'));
+                            const duration = 2000; // 2 seconds
+                            const step = target / (duration / 16); // 60fps
+                            let current = 0;
+
+                            const timer = setInterval(() => {
+                                current += step;
+                                if (current >= target) {
+                                    counter.textContent = target + (target > 50 ? '+' : '');
+                                    clearInterval(timer);
+                                } else {
+                                    counter.textContent = Math.floor(current) + (target > 50 ? '+' : '');
+                                }
+                            }, 16);
+
+                            observer.unobserve(counter);
+                        }
+                    });
+                }, observerOptions);
+
+                counters.forEach(counter => {
+                    observer.observe(counter);
+                });
+            }
+
+            // Initialize counter animation
+            animateCounter();
+        });
+    </script>
+
+</body>
+</html>

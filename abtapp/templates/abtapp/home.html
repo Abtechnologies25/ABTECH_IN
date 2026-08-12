@@ -1,0 +1,310 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - AB Technologies{% endblock %}
+
+{% block banner %}
+<div class="banner-section">
+    
+    <div class="banner-content">
+        
+        <h1 class="banner-title">
+            <span class="title-line">Transforming Ideas Into Reality with</span>
+            <span class="title-highlight">AB Technologies</span>
+            <!-- <span class="title-subtitle">with <span class="logo-accent">AB Technologies</span></span> -->
+        </h1>
+        <p class="banner-subtitle">Empowering the next generation of innovators through cutting-edge research, development, and mentorship across India.</p>
+        <div class="banner-stats">
+            <div class="stat-item">
+                <i class="bi bi-clipboard-check stat-icon"></i>
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Projects Completed</span>
+            </div>
+            <div class="stat-item">
+                <i class="bi bi-building stat-icon"></i>
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Institutions</span>
+            </div>
+            <div class="stat-item">
+                <i class="bi bi-award stat-icon"></i>
+                <span class="stat-number">10+</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+        </div>
+        <!-- <div class="banner-actions">
+            <a href="#" class="btn-primary">Start Your Project ↗</a>
+            <a href="#" class="btn-secondary">Explore Services</a>
+        </div> -->
+    </div>
+
+    <!-- Stats Box - Absolute positioned at bottom center -->
+    <!-- <div class="banner-stats-absolute">
+        <div class="stat-item">
+            <div class="stat-icon"><i class="bi bi-code-slash"></i></div>
+            <span class="stat-label">Training & Development</span>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon"><i class="bi bi-person-badge-fill"></i></div>
+            <span class="stat-label">Employee Directory</span>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon"><i class="bi bi-headset"></i></div>
+            <span class="stat-label">Support & Assistance</span>
+        </div>
+    </div> -->
+
+    <!-- Four Divs Grid on Right Side -->
+    <div class="banner-right-grid">
+        <div class="banner-grid-item left-item">
+            <img src="{% static 'abtapp/images/lib.png' %}" alt="AB Technologies Services" />
+        </div>
+        <div class="banner-grid-item right-item">
+            <img src="{% static 'abtapp/images/lib.png' %}" alt="AB Technologies Innovation" />
+        </div>
+        <div class="banner-grid-item left-item">
+            <img src="{% static 'abtapp/images/lib.png' %}" alt="AB Technologies Solutions" />
+        </div>
+        <div class="banner-grid-item right-item">
+            <img src="{% static 'abtapp/images/lib.png' %}" alt="AB Technologies Excellence" />
+        </div>
+    </div>
+
+    <!-- <div id="bannerImageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="banner-image">
+                    <img src="{% static 'abtapp/images/ad2.png' %}" alt="AB Technologies Banner" />
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="banner-image">
+                    <img src="{% static 'abtapp/images/b5.png' %}" alt="AB Technologies Innovation" />
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="banner-image">
+                    <img src="{% static 'abtapp/images/zo.png' %}" alt="AB Technologies Excellence" />
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>
+{% endblock %}
+
+
+{% block content %}
+<!-- Happening Now Section -->
+<section class="happening-now-section">
+    <div class="container-fluid px-0">
+        <div class="text-center mb-4">
+            <h2 class="section-title justify-content-center">
+                <span class="about-word">Happening</span> <span class="company-name">Now..!</span>
+            </h2>
+        </div>
+
+        <div class="happening-slider-wrapper position-relative">
+            <!-- Navigation Buttons -->
+            <button class="happening-nav-btn happening-prev-btn" id="happeningPrevBtn" aria-label="Previous">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="happening-nav-btn happening-next-btn" id="happeningNextBtn" aria-label="Next">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+
+            <!-- Swiper Slider -->
+            <div class="swiper happening-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="happening-slide-card">
+                            <img src="{% static 'abtapp/images/ad2.png' %}" alt="BHASHINI Sahyogi" />
+                            <div class="happening-slide-overlay">
+                                <h3 class="happening-slide-title">Workshop</h3>
+                                <p class="happening-slide-desc">Largest "AI co-creation, collaboration and Partnership"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="happening-slide-card">
+                            <img src="{% static 'abtapp/images/b5.png' %}" alt="Research & Innovation" />
+                            <div class="happening-slide-overlay">
+                                <h3 class="happening-slide-title">Research &amp; Innovation</h3>
+                                <p class="happening-slide-desc">Empowering scholars &amp; students with cutting-edge technology</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="happening-slide-card">
+                            <img src="{% static 'abtapp/images/zo.png' %}" alt="Hands-on Workshops" />
+                            <div class="happening-slide-overlay">
+                                <h3 class="happening-slide-title">Hands-on Workshops</h3>
+                                <p class="happening-slide-desc">Practical skills &amp; industry-ready engineering solutions</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide">
+                        <div class="happening-slide-card">
+                            <img src="{% static 'abtapp/images/ba4.png' %}" alt="National Conferences" />
+                            <div class="happening-slide-overlay">
+                                <h3 class="happening-slide-title">National Conferences</h3>
+                                <p class="happening-slide-desc">Showcasing student projects &amp; academic excellence</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Explore More Button -->
+        <!-- <div class="text-center mt-4 pt-2">
+            <a href="{% url 'gallery' %}" class="happening-explore-btn">
+                Explore more <i class="bi bi-arrow-right"></i>
+            </a>
+        </div> -->
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof Swiper !== 'undefined') {
+            new Swiper('.happening-swiper', {
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                spaceBetween: 0,
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: '#happeningNextBtn',
+                    prevEl: '#happeningPrevBtn',
+                },
+            });
+        }
+    });
+</script>
+
+<section class="about-section">
+    
+    <div class="about-layout">
+        
+        
+        <div class="about-all-text">
+            <h2 class="section-title"><span class="about-word">About</span> <span class="company-name">Us</span></h2>
+            <p>AB Technologies is an organization that primarily deals with developing research concepts and real time projects. AB Technologies is specialized in guiding the students to develop engineering projects with real time applications. AB Technologies assists the research scholars and mentor them in understanding the concepts, ideas and also support them in writing and publishing their research works in reputed journals of different standards such as UGC, Scopus indexed and SCI indexed journals. The organization is well versed in assisting Synopsis and Thesis development.</p>
+
+            <p>AB Technologies is also involved in conducting Training, Internship and Courses in various disciplines like Embedded Systems, Internet of Things (IoT), Robotics &amp; Automation, Artificial Intelligence, Matlab, PCB, CAD design, Python, Java, VLSI, ANSYS, Antenna Design, Web Development, Game Development, Computer Hardware &amp; Software, Database Management and networking.</p>
+
+            <p>AB Technologies is experienced in the preparation of proposals and in the implementation of engineering oriented funded projects. AB Technologies is skilled and engaged in the manufacturing of Lab Equipment. AB Technologies is well known for conducting various workshops, value added courses, trainings, and Guest Lecture Programs, National and International conferences in various colleges across India.</p>
+        </div>
+
+       
+        <img src="{% static 'abtapp/images/about.png' %}" alt="About AB Technologies" class="about-img" />
+    </div>
+</section>
+
+<!-- Vision & Mission Section -->
+<section class="vision-mission-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <!-- Left Column - Image -->
+            <div class="col-md-6">
+                <div class="vision-content">
+                    <div class="vision-block">
+                        <div class="vision-icon-badge">
+                            <i class="bi bi-eye-fill"></i>
+                        </div>
+                        <h3 class="vision-heading">VISION</h3>
+                        <p class="vision-text">To mentor and guide in research and development of innovative ideas and to give efficient training to the students in various domains of engineering.</p>
+                    </div>
+                   
+                </div>
+                
+            </div>
+            <!-- Right Column - Content -->
+            <div class="col-md-6">
+                 <div class="mission-block">
+                        <div class="vision-icon-badge mission-badge">
+                            <i class="bi bi-bullseye"></i>
+                        </div>
+                        <h3 class="mission-heading">MISSION</h3>
+                        <p class="vision-text">To unfold creative engineering thoughts into meaningful products that contribute to the society positively.</p>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="directors-section">
+    <div class="directors-container">
+        <!-- Section Title -->
+        <div class="directors-header">
+            <h2 class="directors-title">
+                Meet Our <span class="gradient-text">Directors</span>
+            </h2>
+            <p class="directors-subtitle">Visionary leaders driving innovation and excellence</p>
+        </div>
+        
+        <!-- Directors 2-Column Layout -->
+        <div class="directors-grid">
+            
+            <!-- Director 1 - Dr. K.S. Kavin -->
+            <div class="director-card">
+                <div class="director-image">
+                    <img src="{% static 'abtapp/images/KAVIN K S.jpeg' %}" alt="Dr. K.S. Kavin" />
+                </div>
+                <div class="director-info">
+                    <h3 class="director-name">Dr. K.S. Kavin</h3>
+                    <p class="director-position">Director</p>
+                    <div class="director-tags">
+                        <span class="tag">Power Electronics</span>
+                        <span class="tag">AI & IoT</span>
+                        <span class="tag">Research</span>
+                    </div>
+                    <p class="director-bio">
+Dr. K.S. Kavin is one of the Directors of AB Technologies. He has over three years of teaching experience as an Assistant Professor and more than 12 years of industrial experience as an R&D Engineer in the field of Power Electronics, Artificial Intelligence and IoT. He earned his Ph.D. with research focused on grid-tied electric vehicles without an energy storage system. As a Director, he plays a key role in managing the organization and guiding its strategic decisions. Dr. K.S. Kavin is also an accomplished researcher with more than 75 publications in reputed national and international journals across various engineering disciplines. He is the inventor and patent holder of the novel "KSK Converter," a converter named after him in recognition of his contribution. He can be contacted at kavinksk@gmail.com. 
+                    </p>
+                    <div class="director-contact">
+                        <a href="mailto:kavinksk@gmail.com" class="contact-link">
+                            <i class="bi bi-envelope"></i> Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Director 2 - Er. A.T.R. Krishna Priya -->
+            <div class="director-card">
+                <div class="director-image">
+                    <img src="{% static 'abtapp/images/' %}" alt="Er. A.T.R. Krishna Priya" />
+                </div>
+                <div class="director-info">
+                    <h3 class="director-name">Er. A.T.R. Krishna Priya</h3>
+                    <p class="director-position">Director</p>
+                    <div class="director-tags">
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Deep Learning</span>
+                        <span class="tag">Medical AI</span>
+                    </div>
+                    <p class="director-bio">
+Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a Master's degree in Computer Science and Engineering from Anna University. Her areas of specialization include Machine Learning and Deep Learning, with a focus on medical image processing applications. She has published more than 25 research papers in reputed national and international journals and conference proceedings. As a Director, she actively oversees the organization's administrative functions and is dedicated to driving its growth, innovation, and overall development. She can be contacted at priya.gita6@gmail.com
+                    </p>
+                    <div class="director-contact">
+                        <a href="mailto:priya.gita6@gmail.com" class="contact-link">
+                            <i class="bi bi-envelope"></i> Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</section>
+{% endblock %}

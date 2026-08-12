@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Memorandum of Understanding (MoU) - AB Technologies{% endblock %}
+
+{% block content %}
+<div class="bg-light">
+  <br><br><br>
+  
+<div class="container-fluid">
+   
+<h3 style="font-weight: 900;" class="text-center mt-5"></h3>
+  <table class="table table-bordered mt-4 " >
+    <thead class="bg-dark text-light text-center">
+        <tr style="vertical-align: middle;">
+            <th style="width: 5%; vertical-align: middle;">S.NO</th>
+            <th style="width: 10%; vertical-align: middle;">MoU NO</th>
+            <th style="width: 30%; vertical-align: middle;">NAME OF ORGANIZATION</th>
+            <th style="width: 15%; vertical-align: middle;">LOCATION</th>
+            <th style="width: 20%; vertical-align: middle;">OFFICIAL WEBSITE</th>
+            <th style="width: 10%; vertical-align: middle;">DATE OF MoU</th>
+            <th style="width: 10%; vertical-align: middle;">VALIDITY</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mou in mous %}
+        <tr style="vertical-align: middle;">
+            <td class="text-center" style="vertical-align: middle;">{{ forloop.counter }}</td>  <!-- Serial Number -->
+            <td class="text-center" style="vertical-align: middle;">{{ mou.MoU_NO }}</td>
+            <td class="text-center" style="vertical-align: middle;">{{ mou.ORGANIZATION_NAME }}</td>
+            <td class="text-center" style="vertical-align: middle;">{{ mou.LOCATION }}</td>
+            <td class="text-center" style="vertical-align: middle;"><a style="color: #0000FF;" href="{{ mou.OFFICIAL_WEBSITE }}" target="_blank">{{ mou.OFFICIAL_WEBSITE }}</a></td>
+            <td class="text-center" style="vertical-align: middle;">{{ mou.DATE_OF_MoU|date:"d/m/Y"|default:"-" }}</td>
+            <td class="text-center" style="vertical-align: middle;">{{ mou.VALIDITY|default:"-" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>  
+</div>
+<br><br>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Gallery - AB Technologies{% endblock %}
+
+{% block content %}
+<div class="main-container">
+        {% for category in categories %}
+            <div class="category-section" data-aos="fade-up">
+                <h2 class="category-title" id="cat-{{ forloop.counter }}">{{ category.name }}</h2>
+                <div class="image-grid">
+                    {% for image in category.images.all %}
+                        <div class="image-card" onclick="openLightbox('{{ image.image.url }}')">
+                            <div class="img-wrapper">
+                                <img src="{{ image.image.url }}" 
+                                     alt="{{ image.get_seo_alt }}"
+                                     title="{{ image.name|default:category.name }} | {{ category.name }} - Athith Mithra"
+                                     loading="lazy"
+                                     decoding="async">
+                            </div>
+                            {% if image.name %}
+                                <div class="card-info">
+                                    <p>{{ image.name }}</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% empty %}
+                        <div class="col-12 text-center w-100">
+                            <p class="text-muted">No images available in this category.</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Lightbox Component -->
+    <div class="lightbox" id="galleryLightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+            <img id="lightboxImg" src="" alt="Full view">
+        </div>
+    </div>
+
+    <script>
+        function openLightbox(url) {
+            const lb = document.getElementById('galleryLightbox');
+            const img = document.getElementById('lightboxImg');
+            img.src = url;
+            lb.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lb = document.getElementById('galleryLightbox');
+            lb.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+{% endblock %}
