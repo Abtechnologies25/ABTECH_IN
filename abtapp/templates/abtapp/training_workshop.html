@@ -1,10 +1,95 @@
 {% extends 'base.html' %}
-
+{% load static%}
 {% block title %}Training & Workshop - AB Technologies{% endblock %}
 
 {% block content %}
-<div class="page-card">
-    <h1 class="page-title">Training & Workshop</h1>
-    <p class="page-subtitle">Hands-on technical workshops, corporate training, and skill development programs on emerging technologies.</p>
+<div class="page-banner">
+    <div class="page-banner-content">
+        <!-- <div class="banner-badge">💡 Innovation Portfolio</div> -->
+        <h1 class="page-banner-title">
+            <span class="title-modern"> </span>
+            <span class="title-highlight"> Training & Workshop</span>
+        </h1>
+    </div>
 </div>
+
+<!-- Training Section -->
+<section class="training-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <!-- Left Column - Content -->
+            <div class="col-lg-6">
+                <h2 class="section-title mb-4">
+                    <span class="about-word">Comprehensive</span> <span class="company-name">Training</span>
+                </h2>
+                <p class="training-content">
+                    AB Technologies is fully equipped with advanced infrastructure and well experienced trainers. We offer training programs to the students. The training covers various trending technologies across all the disciplines, covering students from Engineering, Diploma courses and also Arts and Science courses. We have the most experienced faculties with minimum 5 years of industrial experience in their respected field imparting knowledge according to the needs of current industry standards.
+                </p>
+            </div>
+            
+            <!-- Right Column - Training Cards Grid -->
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="training-card">
+                            <div class="training-card-icon">
+                                <i class="bi bi-briefcase"></i>
+                            </div>
+                            <h5 class="training-card-title">Internship for Students</h5>
+                            <!-- <p class="training-card-description">Hands-on experience and practical skills training. Provide real-world project exposure.</p> -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="training-card">
+                            <div class="training-card-icon">
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <h5 class="training-card-title">Value Added Courses</h5>
+                            <!-- <p class="training-card-description">Specialized curriculum blending industry needs and enhancing core technical competencies.</p> -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="training-card">
+                            <div class="training-card-icon">
+                                <i class="bi bi-hammer"></i>
+                            </div>
+                            <h5 class="training-card-title">In-plant Training</h5>
+                            <!-- <p class="training-card-description">Hands-on industrial environment training covering manufacturing and engineering processes.</p> -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="training-card">
+                            <div class="training-card-icon">
+                                <i class="bi bi-lightbulb"></i>
+                            </div>
+                            <h5 class="training-card-title">School Projects</h5>
+                            <!-- <p class="training-card-description">Guided project development to create innovation and problem-solving capabilities.</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Workshop Section -->
+<section class="workshop-section">
+    <div class="container workshop-container">
+        <div class="row align-items-center g-5">
+            <div class="col-md-6 ">
+                <div class="workshop-image-container ">
+                    <img src="{% static 'abtapp/images/workshop.png' %}" alt="Workshop" class="img-fluid" loading="lazy" decoding="async">
+                </div>
+            </div>
+            <div class="col-md-6 ">
+                <h2 class="section-title mb-2">
+                    <span class="company-name">Technical</span> <span class="about-word"> Workshops</span>
+                </h2>
+                <p class="workshop-content">
+                    AB Technologies is well known for conducting workshops and training programs in reputed colleges across the country. We engage in giving real time and hands on training to the students that enable them in skilling them technically and to gain knowledge. We conduct workshop covering concepts from all the domains.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

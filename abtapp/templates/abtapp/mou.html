@@ -1,8 +1,46 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Memorandum of Understanding (MoU) - AB Technologies{% endblock %}
 
 {% block content %}
+<div class="page-banner">
+    <div class="page-banner-content">
+        <!-- <div class="banner-badge">💡 Innovation Portfolio</div> -->
+        <h1 class="page-banner-title">
+            <span class="title-modern"> Memorandum of</span>
+            <span class="title-highlight">  Understanding</span>
+        </h1>
+    </div>
+</div>
+
+<!-- MoU Introduction Section -->
+<section class="mou-intro-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <!-- Left Column - Image -->
+            <div class="col-lg-6">
+                <div class="mou-image-container">
+                    <img src="{% static 'abtapp/images/mou.png' %}" alt="Memorandum of Understanding" class="img-fluid" loading="lazy" decoding="async">
+                </div>
+            </div>
+            
+            <!-- Right Column - Content -->
+            <div class="col-lg-6">
+                <h2 class="section-title mb-2">
+                    <span class="about-word">About </span> <span class="company-name">MoU</span>
+                </h2>
+                <p class="mou-description">
+                    A Memorandum of Understanding (MoU) is a formal agreement that establishes a collaborative relationship between two organizations. It facilitates cooperation in various domains aligned with the objectives of the MoU, fostering mutual growth and creating shared benefits for both organizations.
+                </p>
+                <p class="mou-description">
+                    AB Technologies is co-operatively working with different Organizations, Colleges and Universities by actively signing MoUs with them.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="bg-light">
   <br><br><br>
   
