@@ -1,10 +1,327 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Contact Us - AB Technologies{% endblock %}
 
 {% block content %}
-<div class="page-card">
-    <h1 class="page-title">Contact Us</h1>
-    <p class="page-subtitle">Get in touch with AB Technologies for inquiries, project guidance, training schedules, or partnership opportunities.</p>
+<div class="page-banner">
+    <div class="page-banner-content">
+        <!-- <div class="banner-badge">📍 Get In Touch</div> -->
+        <h1 class="page-banner-title">
+            <span class="title-modern">Reach Out To</span>
+            <span class="title-highlight">Our Offices</span>
+        </h1>
+        <p class="page-banner-subtitle">We have multiple branches to serve you better. Visit us or give us a call!</p>
+    </div>
 </div>
+
+<!-- Contact Section -->
+<section class="contact-section">
+    <div class="container py-5">
+
+        <!-- Branch Selector Tabs -->
+        <div class="contact-branch-tabs" id="branchTabs">
+            <button class="branch-tab active" data-branch="nagercoil" onclick="switchBranch('nagercoil', this)">
+                <i class="bi bi-geo-alt-fill"></i>
+                <span>Nagercoil</span>
+                <small>Head Office</small>
+            </button>
+            <button class="branch-tab" data-branch="tirunelveli" onclick="switchBranch('tirunelveli', this)">
+                <i class="bi bi-geo-alt-fill"></i>
+                <span>Tirunelveli</span>
+                <small>Branch</small>
+            </button>
+            <button class="branch-tab" data-branch="chennai" onclick="switchBranch('chennai', this)">
+                <i class="bi bi-geo-alt-fill"></i>
+                <span>Chennai</span>
+                <small>Branch</small>
+            </button>
+            <button class="branch-tab" data-branch="pudukkottai" onclick="switchBranch('pudukkottai', this)">
+                <i class="bi bi-geo-alt-fill"></i>
+                <span>Pudukkottai</span>
+                <small>Branch</small>
+            </button>
+        </div>
+
+        <!-- Branch Content Cards -->
+        <div class="contact-branch-content">
+
+            <!-- NAGERCOIL -->
+            <div class="branch-panel active" id="branch-nagercoil">
+                <div class="row g-4 align-items-stretch">
+                    <div class="col-lg-5">
+                        <div class="branch-info-card">
+                            <div class="branch-badge">
+                                <i class="bi bi-building"></i> Head Office
+                            </div>
+                            <h2 class="branch-city-name">Nagercoil</h2>
+                            <div class="branch-detail-item">
+                                <div class="detail-icon"><i class="bi bi-pin-map-fill"></i></div>
+                                <div class="detail-text">
+                                    <strong>Address</strong>
+                                    <p>14, First, Second and Third Floor, Prajam Complex, S. T. Hindu College Road, Chettikulam, Nagercoil, Kanyakumari, Tamil Nadu - 629002.</p>
+                                </div>
+                            </div>
+                            <div class="branch-detail-item">
+                                <div class="detail-icon"><i class="bi bi-telephone-fill"></i></div>
+                                <div class="detail-text">
+                                    <strong>Phone</strong>
+                                    <p>
+                                        <a href="tel:+919840511458">+91 98405 11458</a><br>
+                                        <a href="tel:+919789966214">+91 97899 66214</a><br>
+                                        <a href="tel:+919789224844">+91 97892 24844</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="branch-detail-item">
+                                <div class="detail-icon"><i class="bi bi-clock-fill"></i></div>
+                                <div class="detail-text">
+                                    <strong>Business Hours</strong>
+                                    <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
+                                </div>
+                            </div>
+                            <div class="branch-actions">
+                                <a href="tel:+919840511458" class="branch-action-btn call-btn">
+                                    <i class="bi bi-telephone-outbound-fill"></i> Call Now
+                                </a>
+                                <a href="https://maps.google.com/?q=AB+Technologies+Prajam+Complex+Nagercoil" target="_blank" class="branch-action-btn direction-btn">
+                                    <i class="bi bi-cursor-fill"></i> Directions
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="branch-map-wrapper">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.0!2d77.429!3d8.178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04f0c0c0c0c0c0%3A0x0!2sAB+Technologies%2C+Prajam+Complex%2C+S.T.+Hindu+College+Road%2C+Chettikulam%2C+Nagercoil!5e0!3m2!1sen!2sin!4v1700000000000"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="AB Technologies Nagercoil Office Location"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TIRUNELVELI -->
+            <div class="branch-panel" id="branch-tirunelveli">
+                <div class="row g-4 align-items-stretch">
+                    <div class="col-lg-5">
+                        <div class="branch-info-card">
+                            <div class="branch-badge pudukkottai-badge">
+                                <i class="bi bi-building"></i> Branch Office
+                            </div>
+                            <h2 class="branch-city-name">Tirunelveli</h2>
+                            <div class="branch-detail-item">
+                                <div class="detail-icon"><i class="bi bi-pin-map-fill"></i></div>
+                                <div class="detail-text">
+                                    <strong>Address</strong>
+                                    <p>109, First Floor, Sundari Complex, Trivandrum Rd, Vasanth Nagar, Tirunelveli, Tamil Nadu - 627005.</p>
+                                </div>
+                            </div>
+                            <div class="branch-detail-item">
+                                <div class="detail-icon"><i class="bi bi-telephone-fill"></i></div>
+                                <div class="detail-text">
+                                    <strong>Phone</strong>
+                                    <p>
+                                        <a href="tel:+919840511458">+91 98405 11458</a><br>
+                                        <a href="tel:+919361506544">+91 93615 06544</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="branch-detail-item">
+                                <div class="detail-icon"><i class="bi bi-clock-fill"></i></div>
+                                <div class="detail-text">
+                                    <strong>Business Hours</strong>
+                                    <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
+                                </div>
+                            </div>
+                            <div class="branch-actions">
+                                <a href="tel:+919840511458" class="branch-action-btn call-btn">
+                                    <i class="bi bi-telephone-outbound-fill"></i> Call Now
+                                </a>
+                                <a href="https://maps.google.com/?q=AB+Technologies+Sundari+Complex+Tirunelveli" target="_blank" class="branch-action-btn direction-btn">
+                                    <i class="bi bi-cursor-fill"></i> Directions
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="branch-map-wrapper">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.0!2d77.71!3d8.727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04f0c0c0c0c0c0%3A0x0!2sAB+Technologies%2C+Sundari+Complex%2C+Trivandrum+Road%2C+Vasanth+Nagar%2C+Tirunelveli!5e0!3m2!1sen!2sin!4v1700000000001"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="AB Technologies Tirunelveli Office Location"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHENNAI -->
+            <div class="branch-panel" id="branch-chennai">
+                <div class="row g-4 align-items-stretch">
+                    <div class="col-lg-5">
+                        <div class="branch-info-card">
+                            <div class="branch-badge pudukkottai-badge">
+                                <i class="bi bi-building"></i> Branch Office
+                            </div>
+                            <h2 class="branch-city-name">Chennai</h2>
+                            <div class="branch-detail-item">
+                                <div class="detail-icon"><i class="bi bi-pin-map-fill"></i></div>
+                                <div class="detail-text">
+                                    <strong>Address</strong>
+                                    <p>Plot No.37, Second Floor, Section A, Greens Building, V.O.C Street, West Tambaram, Chennai, Tamil Nadu - 600045.</p>
+                                </div>
+                            </div>
+                            <div class="branch-detail-item">
+                                <div class="detail-icon"><i class="bi bi-telephone-fill"></i></div>
+                                <div class="detail-text">
+                                    <strong>Phone</strong>
+                                    <p>
+                                        <a href="tel:+919840511458">+91 98405 11458</a><br>
+                                        <a href="tel:+919789966902">+91 97899 66902</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="branch-detail-item">
+                                <div class="detail-icon"><i class="bi bi-clock-fill"></i></div>
+                                <div class="detail-text">
+                                    <strong>Business Hours</strong>
+                                    <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
+                                </div>
+                            </div>
+                            <div class="branch-actions">
+                                <a href="tel:+919840511458" class="branch-action-btn call-btn">
+                                    <i class="bi bi-telephone-outbound-fill"></i> Call Now
+                                </a>
+                                <a href="https://maps.google.com/?q=Greens+Building+VOC+Street+West+Tambaram+Chennai" target="_blank" class="branch-action-btn direction-btn">
+                                    <i class="bi bi-cursor-fill"></i> Directions
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="branch-map-wrapper">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0!2d80.12!3d12.925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525f0c0c0c0c0c%3A0x0!2sGreens+Building%2C+V.O.C+Street%2C+West+Tambaram%2C+Chennai!5e0!3m2!1sen!2sin!4v1700000000002"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="AB Technologies Chennai Office Location"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PUDUKKOTTAI -->
+            <div class="branch-panel" id="branch-pudukkottai">
+                <div class="row g-4 align-items-stretch">
+                    <div class="col-lg-5">
+                        <div class="branch-info-card">
+                            <div class="branch-badge pudukkottai-badge">
+                                <i class="bi bi-building"></i> Branch Office
+                            </div>
+                            <h2 class="branch-city-name">Pudukkottai</h2>
+                            <div class="branch-detail-item">
+                                <div class="detail-icon"><i class="bi bi-pin-map-fill"></i></div>
+                                <div class="detail-text">
+                                    <strong>Address</strong>
+                                    <p>5378/2B, Second Floor, Jansi Plaza, Nizam Colony, Pudukkottai, Tamil Nadu - 622001.</p>
+                                </div>
+                            </div>
+                            <div class="branch-detail-item">
+                                <div class="detail-icon"><i class="bi bi-telephone-fill"></i></div>
+                                <div class="detail-text">
+                                    <strong>Phone</strong>
+                                    <p>
+                                        <a href="tel:+919840511458">+91 98405 11458</a><br>
+                                        <a href="tel:+919789966059">+91 97899 66059</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="branch-detail-item">
+                                <div class="detail-icon"><i class="bi bi-clock-fill"></i></div>
+                                <div class="detail-text">
+                                    <strong>Business Hours</strong>
+                                    <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
+                                </div>
+                            </div>
+                            <div class="branch-actions">
+                                <a href="tel:+919840511458" class="branch-action-btn call-btn">
+                                    <i class="bi bi-telephone-outbound-fill"></i> Call Now
+                                </a>
+                                <a href="https://maps.google.com/?q=Jansi+Plaza+Nizam+Colony+Pudukkottai" target="_blank" class="branch-action-btn direction-btn">
+                                    <i class="bi bi-cursor-fill"></i> Directions
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="branch-map-wrapper">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.0!2d78.82!3d10.38!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00a0c0c0c0c0c0%3A0x0!2sJansi+Plaza%2C+Nizam+Colony%2C+Pudukkottai!5e0!3m2!1sen!2sin!4v1700000000003"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="AB Technologies Pudukkottai Office Location"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Quick Contact Bar -->
+<!-- <section class="quick-contact-bar">
+    <div class="container">
+        <div class="quick-contact-grid">
+            <div class="quick-contact-item">
+                <div class="qc-icon"><i class="bi bi-envelope-fill"></i></div>
+                <div class="qc-info">
+                    <small>Email Us</small>
+                    <strong>info@abtechnologies.in</strong>
+                </div>
+            </div>
+            <div class="quick-contact-item">
+                <div class="qc-icon"><i class="bi bi-telephone-fill"></i></div>
+                <div class="qc-info">
+                    <small>Call Us</small>
+                    <strong>+91 98405 11458</strong>
+                </div>
+            </div>
+            <div class="quick-contact-item">
+                <div class="qc-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                <div class="qc-info">
+                    <small>Branches Across</small>
+                    <strong>Tamil Nadu, India</strong>
+                </div>
+            </div>
+            <div class="quick-contact-item">
+                <div class="qc-icon"><i class="bi bi-clock-fill"></i></div>
+                <div class="qc-info">
+                    <small>Working Hours</small>
+                    <strong>Mon - Sat, 9AM - 6PM</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<script>
+    function switchBranch(branchId, btn) {
+        // Remove active from all tabs
+        document.querySelectorAll('.branch-tab').forEach(tab => tab.classList.remove('active'));
+        // Remove active from all panels
+        document.querySelectorAll('.branch-panel').forEach(panel => panel.classList.remove('active'));
+        
+        // Add active to clicked tab
+        btn.classList.add('active');
+        // Add active to target panel
+        const targetPanel = document.getElementById('branch-' + branchId);
+        if (targetPanel) {
+            targetPanel.classList.add('active');
+        }
+    }
+</script>
+
 {% endblock %}

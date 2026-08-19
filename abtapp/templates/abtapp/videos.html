@@ -1,8 +1,43 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Videos - AB Technologies{% endblock %}
 
 {% block content %}
+<div class="page-banner">
+    <div class="page-banner-content">
+        <!-- <div class="banner-badge">💡 Innovation Portfolio</div> -->
+        <h1 class="page-banner-title">
+            <span class="title-modern"> </span>
+            <span class="title-highlight"> Videos</span>
+        </h1>
+    </div>
+</div>
+<section class="mou-intro-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <!-- Left Column - Image -->
+            
+            
+            <!-- Right Column - Content -->
+            <div class="col-lg-6 about-all-text-projects">
+                <h2 class="section-title mb-2">
+                    <!-- <span class="about-word">About </span> <span class="company-name">MoU</span> -->
+                </h2>
+                <p class="mou-description">
+                    AB Technologies believes in Knowledge sharing dissemination of information. So we would like to share the videos of the projects developed in AB Technologies to the general public. Here, you can access the YouTube link of the videos to know more.
+                </p>
+                <!-- <p class="mou-description">
+                    AB Technologies is co-operatively working with different Organizations, Colleges and Universities by actively signing MoUs with them.
+                </p> -->
+            </div>
+            <div class="col-lg-6">
+                <div class="mou-image-container">
+                    <img src="{% static 'abtapp/images/vid.jpg' %}" alt="Memorandum of Understanding" class="img-fluid" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <div class="bg-light">
   <div class="container-fluid py-5">
 

@@ -13,11 +13,11 @@
             <span class="title-highlight">AB Technologies</span>
             <!-- <span class="title-subtitle">with <span class="logo-accent">AB Technologies</span></span> -->
         </h1>
-        <p class="banner-subtitle">Empowering the next generation of innovators through cutting-edge research, development, and mentorship across India.</p>
+        <p class="banner-subtitle">Vision of a common man is the mission of an Engineer. <br> </p>
         <div class="banner-stats">
             <div class="stat-item">
                 <i class="bi bi-clipboard-check stat-icon"></i>
-                <span class="stat-number">3000+</span>
+                <span class="stat-number">3k+</span>
                 <span class="stat-label">Projects Completed</span>
             </div>
             <div class="stat-item">
@@ -323,13 +323,13 @@ Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a
 <div class="modal fade" id="branchSelectionModal" tabindex="-1" aria-labelledby="branchSelectionLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
-            <div class="modal-header bg-light">
-                <h5 class="modal-title" id="branchSelectionLabel">Our Visiting Card</h5>
+            <div class="modal-header bg-light ">
+                <h5 class="modal-title w-100 text-center fw-bold" id="branchSelectionLabel">OUR VISITING CARD</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" style="padding: 0;">
-                <!-- Branch Navigation Tabs -->
-                <ul class="nav nav-tabs" id="branchTabs" role="tablist" style="border-bottom: 2px solid #dee2e6;">
+            <div class="modal-body" style="padding: 0; text-align: center;">
+                
+                <ul class="nav nav-tabs justify-content-center" id="branchTabs" role="tablist" style="border-bottom: 2px solid #dee2e6;">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="nagercoil-tab" data-bs-toggle="tab" data-bs-target="#nagercoil" type="button" role="tab" aria-controls="nagercoil" aria-selected="true" onclick="switchBranch(1, 'NAGERCOIL')">
                             NAGERCOIL
@@ -359,11 +359,11 @@ Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a
                         <div id="cardContainer" style="perspective: 1000px; min-height: 400px; display: flex; align-items: center; justify-content: center;">
                             <div id="flipCard" class="flip-card" style="width: 100%; height: 400px; position: relative; transition: transform 0.6s; transform-style: preserve-3d;">
                                 <!-- Front of Card -->
-                                <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(0deg);">
-                                    <img id="cardImage4" src="{% static 'abtapp/images/4.png' %}" alt="Visiting Card" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
+                                <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden;color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(0deg);background-color: #dee2e6;">
+                                    <img id="cardImage4" src="{% static 'abtapp/images/4.png' %}" alt="Visiting Card" style="width: 100%; height: 100%; object-fit: contain ; border-radius: 8px;">
                                 </div>
                                 <!-- Back of Card -->
-                                <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%; background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg); backface-visibility: hidden;">
+                                <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg); backface-visibility: hidden;background-color: #dee2e6;">
                                     <img src="{% static 'abtapp/images/5.png' %}" alt="Card Back" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
                                 </div>
                             </div>
@@ -371,7 +371,7 @@ Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a
 
                         <!-- Card Controls -->
                         <div class="text-center mt-4">
-                            <button class="btn btn-info" id="flipCardBtn" onclick="flipCard()">
+                            <button class="btn btn-dark" id="flipCardBtn" onclick="flipCard()">
                                 <i class="bi bi-arrow-left-right"></i> Flip Card
                             </button>
                         </div>
@@ -381,16 +381,16 @@ Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a
                     <div class="tab-pane fade" id="tirunelveli" role="tabpanel" aria-labelledby="tirunelveli-tab">
                         <div id="cardContainer2" style="perspective: 1000px; min-height: 400px; display: flex; align-items: center; justify-content: center;">
                             <div id="flipCard2" class="flip-card" style="width: 100%; height: 400px; position: relative; transition: transform 0.6s; transform-style: preserve-3d;">
-                                <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(0deg);">
+                                <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(0deg);background-color: #dee2e6;">
                                     <img id="cardImage2" src="{% static 'abtapp/images/2.png' %}" alt="Visiting Card" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
                                 </div>
-                                <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%; background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg); backface-visibility: hidden;">
+                                <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg); backface-visibility: hidden;background-color: #dee2e6;">
                                     <img src="{% static 'abtapp/images/5.png' %}" alt="Card Back" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
                                 </div>
                             </div>
                         </div>
                         <div class="text-center mt-4">
-                            <button class="btn btn-info" onclick="flipCard2()">
+                            <button class="btn btn-dark" onclick="flipCard2()">
                                 <i class="bi bi-arrow-left-right"></i> Flip Card
                             </button>
                         </div>
@@ -400,16 +400,16 @@ Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a
                     <div class="tab-pane fade" id="chennai" role="tabpanel" aria-labelledby="chennai-tab">
                         <div id="cardContainer3" style="perspective: 1000px; min-height: 400px; display: flex; align-items: center; justify-content: center;">
                             <div id="flipCard3" class="flip-card" style="width: 100%; height: 400px; position: relative; transition: transform 0.6s; transform-style: preserve-3d;">
-                                <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(0deg);">
+                                <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(0deg);background-color: #dee2e6;">
                                     <img id="cardImage" src="{% static 'abtapp/images/1.png' %}" alt="Visiting Card" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
                                 </div>
-                                <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%; background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg); backface-visibility: hidden;">
+                                <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg); backface-visibility: hidden;background-color: #dee2e6;">
                                     <img src="{% static 'abtapp/images/5.png' %}" alt="Card Back" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
                                 </div>
                             </div>
                         </div>
                         <div class="text-center mt-4">
-                            <button class="btn btn-info" onclick="flipCard3()">
+                            <button class="btn btn-dark" onclick="flipCard3()">
                                 <i class="bi bi-arrow-left-right"></i> Flip Card
                             </button>
                         </div>
@@ -419,16 +419,16 @@ Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a
                     <div class="tab-pane fade" id="pudukottai" role="tabpanel" aria-labelledby="pudukottai-tab">
                         <div id="cardContainer4" style="perspective: 1000px; min-height: 400px; display: flex; align-items: center; justify-content: center;">
                             <div id="flipCard4" class="flip-card" style="width: 100%; height: 400px; position: relative; transition: transform 0.6s; transform-style: preserve-3d;">
-                                <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(0deg);">
+                                <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(0deg);background-color: #dee2e6;">
                                     <img id="cardImage4" src="{% static 'abtapp/images/2.png' %}" alt="Visiting Card" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
                                 </div>
-                                <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%; background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg); backface-visibility: hidden;">
+                                <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg); backface-visibility: hidden;background-color: #dee2e6;">
                                     <img src="{% static 'abtapp/images/5.png' %}" alt="Card Back" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
                                 </div>
                             </div>
                         </div>
                         <div class="text-center mt-4">
-                            <button class="btn btn-info" onclick="flipCard4()">
+                            <button class="btn btn-dark" onclick="flipCard4()">
                                 <i class="bi bi-arrow-left-right"></i> Flip Card
                             </button>
                         </div>
@@ -452,11 +452,11 @@ Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a
                 <div id="cardContainer" style="perspective: 1000px; min-height: 400px; display: flex; align-items: center; justify-content: center;">
                     <div id="flipCard" class="flip-card" style="width: 100%; height: 400px; position: relative; transition: transform 0.6s;">
                         <!-- Front of Card -->
-                        <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px;">
+                        <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px;">
                             <img id="cardImage" src="{% static 'abtapp/images/1.png' %}" alt="Visiting Card" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
                         </div>
                         <!-- Back of Card -->
-                        <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg);">
+                        <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden;  color: rgb(19, 18, 18); display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg);">
                             <h4>AB Technologies</h4>
                             <p style="text-align: center; margin-top: 10px;">Innovation & Excellence</p>
                             <p style="margin-top: 20px; font-size: 0.9rem;">Swipe to flip</p>
@@ -478,7 +478,7 @@ Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a
 
                 <!-- Flip Button -->
                 <div class="text-center mt-3">
-                    <button class="btn btn-info" id="flipCardBtn" onclick="flipCard()">
+                    <button class="btn btn-dark" id="flipCardBtn" onclick="flipCard()">
                         <i class="bi bi-arrow-left-right"></i> Flip Card
                     </button>
                 </div>
