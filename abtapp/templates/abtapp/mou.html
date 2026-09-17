@@ -4,7 +4,7 @@
 {% block title %}Memorandum of Understanding (MoU) - AB Technologies{% endblock %}
 
 {% block content %}
-<div class="page-banner">
+<div class="page-banner mou-banner">
     <div class="page-banner-content">
         <!-- <div class="banner-badge">💡 Innovation Portfolio</div> -->
         <h1 class="page-banner-title">
@@ -21,13 +21,12 @@
             <!-- Left Column - Image -->
             <div class="col-lg-6">
                 <div class="mou-image-container">
-                    <img src="{% static 'abtapp/images/mou.png' %}" alt="Memorandum of Understanding" class="img-fluid" loading="lazy" decoding="async">
+                    <img src="{% static 'abtapp/images/mou.png' %}" alt="Memorandum of Understanding" class="img-fluid rounded-4" loading="lazy" decoding="async">
                 </div>
             </div>
             
-           
             <div class="col-lg-6">
-                <h2 class="section-title mb-2">
+                <h2 class="section-title mb-3">
                     <span class="about-word">About </span> <span class="company-name">MoU</span>
                 </h2>
                 <p class="mou-description">
@@ -41,39 +40,123 @@
     </div>
 </section>
 
-<div class="bg-light">
-  <br><br><br>
-  
-<div class="container-fluid">
-   
-<h3 style="font-weight: 900;" class="text-center mt-5"></h3>
-  <table class="table table-bordered mt-4 " >
-    <thead class="bg-dark text-light text-center">
-        <tr style="vertical-align: middle;">
-            <th style="width: 5%; vertical-align: middle;">S.NO</th>
-            <th style="width: 10%; vertical-align: middle;">MoU NO</th>
-            <th style="width: 30%; vertical-align: middle;">NAME OF ORGANIZATION</th>
-            <th style="width: 15%; vertical-align: middle;">LOCATION</th>
-            <th style="width: 20%; vertical-align: middle;">OFFICIAL WEBSITE</th>
-            <th style="width: 10%; vertical-align: middle;">DATE OF MoU</th>
-            <th style="width: 10%; vertical-align: middle;">VALIDITY</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for mou in mous %}
-        <tr style="vertical-align: middle;">
-            <td class="text-center" style="vertical-align: middle;">{{ forloop.counter }}</td>  <!-- Serial Number -->
-            <td class="text-center" style="vertical-align: middle;">{{ mou.MoU_NO }}</td>
-            <td class="text-center" style="vertical-align: middle;">{{ mou.ORGANIZATION_NAME }}</td>
-            <td class="text-center" style="vertical-align: middle;">{{ mou.LOCATION }}</td>
-            <td class="text-center" style="vertical-align: middle;"><a style="color: #0000FF;" href="{{ mou.OFFICIAL_WEBSITE }}" target="_blank">{{ mou.OFFICIAL_WEBSITE }}</a></td>
-            <td class="text-center" style="vertical-align: middle;">{{ mou.DATE_OF_MoU|date:"d/m/Y"|default:"-" }}</td>
-            <td class="text-center" style="vertical-align: middle;">{{ mou.VALIDITY|default:"-" }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>  
-</div>
-<br><br>
-</div>
+<section class="mou-list-section py-4 bg-light">
+    <div class="container px-lg-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title justify-content-center">
+                <span class="about-word">List of </span> <span class="company-name">MoU's</span>
+            </h2>
+        </div>
+
+        <div class="mou-table-wrapper">
+            <table class="table table-mou-list table-bordered align-middle mb-0">
+                <thead>
+                    <tr class="text-center">
+                        <th class="text-center" style="width: 70px;">S.NO</th>
+                        <th style="width: 130px;">MoU NO</th>
+                        <th style="width: 280px;">NAME OF ORGANIZATION</th>
+                        <th style="width: 160px;">LOCATION</th>
+                        <th>OFFICIAL WEBSITE</th>
+                        <th style="width: 140px;">DATE OF MoU</th>
+                        <th style="width: 120px;">VALIDITY</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mou in mous %}
+                    <tr>
+                        <td class="text-center">{{ forloop.counter }}</td>
+                        <td class="text-center">{{ mou.MoU_NO }}</td>
+                        <td>{{ mou.ORGANIZATION_NAME }}</td>
+                        <td class="text-center">{{ mou.LOCATION }}</td>
+                        <td>
+                            {% if mou.OFFICIAL_WEBSITE %}
+                            <a href="{{ mou.OFFICIAL_WEBSITE }}" target="_blank" rel="noopener" class="mou-table-link">
+                                {{ mou.OFFICIAL_WEBSITE }}
+                            </a>
+                            {% else %}
+                            -
+                            {% endif %}
+                        </td>
+                        <td class="text-center">{{ mou.DATE_OF_MoU|date:"d/m/Y"|default:"-" }}</td>
+                        <td class="text-center">{{ mou.VALIDITY|default:"-" }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7" class="text-center py-4 text-muted">No MoUs recorded</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>  
+        </div>
+    </div>
+</section>
+
+<style>
+/* ============================================================
+   MOU TABLE — MATCHING VIDEOS PAGE DESIGN
+   ============================================================ */
+.mou-table-wrapper {
+    overflow-x: auto;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.table-mou-list {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Header */
+.table-mou-list thead tr {
+    background-color: #0b57af !important;
+}
+
+.table-mou-list thead th {
+    background-color: #0b57af !important;
+    color: #ffffff !important;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    white-space: nowrap;
+}
+
+/* Body rows */
+.table-mou-list tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.table-mou-list tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.table-mou-list tbody td {
+    font-size: 0.85rem;
+    color: #1e293b;
+    padding: 10px 16px;
+    vertical-align: middle;
+    border: 1px solid #e2e8f0 !important;
+}
+
+/* Website link */
+.mou-table-link {
+    color: #0b57af;
+    text-decoration: none;
+    word-break: break-all;
+    font-size: 0.83rem;
+}
+
+.mou-table-link:hover {
+    color: #083a78;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .table-mou-list {
+        min-width: 850px;
+    }
+}
+</style>
 {% endblock %}

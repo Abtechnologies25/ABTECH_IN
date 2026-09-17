@@ -1,10 +1,225 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Career - AB Technologies{% endblock %}
 
 {% block content %}
-<div class="page-card">
-    <h1 class="page-title">Career Opportunities</h1>
-    <p class="page-subtitle">Join our team of developers, researchers, and technical trainers. Explore current job openings and internships.</p>
+<div class="page-banner projects-banner">
+    <div class="page-banner-content">
+        <!-- <div class="banner-badge">🚀 Work With Us</div> -->
+        <h1 class="page-banner-title">
+            <span class="title-modern">Build Your Career</span>
+            <span class="title-highlight">With Us…!!!</span>
+        </h1>
+        <!-- <p class="page-banner-subtitle">Be part of a team that encourages creativity, innovation, and continuous learning.</p> -->
+    </div>
 </div>
+
+<section class="career-section py-5">
+    <div class="container my-4">
+        <div class="row g-5">
+            <!-- Left Column: Why Join Us & Hiring Process -->
+            <div class="col-lg-7">
+                <!-- Why Join Us Card -->
+                <div class="career-info-section mb-5">
+                    <h2 class="section-title mb-4">
+                        <span class="about-word">Why</span> <span class="company-name">Join Us?</span>
+                    </h2>
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <i class="bi bi-lightbulb-fill"></i>
+                        </div>
+                        <div class="why-us-text">
+                            <p>
+                                Be part of a team that encourages creativity, innovation, and continuous improvement
+                                through research and development. Here you can work on the latest technologies and can
+                                enhance your skills.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="current-process-section">
+                    <h2 class="section-title mb-4">
+                        <span class="about-word">Current</span> <span class="company-name">Openings</span>
+                    </h2>
+                </div>
+                <!-- Hiring Process Card -->
+                <div class="career-process-section">
+                    <h2 class="section-title mb-4">
+                        <span class="about-word">Hiring</span> <span class="company-name">Process</span>
+                    </h2>
+                    <p class="process-intro-text mb-4">
+                        Our HR Team will assess you through 3 rounds of Interview. You will be selected based on your
+                        merit.
+                    </p>
+
+                    <!-- Process Steps Timeline -->
+                    <div class="hiring-timeline-wrapper">
+                        <div class="hiring-timeline-item">
+                            <div class="timeline-number">1</div>
+                            <div class="timeline-content">
+                                <h3>Resume Screening</h3>
+                                <p>Our HR team reviews all applications to match candidates' skills and interests with
+                                    our requirements.</p>
+                            </div>
+                        </div>
+                        <div class="hiring-timeline-item">
+                            <div class="timeline-number">2</div>
+                            <div class="timeline-content">
+                                <h3>Technical Interview</h3>
+                                <p>Assess your core competencies, logic development capability, and hands-on skill
+                                    demonstration.</p>
+                            </div>
+                        </div>
+                        <div class="hiring-timeline-item">
+                            <div class="timeline-number">3</div>
+                            <div class="timeline-content">
+                                <h3>HR & Merit Evaluation</h3>
+                                <p>Values alignment discussion and overall resume evaluation leading to the final offer
+                                    letter.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Resume Submission Form -->
+            <div class="col-lg-5">
+                <div class="submission-card-wrapper position-sticky" style="top: 100px;">
+                    <div class="submission-card">
+                        <div class="card-header-modern">
+                            <i class="bi bi-file-earmark-person-fill"></i>
+                            <h3>Apply Now</h3>
+                            <p>Resume Submission Form</p>
+                        </div>
+
+                        <form id="resumeForm" onsubmit="handleResumeSubmit(event)" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Full Name <span
+                                        class="text-danger">*</span></label>
+                                <div class="input-group-modern">
+                                    <span class="input-icon"><i class="bi bi-person"></i></span>
+                                    <input type="text" class="form-control-modern" id="fullName"
+                                        placeholder="Enter your full name" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="emailAddress" class="form-label">Email Address <span
+                                        class="text-danger">*</span></label>
+                                <div class="input-group-modern">
+                                    <span class="input-icon"><i class="bi bi-envelope"></i></span>
+                                    <input type="email" class="form-control-modern" id="emailAddress"
+                                        placeholder="Enter your email" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="phoneNumber" class="form-label">Phone Number <span
+                                        class="text-danger">*</span></label>
+                                <div class="input-group-modern">
+                                    <span class="input-icon"><i class="bi bi-telephone"></i></span>
+                                    <input type="tel" class="form-control-modern" id="phoneNumber"
+                                        placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="appliedRole" class="form-label">Position Applied For <span
+                                        class="text-danger">*</span></label>
+                                <div class="input-group-modern">
+                                    <span class="input-icon"><i class="bi bi-briefcase"></i></span>
+                                    <select class="form-control-modern form-select-modern" id="appliedRole" required>
+                                        <option value="" disabled selected>Select Position</option>
+                                        <option value="research_dev">Research & Development Engineer</option>
+                                        <option value="tech_trainer">Technical Trainer / Tutor</option>
+                                        <option value="software_dev">Software Developer (Python/Django/React)</option>
+                                        <option value="hardware_eng">Embedded Systems / IoT Engineer</option>
+                                        <option value="internship">Student Intern</option>
+                                        <option value="other">Other Office Position</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="resumeFile" class="form-label">Upload Resume (PDF / DOCX) <span
+                                        class="text-danger">*</span></label>
+                                <div class="file-upload-wrapper">
+                                    <input type="file" id="resumeFile" accept=".pdf,.doc,.docx"
+                                        onchange="updateFileName(this)" required>
+                                    <div class="file-upload-design" id="uploadDesign">
+                                        <i class="bi bi-cloud-arrow-up-fill"></i>
+                                        <span id="fileNameText">Choose a file or drag it here</span>
+                                        <small>Maximum size: 5MB</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="submit-btn-modern">
+                                <span>Submit Application</span> <i class="bi bi-send-fill"></i>
+                            </button>
+                        </form>
+
+                        <!-- Success Message (Initially Hidden) -->
+                        <div class="success-message-overlay" id="successOverlay">
+                            <div class="success-box animate__animated animate__zoomIn">
+                                <div class="success-icon-badge">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <h4>Application Submitted!</h4>
+                                <p>Thank you for submitting your resume. Our HR team will evaluate your profile and
+                                    contact you soon.</p>
+                                <button type="button" class="btn btn-primary"
+                                    onclick="closeSuccessOverlay()">Done</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="career-org-chart-section text-center mb-5 container">
+        <h2 class="section-title mb-4">
+            <span class="about-word">Organizational</span> <span class="company-name">Chart</span>
+        </h2>
+        <div class="org-chart-card ">
+            <img src="{% static 'abtapp/images/structure.png' %}" alt="Organizational Chart"
+                class="img-fluid org-chart-img rounded-3" width="800px">
+        </div>
+    </div>
+</section>
+
+<!-- CSS for modern career sections (if not in style.css, handled below or style.css can be updated) -->
+<script>
+    function updateFileName(input) {
+        const fileDesign = document.getElementById('uploadDesign');
+        const fileNameText = document.getElementById('fileNameText');
+        if (input.files && input.files.length > 0) {
+            fileNameText.textContent = input.files[0].name;
+            fileDesign.classList.add('selected');
+        } else {
+            fileNameText.textContent = 'Choose a file or drag it here';
+            fileDesign.classList.remove('selected');
+        }
+    }
+
+    function handleResumeSubmit(event) {
+        event.preventDefault();
+
+        // Show the success overlay
+        const overlay = document.getElementById('successOverlay');
+        overlay.classList.add('active');
+
+        // Reset the form
+        document.getElementById('resumeForm').reset();
+        document.getElementById('fileNameText').textContent = 'Choose a file or drag it here';
+        document.getElementById('uploadDesign').classList.remove('selected');
+    }
+
+    function closeSuccessOverlay() {
+        document.getElementById('successOverlay').classList.remove('active');
+    }
+</script>
 {% endblock %}

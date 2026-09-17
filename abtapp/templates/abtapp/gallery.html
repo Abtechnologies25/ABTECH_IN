@@ -1,73 +1,416 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Gallery - AB Technologies{% endblock %}
 
-{% block content %}
-<div class="page-banner">
-    <div class="page-banner-content">
-        <!-- <div class="banner-badge">💡 Innovation Portfolio</div> -->
+{% block banner %}
+<div class="page-banner gallery-banner">
+    <div class="page-banner-content" data-aos="zoom-in">
+        <!-- <div class="banner-badge">✨ Portfolio</div> -->
         <h1 class="page-banner-title">
-            <span class="title-modern"> </span>
-            <span class="title-highlight"> Gallery</span>
+            <!-- <span class="title-modern">Our Work & </span> -->
+            <span class="title-highlight">Gallery</span>
         </h1>
+        <p class="page-banner-subtitle">A visual showcase of our state-of-the-art facilities, innovative projects, student initiatives, and training programs.</p>
     </div>
 </div>
-<div class="main-container">
+{% endblock %}
+
+{% block content %}
+<style>
+    /* Modern Gallery Styles */
+    .gallery-container {
+        padding: 4rem 0;
+        background-color: #f8fafc;
+    }
+
+    .gallery-filter-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 3.5rem;
+    }
+
+    .filter-btn {
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        background: #ffffff;
+        color: #475569;
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-size: 0.92rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .filter-btn:hover {
+        background: #0b57af;
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(11, 87, 175, 0.2);
+        border-color: transparent;
+    }
+
+    .filter-btn.active {
+        background: linear-gradient(135deg, #043873, #0b57af);
+        color: #ffffff;
+        border-color: transparent;
+        box-shadow: 0 10px 20px -3px rgba(4, 56, 115, 0.3);
+    }
+
+    .category-section {
+        margin-bottom: 5rem;
+        transition: opacity 0.4s ease;
+    }
+
+    .category-header-wrap {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2.2rem;
+        border-bottom: 2px solid rgba(11, 87, 175, 0.08);
+        padding-bottom: 0.8rem;
+    }
+
+    .category-number {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #e7b050;
+        margin-right: 12px;
+        background: rgba(231, 176, 80, 0.1);
+        width: 55px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .category-title {
+        font-size: 2.4rem;
+        font-weight: 800;
+        color: #0f172a;
+        margin: 0;
+    }
+
+    /* Bootstrap Gallery Card Custom Styling */
+    .gallery-card {
+        border-radius: 16px;
+        overflow: hidden;
+        background: #ffffff;
+        cursor: pointer;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12) !important;
+    }
+
+    .card-img-wrapper {
+        position: relative;
+        width: 100%;
+        min-height: 280px;
+        /* background-color: #f8fafc; */
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+    }
+
+    .card-img-wrapper img.card-img-top {
+        width: 340px;
+        height: 380px;
+        /* max-height: 300px; */
+        object-fit: cover;
+        display: block;
+        /* border-radius: 8px; */
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-card:hover .card-img-wrapper img.card-img-top {
+        transform: scale(1.08);
+    }
+
+    .card-img-overlay-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(15, 23, 42, 0.45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        color: #ffffff;
+        font-size: 2rem;
+    }
+
+    .gallery-card:hover .card-img-overlay-icon {
+        opacity: 1;
+    }
+
+    .gallery-card .card-body {
+        padding: 1rem 1.25rem;
+        /* background-color: #ffffff; */
+        background: linear-gradient(135deg, #043873, #0b57af);
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        font-weight: 900;
+    }
+
+    .gallery-card .card-title {
+        font-size: 1.1rem;
+        color: #1e293b;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    /* Lightbox Modal Design */
+    .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(16px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .lightbox.active {
+        display: flex;
+        opacity: 1;
+    }
+
+    .lightbox-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 85%;
+        transform: scale(0.95);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lightbox.active .lightbox-content {
+        transform: scale(1);
+    }
+
+    .lightboxImg-wrapper {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+        border-radius: 16px;
+        overflow: hidden;
+        background: #090d16;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .lightboxImg-wrapper img {
+        max-width: 100%;
+        max-height: 72vh;
+        display: block;
+        object-fit: contain;
+    }
+
+    .lightbox-caption {
+        width: 100%;
+        margin-top: 18px;
+        color: #f8fafc;
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: 600;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .close-lightbox {
+        position: absolute;
+        top: -50px;
+        right: 0;
+        color: #ffffff;
+        font-size: 2.5rem;
+        cursor: pointer;
+        font-weight: 300;
+        background: rgba(255, 255, 255, 0.1);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .close-lightbox:hover {
+        background: rgba(255, 255, 255, 0.25);
+        color: #ffffff;
+        transform: rotate(90deg);
+    }
+
+    @media (max-width: 768px) {
+        .gallery-container {
+            padding: 2.5rem 0;
+        }
+
+        .gallery-filter-wrap {
+            margin-bottom: 2.5rem;
+        }
+
+        .filter-btn {
+            padding: 8px 18px;
+            font-size: 0.85rem;
+        }
+
+        .category-title {
+            font-size: 1.45rem;
+        }
+
+        .card-img-wrapper {
+            min-height: 220px;
+        }
+
+        .close-lightbox {
+            top: -45px;
+            right: 10px;
+            width: 36px;
+            height: 36px;
+            font-size: 2rem;
+        }
+    }
+</style>
+
+<div class="gallery-container">
+    <div class="container">
+        <!-- Interactive Category Filters -->
+        <div class="gallery-filter-wrap" data-aos="fade-up">
+            <button class="filter-btn active" onclick="filterCategory('all', this)">All Gallery</button>
+            {% for category in categories %}
+                <button class="filter-btn" onclick="filterCategory('cat-{{ forloop.counter }}', this)">{{ category.name }}</button>
+            {% endfor %}
+        </div>
+
+        <!-- Gallery Collections -->
         {% for category in categories %}
-            <div class="category-section" data-aos="fade-up">
-                <h2 class="category-title" id="cat-{{ forloop.counter }}">{{ category.name }}</h2>
-                <div class="image-grid">
+            <div class="category-section" id="section-cat-{{ forloop.counter }}" data-category-id="cat-{{ forloop.counter }}" data-aos="fade-up">
+                <div class="category-header-wrap">
+                    <span class="category-number">0{{ forloop.counter }}</span>
+                    <h2 class="category-title" id="cat-{{ forloop.counter }}">{{ category.name }}</h2>
+                </div>
+                <div class="row g-4">
                     {% for image in category.images.all %}
-                        <div class="image-card" onclick="openLightbox('{{ image.image.url }}')">
-                            <div class="img-wrapper">
-                                <img src="{{ image.image.url }}" 
-                                     alt="{{ image.get_seo_alt }}"
-                                     title="{{ image.name|default:category.name }} | {{ category.name }} - Athith Mithra"
-                                     loading="lazy"
-                                     decoding="async">
-                            </div>
-                            {% if image.name %}
-                                <div class="card-info">
-                                    <p>{{ image.name }}</p>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card gallery-card h-100 border-0 shadow-sm" onclick="openLightbox('{{ image.image.url }}', '{{ image.name|default:category.name|escapejs }}')">
+                                <div class="card-img-wrapper p-0">
+                                    <img src="{{ image.image.url }}" 
+                                         class="card-img-top"
+                                         alt="{{ image.get_seo_alt }}"
+                                         title="{{ image.name|default:category.name }} | {{ category.name }} - AB Technologies"
+                                         loading="lazy"
+                                         decoding="async">
+                                    <div class="card-img-overlay-icon">
+                                        <i class="bi bi-zoom-in"></i>
+                                    </div>
                                 </div>
-                            {% endif %}
+                                {% if image.name %}
+                                    <div class="card-body">
+                                        <h3 class="card-title text-light text-center mb-0">{{ image.name }}</h3>
+                                    </div>
+                                {% endif %}
+                            </div>
                         </div>
                     {% empty %}
-                        <div class="col-12 text-center w-100">
-                            <p class="text-muted">No images available in this category.</p>
+                        <div class="col-12 text-center py-4">
+                            <p class="text-muted"><i class="bi bi-images fs-3 d-block mb-2"></i>No images available in this category.</p>
                         </div>
                     {% endfor %}
                 </div>
             </div>
         {% endfor %}
     </div>
+</div>
 
-    <!-- Lightbox Component -->
-    <div class="lightbox" id="galleryLightbox" onclick="closeLightbox()">
-        <div class="lightbox-content" onclick="event.stopPropagation()">
-            <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
-            <img id="lightboxImg" src="" alt="Full view">
+<!-- Premium Lightbox Component -->
+<div class="lightbox" id="galleryLightbox" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+        <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+        <div class="lightboxImg-wrapper">
+            <img id="lightboxImg" src="" alt="Full view Screenshot">
         </div>
+        <div class="lightbox-caption" id="lightboxCaption">Image Title Here</div>
     </div>
+</div>
 
-    <script>
-        function openLightbox(url) {
-            const lb = document.getElementById('galleryLightbox');
-            const img = document.getElementById('lightboxImg');
-            img.src = url;
-            lb.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            const lb = document.getElementById('galleryLightbox');
-            lb.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeLightbox();
+<script>
+    // Filtering logic
+    function filterCategory(catId, btn) {
+        // Toggle Active Button styling
+        const buttons = document.querySelectorAll('.filter-btn');
+        buttons.forEach(button => button.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Toggle sections based on selection
+        const sections = document.querySelectorAll('.category-section');
+        sections.forEach(section => {
+            if (catId === 'all') {
+                section.style.opacity = '0';
+                section.style.display = 'block';
+                // Trigger reflow for transition
+                section.offsetHeight;
+                section.style.opacity = '1';
+            } else {
+                if (section.getAttribute('data-category-id') === catId) {
+                    section.style.opacity = '0';
+                    section.style.display = 'block';
+                    section.offsetHeight;
+                    section.style.opacity = '1';
+                } else {
+                    section.style.display = 'none';
+                }
+            }
         });
-    </script>
+    }
+
+    // Lightbox triggers
+    function openLightbox(url, name) {
+        const lb = document.getElementById('galleryLightbox');
+        const img = document.getElementById('lightboxImg');
+        const caption = document.getElementById('lightboxCaption');
+        
+        img.src = url;
+        caption.textContent = name || "AB Technologies Showcase";
+        
+        lb.style.display = 'flex';
+        // Delay active class slightly to trigger fade-in transition
+        setTimeout(() => {
+            lb.classList.add('active');
+        }, 30);
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        const lb = document.getElementById('galleryLightbox');
+        lb.classList.remove('active');
+        // Delay display setting to allow fade-out animation to complete
+        setTimeout(() => {
+            lb.style.display = 'none';
+        }, 300);
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close lightbox on Escape key press
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+    });
+</script>
 {% endblock %}

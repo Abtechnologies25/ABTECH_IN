@@ -1,10 +1,438 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Products - AB Technologies{% endblock %}
+{% block title %}Products & Solutions - AB Technologies{% endblock %}
+
+{% block banner %}
+<div class="page-banner products-banner">
+    <div class="page-banner-content">
+        <h1 class="page-banner-title">
+            <!-- <span class="title-modern">Innovative Engineering</span> -->
+            <span class="title-highlight"> Our Products</span>
+        </h1>
+        <!-- <p class="page-banner-subtitle">
+            Manufacturing lab equipment for all engineering domains, establishing college MSME labs, and supplying advanced solar inverters.
+        </p> -->
+    </div>
+</div>
+{% endblock %}
 
 {% block content %}
-<div class="page-card">
-    <h1 class="page-title">Products</h1>
-    <p class="page-subtitle">Innovative software products, hardware kits, and customized solutions developed by AB Technologies.</p>
-</div>
+<!-- Quick Overview / 3 Key Pillars Section -->
+<section class="products-hero-section">
+    <div class="container">
+        <center>
+        <h2 class="section-title text-center mb-5">
+                <span class="about-word">We are involved in development of : </span><br> <span class="company-name"> </span>
+            </h2>
+        </center>
+        <div class="row g-4">
+            <!-- Pillar 1: Lab Equipment -->
+            <div class="col-lg-4 col-md-6">
+                <div class="product-pillar-card">
+                    <div class="pillar-icon-box">
+                        <i class="bi bi-cpu"></i>
+                    </div>
+                    <h3 class="pillar-title">Lab Equipment Manufacturing</h3>
+                    <p class="pillar-desc">
+                        Custom-engineered laboratory equipment & experimental kits for all major engineering streams including EEE, ECE, CSE, AI&DS, E&I and Mechatronics.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2 mt-auto">
+                        <span class="domain-badge-pill"><i class="bi bi-lightning-fill text-warning"></i> EEE</span>
+                        <span class="domain-badge-pill"><i class="bi bi-broadcast text-primary"></i> ECE</span>
+                        <span class="domain-badge-pill"><i class="bi bi-robot text-success"></i> CSE / AI&DS</span>
+                        <span class="domain-badge-pill"><i class="bi bi-sliders text-info"></i> E&I</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pillar 2: MSME College Labs -->
+            <div class="col-lg-4 col-md-6">
+                <div class="product-pillar-card">
+                    <div class="pillar-icon-box" style="background: linear-gradient(135deg, #fef3c7, #fde68a); color: #d97706;">
+                        <i class="bi bi-building-gear"></i>
+                    </div>
+                    <h3 class="pillar-title">MSME College Lab Setup</h3>
+                    <p class="pillar-desc">
+                        End-to-end turnkey support for setting up MSME Innovation & Prototyping Incubators in colleges, complete with hardware tools, R&D workstations, and proposal guidance.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2 mt-auto">
+                        <span class="domain-badge-pill"><i class="bi bi-check-circle-fill text-success"></i> Turnkey Setup</span>
+                        <span class="domain-badge-pill"><i class="bi bi-hammer text-danger"></i> Prototyping</span>
+                        <span class="domain-badge-pill"><i class="bi bi-award-fill text-primary"></i> Incubation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pillar 3: Solar Inverters -->
+            <div class="col-lg-4 col-md-12">
+                <div class="product-pillar-card">
+                    <div class="pillar-icon-box" style="background: linear-gradient(135deg, #dcfce7, #bbf7d0); color: #15803d;">
+                        <i class="bi bi-sun"></i>
+                    </div>
+                    <h3 class="pillar-title">Solar Inverters & Power Systems</h3>
+                    <p class="pillar-desc">
+                        High-efficiency On-Grid, Off-Grid, and Hybrid Solar Inverters and Power Conditioning Units (PCUs) for sustainable institutional energy and renewable research.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2 mt-auto">
+                        <span class="domain-badge-pill"><i class="bi bi-plug-fill text-success"></i> On-Grid / Off-Grid</span>
+                        <span class="domain-badge-pill"><i class="bi bi-battery-charging text-info"></i> Hybrid PCU</span>
+                        <span class="domain-badge-pill"><i class="bi bi-leaf-fill text-success"></i> Green Energy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 1: Lab Equipment Manufacturing by Domain -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <center>
+            <h2 class="section-title text-center">
+                <span class="about-word">Manufacturing lab equipment for all</span> <br><span class="company-name">Engineering Domains</span>
+            </h2></center>
+            <p class="text-muted fs-6 mt-3 max-w-700 mx-auto">
+                We design and manufacture reliable, robust, and syllabus-aligned laboratory equipment and trainer boards for universities, engineering colleges, and technical institutes.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <!-- EEE Domain -->
+            <div class="col-lg-4 col-md-6">
+                <div class="domain-card">
+                    <div class="domain-card-header">
+                        <div class="domain-avatar eee">
+                            <i class="bi bi-lightning-charge-fill"></i>
+                        </div>
+                        <div>
+                            <h4 class="domain-card-title">EEE Domain</h4>
+                            <span class="domain-card-subtitle">Electrical & Electronics Engineering</span>
+                        </div>
+                    </div>
+                    <ul class="equipment-list">
+                        <li><i class="bi bi-check2-circle"></i> Power Electronics & Drives Test Rigs</li>
+                        <li><i class="bi bi-check2-circle"></i> AC/DC Electrical Machines Demonstration Benches</li>
+                        <li><i class="bi bi-check2-circle"></i> Renewable Energy & Smart Grid Simulation Kits</li>
+                        <li><i class="bi bi-check2-circle"></i> High Voltage & Protection Relay Testing Units</li>
+                        <li><i class="bi bi-check2-circle"></i> Control Systems & Analog Circuit Trainer Kits</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ECE Domain -->
+            <div class="col-lg-4 col-md-6">
+                <div class="domain-card">
+                    <div class="domain-card-header">
+                        <div class="domain-avatar ece">
+                            <i class="bi bi-cpu-fill"></i>
+                        </div>
+                        <div>
+                            <h4 class="domain-card-title">ECE Domain</h4>
+                            <span class="domain-card-subtitle">Electronics & Communication</span>
+                        </div>
+                    </div>
+                    <ul class="equipment-list">
+                        <li><i class="bi bi-check2-circle"></i> Digital Signal Processing (DSP) Trainer Kits</li>
+                        <li><i class="bi bi-check2-circle"></i> VLSI Design & FPGA Development Boards</li>
+                        <li><i class="bi bi-check2-circle"></i> Embedded Systems (ARM, PIC, 8051) Hardware</li>
+                        <li><i class="bi bi-check2-circle"></i> Optical Communication & Fiber Optic Kits</li>
+                        <li><i class="bi bi-check2-circle"></i> RF & Microwave Communication Test Setups</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CSE & AI/DS Domain -->
+            <div class="col-lg-4 col-md-6">
+                <div class="domain-card">
+                    <div class="domain-card-header">
+                        <div class="domain-avatar cs">
+                            <i class="bi bi-robot"></i>
+                        </div>
+                        <div>
+                            <h4 class="domain-card-title">CSE & AI / DS Domain</h4>
+                            <span class="domain-card-subtitle">Computer Science & Artificial Intelligence</span>
+                        </div>
+                    </div>
+                    <ul class="equipment-list">
+                        <li><i class="bi bi-check2-circle"></i> Edge AI Workstations & Jetson Nano Hardware</li>
+                        <li><i class="bi bi-check2-circle"></i> IoT & Smart Sensor Network Development Kits</li>
+                        <li><i class="bi bi-check2-circle"></i> Embedded Linux & Raspberry Pi Lab Workstations</li>
+                        <li><i class="bi bi-check2-circle"></i> Robotics, Computer Vision & Autonomous Systems</li>
+                        <li><i class="bi bi-check2-circle"></i> Cyber-Physical Systems (CPS) Interfacing Boards</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- E&I Domain -->
+            <div class="col-lg-6 col-md-6">
+                <div class="domain-card">
+                    <div class="domain-card-header">
+                        <div class="domain-avatar ei">
+                            <i class="bi bi-sliders"></i>
+                        </div>
+                        <div>
+                            <h4 class="domain-card-title">E&I Domain</h4>
+                            <span class="domain-card-subtitle">Electronics & Instrumentation Engineering</span>
+                        </div>
+                    </div>
+                    <ul class="equipment-list">
+                        <li><i class="bi bi-check2-circle"></i> Process Control Loops (Flow, Level, Temp, Pressure) Trainer</li>
+                        <li><i class="bi bi-check2-circle"></i> Industrial PLC & SCADA Automation Benches</li>
+                        <li><i class="bi bi-check2-circle"></i> Sensors, Transducers & Signal Conditioning Units</li>
+                        <li><i class="bi bi-check2-circle"></i> Virtual Instrumentation (LabVIEW Aligned) Setups</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Mechatronics & Multi-Disciplinary Domain -->
+            <div class="col-lg-6 col-md-12">
+                <div class="domain-card">
+                    <div class="domain-card-header">
+                        <div class="domain-avatar mech">
+                            <i class="bi bi-gear-wide-connected"></i>
+                        </div>
+                        <div>
+                            <h4 class="domain-card-title">Mechatronics & Interdisciplinary</h4>
+                            <span class="domain-card-subtitle">Advanced Engineering & Automation</span>
+                        </div>
+                    </div>
+                    <ul class="equipment-list">
+                        <li><i class="bi bi-check2-circle"></i> Pneumatic & Electro-Pneumatic Trainer Kits</li>
+                        <li><i class="bi bi-check2-circle"></i> Hydraulic Control System Test Benches</li>
+                        <li><i class="bi bi-check2-circle"></i> CNC Simulator & Multi-Sensor Integration Benches</li>
+                        <li><i class="bi bi-check2-circle"></i> Drone Technology & Aerial Robotics Lab Modules</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 2: Supports Setting up of MSME Labs in Colleges -->
+<section class="msme-section">
+    <div class="container">
+        <div class="row align-items-center mb-5 g-4">
+            <div class="col-lg-7">
+                <!-- <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-3">
+                    <i class="bi bi-award-fill me-1"></i> COLLEGE INCUBATION & R&D SUPPORT
+                </span> -->
+                <h2 class="display-6 fw-bold text-white mb-3">
+                    Supports Setting Up of <span class="text-warning">MSME Labs</span> in Colleges
+                </h2>
+                <p class="text-white-50 fs-6 leading-relaxed mb-0">
+                    AB Technologies actively assists engineering colleges, autonomous institutions, and polytechnics in establishing government-recognized MSME Innovation, Development, and Incubation Labs. We bridge academia and industry by equipping colleges with industrial-grade prototyping tools and technical infrastructure.
+                </p>
+            </div>
+            <div class="col-lg-5 text-lg-end">
+                <a href="{% url 'contact_us' %}" class="btn btn-warning btn-lg fw-bold px-4 py-3 rounded-3 shadow">
+                    <i class="bi bi-chat-left-text-fill me-2"></i> Request MSME Consultation
+                </a>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Box 1 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="msme-card-box">
+                    <div class="msme-icon-circle">
+                        <i class="bi bi-tools"></i>
+                    </div>
+                    <h4 class="msme-box-title">Turnkey Lab Setup</h4>
+                    <p class="msme-box-desc">
+                        Complete layout planning, hardware procurement, installation, and commissioning of MSME R&D laboratories tailored to college space and guidelines.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="msme-card-box">
+                    <div class="msme-icon-circle">
+                        <i class="bi bi-printer-fill"></i>
+                    </div>
+                    <h4 class="msme-box-title">Prototyping Tools</h4>
+                    <p class="msme-box-desc">
+                        Provisioning high-precision 3D Printers, PCB Milling Machines, CNC Engravers, Soldering Workstations, and Electronic Testing Benches.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="msme-card-box">
+                    <div class="msme-icon-circle">
+                        <i class="bi bi-journal-bookmark-fill"></i>
+                    </div>
+                    <h4 class="msme-box-title">Proposal & MoU Support</h4>
+                    <p class="msme-box-desc">
+                        Expert assistance in drafting MSME scheme proposals, grant documentation, research funding applications, and formal MoU signing.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Box 4 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="msme-card-box">
+                    <div class="msme-icon-circle">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <h4 class="msme-box-title">Faculty & Student Skilling</h4>
+                    <p class="msme-box-desc">
+                        Conducting specialized hands-on training workshops, product design bootcamps, and incubation support to nurture student startups.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: Supply of Solar Inverters & Green Energy Systems -->
+<section class="solar-section">
+    <div class="container">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-8">
+                <h2 class="section-title mb-2">
+                    <span class="about-word">Supply of</span> <span class="company-name">Solar Inverters</span>
+                </h2>
+                <p class="text-muted fs-6 mt-3 mb-0">
+                    We supply reliable, high-efficiency solar power conditioning units, solar inverters, and renewable energy test platforms for institutional power backup and educational R&D.
+                </p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                <span class="badge bg-success px-3 py-2 rounded-pill fs-6 fw-semibold">
+                    <i class="bi bi-leaf-fill me-1"></i> Eco-Friendly & Sustainable
+                </span>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Product 1: On-Grid & Off-Grid Solar Inverters -->
+            <div class="col-lg-4 col-md-6">
+                <div class="solar-product-card">
+                    <div>
+                        <span class="solar-badge">POWER GENERATION</span>
+                        <h3 class="solar-card-title">On-Grid & Off-Grid Solar Inverters</h3>
+                        <p class="solar-card-text">
+                            Pure sine wave solar inverters equipped with advanced Maximum Power Point Tracking (MPPT) technology. Engineered for peak energy conversion efficiency, minimal harmonic distortion, and rugged operational life.
+                        </p>
+                        <ul class="equipment-list mb-4">
+                            <li><i class="bi bi-check-circle-fill text-success"></i> High Efficiency MPPT Tracking</li>
+                            <li><i class="bi bi-check-circle-fill text-success"></i> Smart Digital LCD Display & Monitoring</li>
+                            <li><i class="bi bi-check-circle-fill text-success"></i> Surge & Overload Auto-Protection</li>
+                        </ul>
+                    </div>
+                    <a href="{% url 'contact_us' %}" class="btn btn-outline-success w-100 fw-bold rounded-3">
+                        Enquire Specifications <i class="bi bi-arrow-right me-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 2: Solar Power Conditioning Units (PCU) -->
+            <div class="col-lg-4 col-md-6">
+                <div class="solar-product-card">
+                    <div>
+                        <span class="solar-badge">ENERGY STORAGE & MANAGEMENT</span>
+                        <h3 class="solar-card-title">Hybrid Solar PCU Systems</h3>
+                        <p class="solar-card-text">
+                            Integrated Power Conditioning Units (PCUs) that intelligently balance solar energy, battery storage, and grid power. Ideal for uninterrupted campus power supply and commercial research setups.
+                        </p>
+                        <ul class="equipment-list mb-4">
+                            <li><i class="bi bi-check-circle-fill text-success"></i> Intelligent Grid-Solar Priority Switch</li>
+                            <li><i class="bi bi-check-circle-fill text-success"></i> Compatible with Lead-Acid & Lithium Batteries</li>
+                            <li><i class="bi bi-check-circle-fill text-success"></i> Low No-Load Losses</li>
+                        </ul>
+                    </div>
+                    <a href="{% url 'contact_us' %}" class="btn btn-outline-success w-100 fw-bold rounded-3">
+                        Enquire Specifications <i class="bi bi-arrow-right me-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 3: Solar & Renewable Energy Test Benches -->
+            <div class="col-lg-4 col-md-12">
+                <div class="solar-product-card">
+                    <div>
+                        <span class="solar-badge">ACADEMIC & R&D LAB KITS</span>
+                        <h3 class="solar-card-title">Solar PV & Wind Test Benches</h3>
+                        <p class="solar-card-text">
+                            Educational solar simulation test benches for university labs. Enables students to measure I-V / P-V characteristics, evaluate MPPT algorithms, and study solar grid integration hands-on.
+                        </p>
+                        <ul class="equipment-list mb-4">
+                            <li><i class="bi bi-check-circle-fill text-success"></i> Solar PV Emulator & Variable Irradiance</li>
+                            <li><i class="bi bi-check-circle-fill text-success"></i> Real-time Power Data Acquisition</li>
+                            <li><i class="bi bi-check-circle-fill text-success"></i> Curriculum Aligned Experiment Manuals</li>
+                        </ul>
+                    </div>
+                    <a href="{% url 'contact_us' %}" class="btn btn-outline-success w-100 fw-bold rounded-3">
+                        Enquire Specifications <i class="bi bi-arrow-right me-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 4: Why Choose AB Technologies Products -->
+<!-- <section class="py-5 bg-light">
+    <div class="container py-3">
+        <div class="text-center mb-5">
+            <h2 class="section-title">
+                <span class="about-word">Why Choose</span> <span class="company-name">AB Technologies</span>
+            </h2>
+        </div>
+        <div class="row g-4 text-center">
+            <div class="col-md-3 col-6">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                    <div class="fs-1 text-primary mb-2"><i class="bi bi-shield-check"></i></div>
+                    <h5 class="fw-bold text-dark mb-1">Quality Assurance</h5>
+                    <p class="text-muted small mb-0">ISO standard manufacturing with rigorous testing before delivery.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                    <div class="fs-1 text-primary mb-2"><i class="bi bi-book"></i></div>
+                    <h5 class="fw-bold text-dark mb-1">Syllabus Aligned</h5>
+                    <p class="text-muted small mb-0">Designed according to Anna University, Deemed & Autonomous syllabi.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                    <div class="fs-1 text-primary mb-2"><i class="bi bi-tools"></i></div>
+                    <h5 class="fw-bold text-dark mb-1">On-site Support</h5>
+                    <p class="text-muted small mb-0">Full installation, commissioning, and faculty training provided.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                    <div class="fs-1 text-primary mb-2"><i class="bi bi-gear-wide-connected"></i></div>
+                    <h5 class="fw-bold text-dark mb-1">Customization</h5>
+                    <p class="text-muted small mb-0">Tailor-made lab setups based on specific institutional needs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<!-- SECTION 5: Call to Action Banner -->
+<section class="py-5">
+    <div class="container">
+        <div class="products-cta-card">
+            <div class="row align-items-center position-relative" style="z-index: 2;">
+                <div class="col-lg-8 mb-4 mb-lg-0">
+                    <h3 class="display-6 fw-bold mb-2">Looking for Custom Lab Equipment or Solar Systems?</h3>
+                    <p class="fs-6 opacity-75 mb-0">
+                        Get in touch with our expert engineering team for product catalogs, detailed pricing, and college lab setup proposals.
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="{% url 'contact_us' %}" class="btn btn-warning btn-lg fw-bold px-4 py-3 rounded-3 shadow-sm">
+                        <i class="bi bi-telephone-fill me-2"></i> Contact Our Sales Team
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

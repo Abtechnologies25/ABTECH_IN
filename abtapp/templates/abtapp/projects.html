@@ -4,36 +4,35 @@
 {% block title %}Projects - AB Technologies{% endblock %}
 
 {% block banner %}
-<div class="page-banner">
+<div class="page-banner projects-banner">
     <div class="page-banner-content">
-        <!-- <div class="banner-badge">💡 Innovation Portfolio</div> -->
         <h1 class="page-banner-title">
             <span class="title-modern">From Imagination to</span>
             <span class="title-highlight"> Implementation</span>
         </h1>
-        <!-- <p class="page-banner-subtitle">Discover our cutting-edge projects that transform academic concepts into real-world innovations, empowering the next generation of engineers and researchers.</p> -->
-        <!-- <div class="banner-stats-mini">
-            <div class="stat-mini">
-                <span class="stat-number-mini">200+</span>
-                <span class="stat-label-mini">Projects Delivered</span>
-            </div>
-            <div class="stat-mini">
-                <span class="stat-number-mini">15+</span>
-                <span class="stat-label-mini">Domains</span>
-            </div>
-            <div class="stat-mini">
-                <span class="stat-number-mini">98%</span>
-                <span class="stat-label-mini">Success Rate</span>
-            </div>
-        </div> -->
+        
     </div>
 </div>
 {% endblock %}
 
 {% block content %}
-<section class="about-section py-4 ">
-    <div class="container ">
-        <div class="row align-items-center justify-content-center">
+<section class="about-section  ">
+    <div class="container mt-3">
+        <div class="row  justify-content-center">
+             <div class="col-md-7  d-flex flex-column justify-content-center  h-100">
+                <div class="about-all-text-projects">
+                    <h2 class="section-title"><span class="about-word">Our</span> <span class="company-name">Projects</span></h2>
+                    <p>AB Technologies is well established in guiding students to develop their own real time projects. We guide the students in knowing the concepts from basics to advanced and help them in completing their projects. We focus on creative, novel and trending ideas that are emerging in the field of Engineering, Science and Technology.</p>
+                </div>
+                <!-- Project Category Buttons -->
+                <div class="project-categories-buttons mt-4">
+                    {% for category in categories %}
+                        <a href="{% url 'project_category_detail' category.id %}" class="btn btn-warning btn-sm m-2">
+                            {{ category.name }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
             <!-- Left Side Hexagon Gallery (3 Hexagons) -->
             <div class="col-md-5 d-flex justify-content-center align-items-center mb-4 mb-md-0">
                 <!-- SVG filter for rounded corners on clip-path hexagon -->
@@ -65,14 +64,7 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Right Side Content -->
-            <div class="col-md-7 text-center d-flex flex-column justify-content-center align-items-center h-100">
-                <div class="about-all-text-projects">
-                    <h2 class="section-title"><span class="about-word">Our</span> <span class="company-name">Projects</span></h2>
-                    <p>AB Technologies is well established in guiding students to develop their own real time projects. We guide the students in knowing the concepts from basics to advanced and help them in completing their projects. We focus on creative, novel and trending ideas that are emerging in the field of Engineering, Science and Technology.</p>
-                </div>
-            </div>
+           
         </div>
 </section>
 
@@ -148,7 +140,7 @@
                             </ul>
                         </div>
                         <div class="col-md-5 h-100">
-                            <img src="{% static 'abtapp/images/ha.jpg' %}" alt="Research & Prototypes" class="w-100 h-100 object-fit-cover" style="min-height: 240px;" />
+                            <img src="/static/abtapp/images/ha.jpg" alt="Research & Prototypes" class="w-100 h-100 object-fit-cover" style="min-height: 240px;" />
                         </div>
                     </div>
                 </div>
@@ -156,4 +148,15 @@
         </div>
     </div>
 </section>
+
+<style>
+    .project-card-link {
+        transition: all 0.3s ease;
+    }
+
+    .project-card-link:hover {
+        text-decoration: none !important;
+    }
+</style>
 {% endblock %}
+

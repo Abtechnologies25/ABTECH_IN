@@ -66,7 +66,42 @@ class MoU(models.Model):
     LOCATION = models.CharField(max_length=255, blank=True, null=True)
     OFFICIAL_WEBSITE = models.URLField(blank=True, null=True)
     DATE_OF_MoU = models.DateField(blank=True,null=True)
-    VALIDITY = models.CharField(max_length=100,blank=True,null=True)  # Or models.DateField if it’s a date range
+    VALIDITY = models.CharField(max_length=100,blank=True,null=True)
 
     def __str__(self):
         return f"{self.MoU_NO} - {self.ORGANIZATION_NAME}"
+
+
+class ProjectCategory(models.Model):
+    """Project categories (like GalleryCategory)"""
+    name = models.CharField(max_length=255, unique=True)
+    description = models.TextField(blank=True, null=True)
+    icon_class = models.CharField(max_length=100, blank=True, null=True, help_text="Bootstrap icon class (e.g., 'bi-laptop', 'bi-gear')")
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = "Project Category"
+        verbose_name_plural = "Project Categories"
+
+
+class Project(models.Model):
+    """Individual projects"""
+    category = models.ForeignKey(ProjectCategory, on_delete=models.CASCADE, related_name='projects', null=True, blank=True)
+    project_id = models.CharField(max_length=50, unique=True)
+    project_name = models.CharField(max_length=255)
+    abstract = models.FileField(upload_to='project_abstracts/', help_text="Upload project abstract as PDF", blank=True, null=True)
+    
+    def __str__(self):
+        return f"{self.project_id} - {self.project_name}"
+    
+    def get_abstract_filename(self):
+        """Get the filename of the abstract PDF"""
+        if self.abstract:
+            return self.abstract.name.split('/')[-1]
+        return None
+    
+    class Meta:
+        ordering = ['-id']
+        verbose_name_plural = "Projects"

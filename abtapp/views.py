@@ -1,10 +1,27 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import *
+
 def home_view(request):
     return render(request, 'abtapp/home.html', {'active_page': 'home'})
 
 def projects_view(request):
-    return render(request, 'abtapp/projects.html', {'active_page': 'projects'})
+    categories = ProjectCategory.objects.all()
+    context = {
+        'categories': categories,
+        'active_page': 'projects'
+    }
+    return render(request, 'abtapp/projects.html', context)
+
+def project_category_detail_view(request, category_id):
+    """Display projects for a specific category"""
+    category = get_object_or_404(ProjectCategory, id=category_id)
+    projects = category.projects.all()
+    context = {
+        'category': category,
+        'projects': projects,
+        'active_page': 'projects'
+    }
+    return render(request, 'abtapp/project_category_detail.html', context)
 
 def research_guidance_view(request):
     return render(request, 'abtapp/research_guidance.html', {'active_page': 'research_guidance'})
@@ -50,3 +67,4 @@ def our_branches_view(request):
 
 def contact_us_view(request):
     return render(request, 'abtapp/contact_us.html', {'active_page': 'contact_us'})
+

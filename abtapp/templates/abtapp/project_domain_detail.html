@@ -1,0 +1,271 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ domain.title }} - AB Technologies{% endblock %}
+
+{% block banner %}
+<div class="page-banner projects-banner">
+    <div class="page-banner-content">
+        <h1 class="page-banner-title">
+            <span class="title-modern">{{ domain.title }}</span>
+        </h1>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Domain Information Section -->
+<section class="about-section py-5">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-10 text-center">
+                <h2 class="section-title mb-3">
+                    <span class="about-word">About</span> <span class="company-name">this Domain</span>
+                </h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; text-align: center; color: #475569;">
+                    {{ domain.description }}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Table Section -->
+<section class="projects-table-section py-5 bg-light">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="section-title mb-4">
+                    <span class="about-word">Our</span> <span class="company-name">Projects</span>
+                    <small style="font-size: 0.6em; display: block; margin-top: 0.5rem; color: #64748b;">
+                        Total Projects: <strong>{{ projects.count }}</strong>
+                    </small>
+                </h2>
+            </div>
+        </div>
+
+        {% if projects %}
+            <div class="table-responsive">
+                <table class="table table-hover projects-data-table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th class="text-center" style="width: 10%;">PROJECT ID</th>
+                            <th style="width: 25%;">PROJECT NAME</th>
+                            <th class="text-center" style="width: 12%;">STATUS</th>
+                            <th style="width: 20%;">TECHNOLOGY STACK</th>
+                            <th style="width: 15%;">COMPLETION DATE</th>
+                            <th class="text-center" style="width: 10%;">GUIDE/MENTOR</th>
+                            <th class="text-center" style="width: 8%;">ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for project in projects %}
+                            <tr class="project-row" data-project-id="{{ project.project_id }}">
+                                <td class="text-center fw-bold text-primary">{{ project.project_id }}</td>
+                                <td>
+                                    <span class="project-name">{{ project.project_name }}</span>
+                                    <br>
+                                    <small class="text-muted">{{ project.abstract|truncatewords:15 }}</small>
+                                </td>
+                                <td class="text-center">
+                                    {% if project.project_status == 'COMPLETED' %}
+                                        <span class="badge bg-success">Completed</span>
+                                    {% elif project.project_status == 'ONGOING' %}
+                                        <span class="badge bg-info">Ongoing</span>
+                                    {% else %}
+                                        <span class="badge bg-warning">Proposed</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <small>{{ project.technology_stack }}</small>
+                                </td>
+                                <td>
+                                    {% if project.completion_date %}
+                                        {{ project.completion_date|date:"M d, Y" }}
+                                    {% else %}
+                                        <span class="text-muted">--</span>
+                                    {% endif %}
+                                </td>
+                                <td class="text-center">
+                                    {% if project.guide_mentor %}
+                                        <small>{{ project.guide_mentor }}</small>
+                                    {% else %}
+                                        <span class="text-muted">--</span>
+                                    {% endif %}
+                                </td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-outline-primary view-details-btn" data-bs-toggle="modal" data-bs-target="#projectModal" onclick="showProjectDetails(this)">
+                                        <i class="bi bi-eye"></i> View
+                                    </button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="alert alert-info text-center py-5">
+                <i class="bi bi-info-circle" style="font-size: 2rem; margin-bottom: 1rem; display: block;"></i>
+                <h4>No Projects Available</h4>
+                <p class="mb-0">Projects for this domain will be added soon. Stay tuned!</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Project Details Modal -->
+<div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-light">
+                <h5 class="modal-title" id="projectModalLabel">Project Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="project-details-content">
+                    <!-- Content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .projects-data-table {
+        background: #ffffff;
+        border-collapse: collapse;
+    }
+
+    .projects-data-table thead {
+        background-color: #0f172a;
+        color: #ffffff;
+    }
+
+    .projects-data-table thead th {
+        padding: 1rem !important;
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border: none;
+    }
+
+    .projects-data-table tbody tr {
+        border-bottom: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+    }
+
+    .projects-data-table tbody tr:hover {
+        background-color: #f8fafc;
+        box-shadow: inset 4px 0 0 #0b57af;
+    }
+
+    .projects-data-table tbody td {
+        padding: 1rem !important;
+        vertical-align: middle;
+        color: #334155;
+    }
+
+    .project-name {
+        font-weight: 700;
+        color: #0f172a;
+    }
+
+    .view-details-btn {
+        transition: all 0.3s ease;
+    }
+
+    .view-details-btn:hover {
+        background-color: #0b57af !important;
+        color: #ffffff !important;
+    }
+
+    .project-details-content {
+        padding: 1.5rem 0;
+    }
+
+    .detail-section {
+        margin-bottom: 2rem;
+    }
+
+    .detail-label {
+        font-weight: 700;
+        color: #0b57af;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.5rem;
+    }
+
+    .detail-value {
+        color: #334155;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+        .table-responsive {
+            font-size: 0.85rem;
+        }
+
+        .projects-data-table thead th {
+            padding: 0.75rem !important;
+            font-size: 0.75rem;
+        }
+
+        .projects-data-table tbody td {
+            padding: 0.75rem !important;
+        }
+    }
+</style>
+
+<script>
+    function showProjectDetails(btn) {
+        const row = btn.closest('.project-row');
+        const projectId = row.dataset.projectId;
+        
+        // Get project data from table row
+        const cells = row.querySelectorAll('td');
+        const projectName = cells[1].querySelector('.project-name').textContent;
+        const status = cells[2].textContent.trim();
+        const techStack = cells[3].textContent;
+        const completionDate = cells[4].textContent;
+        const mentor = cells[5].textContent;
+        
+        // Build modal content
+        const modalContent = `
+            <div class="detail-section">
+                <div class="detail-label">Project ID</div>
+                <div class="detail-value">${projectId}</div>
+            </div>
+            
+            <div class="detail-section">
+                <div class="detail-label">Project Name</div>
+                <div class="detail-value">${projectName}</div>
+            </div>
+            
+            <div class="detail-section">
+                <div class="detail-label">Status</div>
+                <div class="detail-value">${status}</div>
+            </div>
+            
+            <div class="detail-section">
+                <div class="detail-label">Technology Stack</div>
+                <div class="detail-value">${techStack}</div>
+            </div>
+            
+            <div class="detail-section">
+                <div class="detail-label">Completion Date</div>
+                <div class="detail-value">${completionDate}</div>
+            </div>
+            
+            <div class="detail-section">
+                <div class="detail-label">Guide/Mentor</div>
+                <div class="detail-value">${mentor}</div>
+            </div>
+        `;
+        
+        document.querySelector('.project-details-content').innerHTML = modalContent;
+    }
+</script>
+{% endblock %}

@@ -3,82 +3,381 @@
 {% block title %}Videos - AB Technologies{% endblock %}
 
 {% block content %}
-<div class="page-banner">
+<!-- Page Banner -->
+<div class="page-banner videos-banner">
     <div class="page-banner-content">
-        <!-- <div class="banner-badge">💡 Innovation Portfolio</div> -->
         <h1 class="page-banner-title">
-            <span class="title-modern"> </span>
-            <span class="title-highlight"> Videos</span>
+            <!-- <span class="title-modern">Innovation</span> -->
+            <span class="title-highlight">Videos</span>
         </h1>
     </div>
 </div>
-<section class="mou-intro-section">
+
+<!-- Intro Section -->
+<section class="videos-intro-section py-5">
     <div class="container">
         <div class="row align-items-center g-5">
-            <!-- Left Column - Image -->
-            
-            
-            <!-- Right Column - Content -->
+            <!-- Left Column: Content -->
             <div class="col-lg-6 about-all-text-projects">
-                <h2 class="section-title mb-2">
-                    <!-- <span class="about-word">About </span> <span class="company-name">MoU</span> -->
+                <h2 class="section-title mb-4">
+                    <span class="about-word">Our Video</span> <span class="company-name">Portfolio</span>
                 </h2>
                 <p class="mou-description">
-                    AB Technologies believes in Knowledge sharing dissemination of information. So we would like to share the videos of the projects developed in AB Technologies to the general public. Here, you can access the YouTube link of the videos to know more.
+                    AB Technologies believes in knowledge sharing and the dissemination of information. We share
+                    detailed video walkthroughs and demonstrations of the projects developed at AB Technologies.
                 </p>
-                <!-- <p class="mou-description">
-                    AB Technologies is co-operatively working with different Organizations, Colleges and Universities by actively signing MoUs with them.
-                </p> -->
+                <p class="mou-description mt-3">
+                    Students, scholars, and technology enthusiasts can access these resources to learn about embedded
+                    systems, IoT, AI, and other cutting-edge engineering fields. Explore our YouTube channel links
+                    below.
+                </p>
             </div>
+
+            <!-- Right Column: Visual -->
             <div class="col-lg-6">
-                <div class="mou-image-container">
-                    <img src="{% static 'abtapp/images/vid.jpg' %}" alt="Memorandum of Understanding" class="img-fluid" loading="lazy" decoding="async">
+                <div class="video-intro-image-wrapper">
+                    <img src="{% static 'abtapp/images/vid.jpg' %}" alt="AB Technologies Videos"
+                        class="img-fluid rounded-4 shadow" loading="lazy" decoding="async">
+                    <div class="image-overlay-pulse">
+                        <i class="bi bi-play-circle-fill"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<div class="bg-light">
-  <div class="container-fluid py-5">
 
-    <table class="table table-bordered mt-4">
-      <thead class="bg-dark text-light text-center">
-        <tr>
-          <th style="width: 5%;">S.NO</th>
-          <th style="width: 10%;">CODE</th>
-          <th style="width: 12%;">UPLOADED DATE</th>
-          <th style="width: 38%;">TITLE</th>
-          <th style="width: 10%;">TYPE</th>
-          <th style="width: 25%;">YOUTUBE LINK</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for v in videos %}
-        <tr>
-          <td class="text-center" style="vertical-align: middle;">{{ forloop.counter }}</td>
-          <td class="text-center" style="vertical-align: middle;">{{ v.CODE }}</td>
-          <td class="text-center" style="vertical-align: middle;">{{ v.UPLOADED_DATE|date:"d-m-Y" }}</td>
-          <td style="vertical-align: middle;">
-            <h2 style="font-size: 1rem; margin: 0;">
-              <a href="{{ v.YOUTUBE_LINK }}" target="_blank" rel="noopener" style="text-decoration: none; color: #000;">
-                {{ v.TITLE }}
-              </a>
-            </h2>
-          </td>
-          <td class="text-center" style="vertical-align: middle;">{{ v.TYPE }}</td>
-          <td class="text-center" style="vertical-align: middle;">
-            <a href="{{ v.YOUTUBE_LINK }}" target="_blank" style="color: #0000FF;">
-              {{ v.YOUTUBE_LINK }}
-            </a>
-          </td>
-        </tr>
-        {% empty %}
-        <tr>
-          <td colspan="6" class="text-center">No videos available</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
+<!-- Main Interactive Section -->
+<section class="video-gallery-section py-5 bg-light-modern">
+    <div class="container">
+
+        <!-- Controls Bar: Search & Filters -->
+        <div class="gallery-controls-card mb-1">
+            <div class="row g-3 align-items-center justify-content-between">
+
+                <!-- Search Bar -->
+                <div class="col-md-4 col-lg-4">
+                    <div class="search-input-wrapper">
+                        <i class="bi bi-search search-icon"></i>
+                        <input type="text" id="videoSearch" class="form-control-modern search-input"
+                            placeholder="Search videos...">
+                    </div>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="col-md-8 col-lg-8 d-flex justify-content-md-end">
+                    <div class="filter-pills" id="filterPills">
+                        <button class="filter-pill active" data-filter="all">All Videos</button>
+                        <button class="filter-pill" data-filter="PROJECTS">Projects</button>
+                        <button class="filter-pill" data-filter="PRODUCTS">Products</button>
+                        <button class="filter-pill" data-filter="BASICS">Basics</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Video Table -->
+        <div id="videoTableWrapper">
+            <div class="video-table-wrapper">
+                <table class="table table-video-list table-bordered align-middle mb-0">
+                    <thead>
+                        <tr class="text-center">
+                            <th class="text-center" style="width: 70px;">S.NO</th>
+                            <th style="width: 160px;">CODE</th>
+                            <th style="width: 160px;">UPLOADED DATE</th>
+                            <th>TITLE</th>
+                            <th style="width: 120px;">TYPE</th>
+                            <th>YOUTUBE LINK</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for v in videos %}
+                        <tr class="video-item-table-row" data-title="{{ v.TITLE|lower }}" data-type="{{ v.TYPE }}"
+                            data-code="{{ v.CODE|lower }}">
+                            <td class="text-center">{{ forloop.counter }}</td>
+                            <td class="text-center">{{ v.CODE }}</td>
+                            <td class="text-center">{{ v.UPLOADED_DATE|date:"d-m-Y" }}</td>
+                            <td>{{ v.TITLE }}</td>
+                            <td class="text-center">{{ v.TYPE }}</td>
+                            <td>
+                                <a href="{{ v.YOUTUBE_LINK }}" target="_blank" rel="noopener" class="yt-table-link">
+                                    {{ v.YOUTUBE_LINK }}
+                                </a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="6" class="text-center py-5 text-muted">No videos available</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div class="text-center py-5 d-none w-100" id="liveFilterEmpty">
+            <div class="no-videos-state">
+                <i class="bi bi-camera-video-off" style="font-size: 3rem; color: #94a3b8;"></i>
+                <h4 class="mt-3 text-secondary">No Videos Found</h4>
+                <p class="text-muted">We couldn't find any videos matching your search query or selected category.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Video Play Modal -->
+<div class="modal fade" id="videoPlayModal" tabindex="-1" aria-labelledby="videoPlayModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content video-modal-content">
+            <div class="modal-header video-modal-header border-0 pb-0">
+                <h5 class="modal-title video-modal-title fw-bold text-white" id="videoPlayModalLabel">Video Title</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"
+                    onclick="stopVideoModal()"></button>
+            </div>
+            <div class="modal-body video-modal-body p-4">
+                <div class="ratio ratio-16x9 video-modal-ratio shadow-lg rounded-4 overflow-hidden">
+                    <iframe src="" id="modalVideoFrame"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Search and Filter Functionality
+        const searchInput = document.getElementById("videoSearch");
+        const filterPills = document.querySelectorAll(".filter-pill");
+        const videoTableRows = document.querySelectorAll(".video-item-table-row");
+        const tableWrapper = document.getElementById("videoTableWrapper");
+        const liveFilterEmpty = document.getElementById("liveFilterEmpty");
+
+        let activeFilter = "all";
+        let searchQuery = "";
+
+        function filterVideos() {
+            let visibleCount = 0;
+
+            videoTableRows.forEach(item => {
+                const title = item.getAttribute("data-title");
+                const code = item.getAttribute("data-code");
+                const type = item.getAttribute("data-type");
+
+                const matchesSearch = title.includes(searchQuery) || code.includes(searchQuery);
+                const matchesFilter = activeFilter === "all" || type === activeFilter;
+
+                if (matchesSearch && matchesFilter) {
+                    item.classList.remove("d-none");
+                    visibleCount++;
+                } else {
+                    item.classList.add("d-none");
+                }
+            });
+
+            if (visibleCount === 0) {
+                liveFilterEmpty.classList.remove("d-none");
+                tableWrapper.classList.add("d-none");
+            } else {
+                liveFilterEmpty.classList.add("d-none");
+                tableWrapper.classList.remove("d-none");
+            }
+        }
+
+        // Live Search Input Listener
+        if (searchInput) {
+            searchInput.addEventListener("input", function (e) {
+                searchQuery = e.target.value.toLowerCase().trim();
+                filterVideos();
+            });
+        }
+
+        // Category Filter Pill Click Listeners
+        filterPills.forEach(pill => {
+            pill.addEventListener("click", function () {
+                filterPills.forEach(p => p.classList.remove("active"));
+                this.classList.add("active");
+                activeFilter = this.getAttribute("data-filter");
+                filterVideos();
+            });
+        });
+    });
+
+    // Modal Control Functions
+    let activeModalObj = null;
+
+    function playVideoModal(title, embedUrl) {
+        document.getElementById("videoPlayModalLabel").innerText = title;
+        const frame = document.getElementById("modalVideoFrame");
+
+        let finalEmbed = embedUrl;
+        if (finalEmbed.includes("?")) {
+            finalEmbed += "&autoplay=1";
+        } else {
+            finalEmbed += "?autoplay=1";
+        }
+
+        frame.src = finalEmbed;
+
+        const modalEl = document.getElementById("videoPlayModal");
+        if (!activeModalObj && window.bootstrap) {
+            activeModalObj = new bootstrap.Modal(modalEl);
+        }
+        if (activeModalObj) {
+            activeModalObj.show();
+        }
+
+        modalEl.addEventListener('hidden.bs.modal', function () {
+            stopVideoModal();
+        });
+    }
+
+    function stopVideoModal() {
+        const frame = document.getElementById("modalVideoFrame");
+        frame.src = "";
+    }
+</script>
+
+<style>
+/* ============================================================
+   VIDEOS PAGE — STYLES
+   ============================================================ */
+
+/* ---------- Controls Card ---------- */
+.gallery-controls-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 4px 20px rgba(11,87,175,0.08);
+    border: 1px solid rgba(11,87,175,0.08);
+}
+
+/* Search Input */
+.search-input-wrapper { position: relative; }
+.search-icon {
+    position: absolute; left: 12px; top: 50%;
+    transform: translateY(-50%);
+    color: #0b57af; font-size: 0.9rem; pointer-events: none;
+}
+.search-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem 0.5rem 2.2rem;
+    border: 1.5px solid rgba(11,87,175,0.2);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: #f8fbff;
+    color: #1e293b;
+}
+.search-input:focus {
+    border-color: #0b57af;
+    box-shadow: 0 0 0 3px rgba(11,87,175,0.1);
+}
+
+/* Filter Pills */
+.filter-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+.filter-pill {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1.5px solid transparent;
+    border-radius: 50px;
+    padding: 5px 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.filter-pill:hover { background: #e0f2fe; color: #0b57af; border-color: #0b57af; }
+.filter-pill.active {
+    background: linear-gradient(135deg, #0b57af, #1a73e8);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 3px 10px rgba(11,87,175,0.3);
+}
+
+/* ============================================================
+   VIDEO TABLE — IMAGE MATCH DESIGN WITH BLUE HEADER
+   ============================================================ */
+.video-table-wrapper {
+    overflow-x: auto;
+    /* border: 1px solid #0b57af; */
+    border-radius: 10px;
+    background: #ffffff;
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); */
+}
+
+.table-video-list {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Header */
+.table-video-list thead tr {
+    background-color: #0b57af !important;
+}
+
+.table-video-list thead th {
+    background-color: #0b57af !important;
+    color: #ffffff !important;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    white-space: nowrap;
+}
+
+/* Body rows */
+.table-video-list tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.table-video-list tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.table-video-list tbody td {
+    font-size: 0.85rem;
+    color: #1e293b;
+    padding: 10px 16px;
+    vertical-align: middle;
+    border: 1px solid #e2e8f0 !important;
+}
+
+/* YouTube link */
+.yt-table-link {
+    color: #0b57af;
+    text-decoration: none;
+    word-break: break-all;
+    font-size: 0.83rem;
+}
+
+.yt-table-link:hover {
+    color: #083a78;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .table-video-list {
+        min-width: 800px;
+    }
+}
+
+/* Modal styling */
+.video-modal-content {
+    background: #0f172a;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* No results state */
+.no-videos-state i { font-size: 3rem; color: #94a3b8; display: block; }
+</style>
 {% endblock %}

@@ -5,212 +5,275 @@
 
 {% block banner %}
 <div class="banner-section">
-    
-    <div class="banner-content">
-        
-        <h1 class="banner-title">
-            <span class="title-line">Transforming Ideas Into Reality with</span>
-            <span class="title-highlight">AB Technologies</span>
-            <!-- <span class="title-subtitle">with <span class="logo-accent">AB Technologies</span></span> -->
-        </h1>
-        <p class="banner-subtitle">Vision of a common man is the mission of an Engineer. <br> </p>
-        <div class="banner-stats">
-            <div class="stat-item">
-                <i class="bi bi-clipboard-check stat-icon"></i>
-                <span class="stat-number">3k+</span>
-                <span class="stat-label">Projects Completed</span>
-            </div>
-            <div class="stat-item">
-                <i class="bi bi-building stat-icon"></i>
-                <span class="stat-number">5k+</span>
-                <span class="stat-label">Happy Customers</span>
-            </div>
-            <div class="stat-item">
-                <i class="bi bi-award stat-icon"></i>
-                <span class="stat-number">10+</span>
-                <span class="stat-label">Years Experience</span>
-            </div>
-        </div>
-        <!-- <div class="banner-actions">
-            <a href="#" class="btn-primary">Start Your Project ↗</a>
-            <a href="#" class="btn-secondary">Explore Services</a>
-        </div> -->
-    </div>
 
-    <!-- Stats Box - Absolute positioned at bottom center -->
-    <!-- <div class="banner-stats-absolute">
-        <div class="stat-item">
-            <div class="stat-icon"><i class="bi bi-code-slash"></i></div>
-            <span class="stat-label">Training & Development</span>
-        </div>
-        <div class="stat-item">
-            <div class="stat-icon"><i class="bi bi-person-badge-fill"></i></div>
-            <span class="stat-label">Employee Directory</span>
-        </div>
-        <div class="stat-item">
-            <div class="stat-icon"><i class="bi bi-headset"></i></div>
-            <span class="stat-label">Support & Assistance</span>
-        </div>
-    </div> -->
+    <div class="banner-top-wrapper">
+        <div class="banner-content">
 
-    <!-- Four Divs Grid on Right Side -->
-    <div class="banner-right-grid">
-        <div class="banner-grid-item left-item">
-            <img src="{% static 'abtapp/images/lib.png' %}" alt="AB Technologies Services" />
+            <h1 class="banner-title">
+                <span class="title-line">Transforming Ideas Into Reality with</span>
+                <span class="title-highlight">AB Technologies</span>
+            </h1>
+            <p class="banner-subtitle"> <i> Vision of a common man is the mission of an Engineer. </i> </p>
+            <div class="banner-stats">
+                <div class="stat-item">
+                    <i class="bi bi-clipboard-check stat-icon"></i>
+                    <span class="stat-number">15k+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <i class="bi bi-people-fill stat-icon"></i>
+                    <span class="stat-number">20k+</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+                <div class="stat-item">
+                    <i class="bi bi-award stat-icon"></i>
+                    <span class="stat-number">11+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+            </div>
         </div>
-        <div class="banner-grid-item right-item">
-            <img src="{% static 'abtapp/images/lib.png' %}" alt="AB Technologies Innovation" />
-        </div>
-        <div class="banner-grid-item left-item">
-            <img src="{% static 'abtapp/images/lib.png' %}" alt="AB Technologies Solutions" />
-        </div>
-        <div class="banner-grid-item right-item">
-            <img src="{% static 'abtapp/images/lib.png' %}" alt="AB Technologies Excellence" />
+
+        <div class="banner-right-grid">
+            <div class="banner-grid-item left-item">
+                <img src="{% static 'abtapp/images/lib.png' %}" alt="AB Technologies Services" />
+            </div>
+            <div class="banner-grid-item right-item">
+                <img src="{% static 'abtapp/images/lib.png' %}" alt="AB Technologies Innovation" />
+            </div>
+            <div class="banner-grid-item left-item">
+                <img src="{% static 'abtapp/images/lib.png' %}" alt="AB Technologies Solutions" />
+            </div>
+            <div class="banner-grid-item right-item">
+                <img src="{% static 'abtapp/images/lib.png' %}" alt="AB Technologies Excellence" />
+            </div>
         </div>
     </div>
 
-    <!-- <div id="bannerImageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="banner-image">
-                    <img src="{% static 'abtapp/images/ad2.png' %}" alt="AB Technologies Banner" />
-                </div>
+    <section class="happening-now-section-modern">
+
+        <div class="happening-container">
+           
+            <div class="happening-header">
+                <h2 class="happening-main-title">
+                    <span class="happening-word-1">Happening</span>
+                    <span class="happening-word-2">Now</span>
+                </h2>
+                <p class="happening-subtitle">Explore our latest events, workshops, and innovations happening across our centers</p>
             </div>
-            <div class="carousel-item">
-                <div class="banner-image">
-                    <img src="{% static 'abtapp/images/b5.png' %}" alt="AB Technologies Innovation" />
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="banner-image">
-                    <img src="{% static 'abtapp/images/zo.png' %}" alt="AB Technologies Excellence" />
-                </div>
-            </div>
-        </div>
-    </div> -->
-</div>
-{% endblock %}
 
-
-{% block content %}
-<!-- Happening Now Section -->
-<section class="happening-now-section">
-    <div class="container-fluid px-0">
-        <div class="text-center mb-4">
-            <h2 class="section-title justify-content-center">
-                <span class="about-word">Happening</span> <span class="company-name">Now..!</span>
-            </h2>
-        </div>
-
-        <div class="happening-slider-wrapper position-relative">
-            <!-- Navigation Buttons -->
-            <button class="happening-nav-btn happening-prev-btn" id="happeningPrevBtn" aria-label="Previous">
-                <i class="bi bi-chevron-left"></i>
-            </button>
-            <button class="happening-nav-btn happening-next-btn" id="happeningNextBtn" aria-label="Next">
-                <i class="bi bi-chevron-right"></i>
-            </button>
-
-            <!-- Swiper Slider -->
-            <div class="swiper happening-swiper">
-                <div class="swiper-wrapper">
-                    <!-- Slide 1 -->
-                    <div class="swiper-slide">
-                        <div class="happening-slide-card">
-                            <img src="{% static 'abtapp/images/ad2.png' %}" alt="BHASHINI Sahyogi" />
-                            <div class="happening-slide-overlay">
-                                <h3 class="happening-slide-title">Workshop</h3>
-                                <p class="happening-slide-desc">Largest "AI co-creation, collaboration and Partnership"</p>
+            
+            <div class="happening-slider-container">
+                
+                <div class="happening-slides-wrapper">
+                    
+                    <div class="happening-slide-item">
+                        <div class="slide-card">
+                            <div class="slide-image-wrapper">
+                                <img src="{% static 'abtapp/images/ad2.png' %}" alt="Workshop" class="slide-image" />
+                                <div class="slide-overlay">
+                                    <i class="bi bi-play-circle-fill"></i>
+                                </div>
+                            </div>
+                            <div class="slide-content">
+                                <span class="slide-label">Events</span>
+                                <h3 class="slide-title">Workshop</h3>
+                                <p class="slide-description">Largest "AI co-creation, collaboration and Partnership" initiatives bringing innovation to life.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Slide 2 -->
-                    <div class="swiper-slide">
-                        <div class="happening-slide-card">
-                            <img src="{% static 'abtapp/images/b5.png' %}" alt="Research & Innovation" />
-                            <div class="happening-slide-overlay">
-                                <h3 class="happening-slide-title">Research &amp; Innovation</h3>
-                                <p class="happening-slide-desc">Empowering scholars &amp; students with cutting-edge technology</p>
+                    
+                    <div class="happening-slide-item">
+                        <div class="slide-card">
+                            <div class="slide-image-wrapper">
+                                <img src="{% static 'abtapp/images/b5.png' %}" alt="Research & Innovation" class="slide-image" />
+                                <div class="slide-overlay">
+                                    <i class="bi bi-play-circle-fill"></i>
+                                </div>
+                            </div>
+                            <div class="slide-content">
+                                <span class="slide-label">Research</span>
+                                <h3 class="slide-title">Research & Innovation</h3>
+                                <p class="slide-description">Empowering scholars and students with cutting-edge technology and scientific advancement.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Slide 3 -->
-                    <div class="swiper-slide">
-                        <div class="happening-slide-card">
-                            <img src="{% static 'abtapp/images/zo.png' %}" alt="Hands-on Workshops" />
-                            <div class="happening-slide-overlay">
-                                <h3 class="happening-slide-title">Hands-on Workshops</h3>
-                                <p class="happening-slide-desc">Practical skills &amp; industry-ready engineering solutions</p>
+                    <div class="happening-slide-item">
+                        <div class="slide-card">
+                            <div class="slide-image-wrapper">
+                                <img src="{% static 'abtapp/images/workshop.png' %}" alt="Hands-on Workshops" class="slide-image" />
+                                <div class="slide-overlay">
+                                    <i class="bi bi-play-circle-fill"></i>
+                                </div>
+                            </div>
+                            <div class="slide-content">
+                                <span class="slide-label">Training</span>
+                                <h3 class="slide-title">Hands-on Workshops</h3>
+                                <p class="slide-description">Practical skills and industry-ready engineering solutions designed for real-world applications.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Slide 4 -->
-                    <div class="swiper-slide">
-                        <div class="happening-slide-card">
-                            <img src="{% static 'abtapp/images/ba4.png' %}" alt="National Conferences" />
-                            <div class="happening-slide-overlay">
-                                <h3 class="happening-slide-title">National Conferences</h3>
-                                <p class="happening-slide-desc">Showcasing student projects &amp; academic excellence</p>
+                    <div class="happening-slide-item">
+                        <div class="slide-card">
+                            <div class="slide-image-wrapper">
+                                <img src="{% static 'abtapp/images/rese2.png' %}" alt="National Conferences" class="slide-image" />
+                                <div class="slide-overlay">
+                                    <i class="bi bi-play-circle-fill"></i>
+                                </div>
+                            </div>
+                            <div class="slide-content">
+                                <span class="slide-label">Conferences</span>
+                                <h3 class="slide-title">National Conferences</h3>
+                                <p class="slide-description">Showcasing student projects and academic excellence at prestigious national platforms.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Navigation Buttons -->
+                <button class="slider-nav-btn slider-prev-btn" id="slideShowPrevBtn" aria-label="Previous">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <button class="slider-nav-btn slider-next-btn" id="slideShowNextBtn" aria-label="Next">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+
+                <!-- Slide Indicators -->
+                <div class="slide-indicators">
+                    <button class="indicator-dot active" data-slide="0" aria-label="Slide 1"></button>
+                    <button class="indicator-dot" data-slide="1" aria-label="Slide 2"></button>
+                    <button class="indicator-dot" data-slide="2" aria-label="Slide 3"></button>
+                    <button class="indicator-dot" data-slide="3" aria-label="Slide 4"></button>
+                </div>
+            </div>
+
+            <!-- View All Button -->
+            <div class="happening-cta-wrapper">
+                <a href="{% url 'gallery' %}" class="happening-cta-btn">
+                    <span>Explore All Events</span>
+                    <i class="bi bi-arrow-right"></i>
+                </a>
             </div>
         </div>
-
-        <!-- Explore More Button -->
-        <!-- <div class="text-center mt-4 pt-2">
-            <a href="{% url 'gallery' %}" class="happening-explore-btn">
-                Explore more <i class="bi bi-arrow-right"></i>
-            </a>
-        </div> -->
-    </div>
-</section>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        if (typeof Swiper !== 'undefined') {
-            new Swiper('.happening-swiper', {
-                slidesPerView: 'auto',
-                centeredSlides: true,
-                spaceBetween: 0,
-                loop: true,
-                autoplay: {
-                    delay: 4000,
-                    disableOnInteraction: false,
-                },
-                navigation: {
-                    nextEl: '#happeningNextBtn',
-                    prevEl: '#happeningPrevBtn',
-                },
-            });
-        }
-    });
-</script>
-
-<section class="about-section " style="padding-top: 3rem; padding-bottom: 0 !important;">
-    
-    <div class="about-layout container " style="margin-bottom: 0; padding-bottom: 0 ;">
         
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slidesWrapper = document.querySelector('.happening-slides-wrapper');
+            const slides = document.querySelectorAll('.happening-slide-item');
+            const prevBtn = document.getElementById('slideShowPrevBtn');
+            const nextBtn = document.getElementById('slideShowNextBtn');
+            const indicators = document.querySelectorAll('.indicator-dot');
+            
+            let currentSlide = 0;
+            let autoplayInterval;
+            
+            const showSlide = (n) => {
+                const isDesktop = window.innerWidth > 768;
+                const maxIndex = isDesktop ? slides.length - 2 : slides.length - 1;
+
+                if (n > maxIndex) currentSlide = 0;
+                else if (n < 0) currentSlide = maxIndex;
+                else currentSlide = n;
+
+                if (isDesktop) {
+                    slidesWrapper.style.transform = `translateX(calc(-${currentSlide * 50}% - ${currentSlide * 0.625}rem))`;
+                } else {
+                    slidesWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+                }
+
+                indicators.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            };
+
+            const nextSlide = () => {
+                currentSlide++;
+                showSlide(currentSlide);
+                resetAutoplay();
+            };
+
+            const prevSlide = () => {
+                currentSlide--;
+                showSlide(currentSlide);
+                resetAutoplay();
+            };
+
+            const autoplay = () => {
+                autoplayInterval = setInterval(nextSlide, 5000);
+            };
+
+            const resetAutoplay = () => {
+                clearInterval(autoplayInterval);
+                autoplay();
+            };
+
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+
+            indicators.forEach((dot) => {
+                dot.addEventListener('click', (e) => {
+                    currentSlide = parseInt(e.target.dataset.slide);
+                    showSlide(currentSlide);
+                    resetAutoplay();
+                });
+            });
+
+            window.addEventListener('resize', () => showSlide(currentSlide));
+
+            showSlide(currentSlide);
+            autoplay();
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+
+<section class="about-section " style="padding-top: 0; padding-bottom: 0 !important;">
+
+    <div class="about-layout container " style="margin-bottom: 0; padding-bottom: 0 ;">
+
         <div class="row align-items-center justify-content-center" style="margin-bottom: 0;">
             <div class="col-md-7 text-center d-flex flex-column justify-content-center align-items-center py-5">
-        <div class="about-all-text ">
-            <h2 class="section-title"><span class="about-word">About</span> <span class="company-name">Us</span></h2>
-            <p>AB Technologies is an organization that primarily deals with developing research concepts and real time projects. AB Technologies is specialized in guiding the students to develop engineering projects with real time applications. AB Technologies assists the research scholars and mentor them in understanding the concepts, ideas and also support them in writing and publishing their research works in reputed journals of different standards such as UGC, Scopus indexed and SCI indexed journals. The organization is well versed in assisting Synopsis and Thesis development.</p>
+                <div class="about-all-text ">
+                    <h2 class="section-title"><span class="about-word">About</span> <span class="company-name">Us</span>
+                    </h2>
+                    <p>AB Technologies is an organization that primarily deals with developing research concepts and
+                        real time projects. AB Technologies is specialized in guiding the students to develop
+                        engineering projects with real time applications. AB Technologies assists the research scholars
+                        and mentor them in understanding the concepts, ideas and also support them in writing and
+                        publishing their research works in reputed journals of different standards such as UGC, Scopus
+                        indexed and SCI indexed journals. The organization is well versed in assisting Synopsis and
+                        Thesis development.</p>
 
-            <p>AB Technologies is also involved in conducting Training, Internship and Courses in various disciplines like Embedded Systems, Internet of Things (IoT), Robotics &amp; Automation, Artificial Intelligence, Matlab, PCB, CAD design, Python, Java, VLSI, ANSYS, Antenna Design, Web Development, Game Development, Computer Hardware &amp; Software, Database Management and networking.</p>
+                    <p>AB Technologies is also involved in conducting Training, Internship and Courses in various
+                        disciplines like Embedded Systems, Internet of Things (IoT), Robotics &amp; Automation,
+                        Artificial Intelligence, Matlab, PCB, CAD design, Python, Java, VLSI, ANSYS, Antenna Design, Web
+                        Development, Game Development, Computer Hardware &amp; Software, Database Management and
+                        networking.</p>
 
-            <p>AB Technologies is experienced in the preparation of proposals and in the implementation of engineering oriented funded projects. AB Technologies is skilled and engaged in the manufacturing of Lab Equipment. AB Technologies is well known for conducting various workshops, value added courses, trainings, and Guest Lecture Programs, National and International conferences in various colleges across India.<br><b>Click Here for Office Profile :</b> <a href="#" class="btn" style="background-color: #0b57af;font-weight: 900;text-align: center;text-indent: 0;padding: 5px 15px;color:#ffffff">Click</a></p>
-            
+                    <p>AB Technologies is experienced in the preparation of proposals and in the implementation of
+                        engineering oriented funded projects. AB Technologies is skilled and engaged in the
+                        manufacturing of Lab Equipment. AB Technologies is well known for conducting various workshops,
+                        value added courses, trainings, and Guest Lecture Programs, National and International
+                        conferences in various colleges across India.<br><b>Click Here for Office Profile :</b> <a
+                            href="#" class="btn"
+                            style="background-color: #0b57af;font-weight: 900;text-align: center;text-indent: 0;padding: 5px 15px;color:#ffffff">Click</a>
+                    </p>
+
+                </div>
+            </div>
+            <div class="col-md-5 d-flex justify-content-end align-items-end p-0 m-0">
+                <img src="{% static 'abtapp/images/about.png' %}" alt="About AB Technologies"
+                    class="img-fluid d-block m-0 p-0" loading="lazy" decoding="async"
+                    style="margin-bottom: 0 !important; padding-bottom: 0 !important; display: block; width: 100%; max-width: 500px; height: auto;" />
+            </div>
         </div>
-</div>
-        <div class="col-md-5 d-flex justify-content-end align-items-end p-0 m-0">
-        <img src="{% static 'abtapp/images/about.png' %}" alt="About AB Technologies" class="img-fluid d-block m-0 p-0" loading="lazy" decoding="async" style="margin-bottom: 0 !important; padding-bottom: 0 !important; display: block; width: 100%; max-width: 500px; height: auto;" />
-    </div>
-    </div>
     </div>
 
 </section>
@@ -223,45 +286,41 @@
             <div class="col-md-6">
                 <div class="vision-content">
                     <div class="vision-block">
-                        <!-- <div class="vision-icon-badge">
-                            <i class="bi bi-eye-fill"></i>
-                        </div> -->
                         <h3 class="vision-heading">VISION</h3>
-                        <p class="vision-text">To mentor and guide in research and development of innovative ideas and to give efficient training to the students in various domains of engineering.</p>
+                        <p class="vision-text">To mentor and guide in research and development of innovative ideas and
+                            to give efficient training to the students in various domains of engineering.</p>
                     </div>
-                   
+
                 </div>
-                
+
             </div>
             <!-- Right Column - Content -->
             <div class="col-md-6">
-                 <div class="mission-block">
-                        <!-- <div class="vision-icon-badge mission-badge">
-                            <i class="bi bi-bullseye"></i>
-                        </div> -->
-                        <h3 class="mission-heading">MISSION</h3>
-                        <p class="vision-text">To unfold creative engineering thoughts into meaningful products that contribute to the society positively.</p>
-                    </div>
+                <div class="mission-block">
+                    <h3 class="mission-heading">MISSION</h3>
+                    <p class="vision-text">To unfold creative engineering thoughts into meaningful products that
+                        contribute to the society positively.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="directors-section">
+<section class="directors-section ">
     <div class="directors-container">
         <!-- Section Title -->
         <div class="directors-header">
             <h2 class="directors-title">
-                Meet Our <span class="gradient-text">Directors</span>
+               <span class="about-word">Meet Our </span>  <span class="gradient-text">Directors</span>
             </h2>
             <p class="directors-subtitle">Visionary leaders driving innovation and excellence</p>
         </div>
-        
-        <!-- Directors 2-Column Layout -->
+
+        <!-- Directors 2-Row Layout -->
         <div class="directors-grid">
-            
+
             <!-- Director 1 - Dr. K.S. Kavin -->
-            <div class="director-card">
+            <div class="director-card director-card-1">
                 <div class="director-image">
                     <img src="{% static 'abtapp/images/KAVIN K S.jpeg' %}" alt="Dr. K.S. Kavin" />
                 </div>
@@ -274,18 +333,21 @@
                         <span class="tag">IoT</span>
                     </div>
                     <p class="director-bio text-justify">
-Dr. K.S. Kavin is one of the Directors of AB Technologies. He has over three years of teaching experience as an Assistant Professor and more than 12 years of industrial experience as an R&D Engineer in the field of Power Electronics, Artificial Intelligence and IoT. He earned his Ph.D. with research focused on grid-tied electric vehicles without an energy storage system. As a Director, he plays a key role in managing the organization and guiding its strategic decisions. Dr. K.S. Kavin is also an accomplished researcher with more than 75 publications in reputed national and international journals across various engineering disciplines. He is the inventor and patent holder of the novel "KSK Converter," a converter named after him in recognition of his contribution. He can be contacted at <b> kavinksk@gmail.com. </b>
+                        Dr. K.S. Kavin is one of the Directors of AB Technologies. He has over three years of teaching
+                        experience as an Assistant Professor and more than 12 years of industrial experience as an R&D
+                        Engineer in the field of Power Electronics, Artificial Intelligence and IoT. He earned his Ph.D.
+                        with research focused on grid-tied electric vehicles without an energy storage system. As a
+                        Director, he plays a key role in managing the organization and guiding its strategic decisions.
+                        Dr. K.S. Kavin is also an accomplished researcher with more than 75 publications in reputed
+                        national and international journals across various engineering disciplines. He is the inventor
+                        and patent holder of the novel "KSK Converter," a converter named after him in recognition of
+                        his contribution. He can be contacted at <b> kavinksk@gmail.com. </b>
                     </p>
-                    <!-- <div class="director-contact">
-                        <a href="mailto:kavinksk@gmail.com" class="contact-link">
-                            <i class="bi bi-envelope"></i> Contact
-                        </a>
-                    </div> -->
                 </div>
             </div>
 
             <!-- Director 2 - Er. A.T.R. Krishna Priya -->
-            <div class="director-card">
+            <div class="director-card director-card-2">
                 <div class="director-image">
                     <img src="{% static 'abtapp/images/KRISHNA PRIYA A T R.png' %}" alt="Er. A.T.R. Krishna Priya" />
                 </div>
@@ -297,30 +359,349 @@ Dr. K.S. Kavin is one of the Directors of AB Technologies. He has over three yea
                         <span class="tag">Deep Learning</span>
                         <span class="tag">Medical AI</span>
                     </div>
-                    <p class="director-bio ">
-Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a Master's degree in Computer Science and Engineering from Anna University. Her areas of specialization include Machine Learning and Deep Learning, with a focus on medical image processing applications. She has published more than 25 research papers in reputed national and international journals and conference proceedings. As a Director, she actively oversees the organization's administrative functions and is dedicated to driving its growth, innovation, and overall development. She can be contacted at<b> priya.gita6@gmail.com</b>
+                    <p class="director-bio">
+                        Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a Master's degree
+                        in Computer Science and Engineering from Anna University. Her areas of specialization include
+                        Machine Learning and Deep Learning, with a focus on medical image processing applications. She
+                        has published more than 25 research papers in reputed national and international journals and
+                        conference proceedings. As a Director, she actively oversees the organization's administrative
+                        functions and is dedicated to driving its growth, innovation, and overall development. She can
+                        be contacted at <b>priya.gita6@gmail.com</b>
                     </p>
-                    <!-- <div class="director-contact">
-                        <a href="mailto:priya.gita6@gmail.com" class="contact-link">
-                            <i class="bi bi-envelope"></i> Contact
-                        </a>
-                    </div> -->
                 </div>
             </div>
-            
+
         </div>
-        
+
         <!-- Our Visiting Card Button -->
         <div class="text-center mt-5">
-            <button class="btn btn-lg" id="visitingCardBtn" style="font-size: 16px; padding: 12px 30px; background-color: #0b57af;color:#ffffff; font-weight:700;">
+            <button class="btn btn-lg" id="visitingCardBtn"
+                style="font-size: 16px; padding: 12px 30px; background-color: #0b57af;color:#ffffff; font-weight:700;">
                 <i class="bi bi-card-text"></i> Our Visiting Card
             </button>
         </div>
     </div>
 </section>
 
+<!-- ============== REVIEWS SECTION ============== -->
+<section class="reviews-section">
+    <div class="reviews-container">
+        <!-- Section Header -->
+        <div class="reviews-header">
+            <h2 class="reviews-title">
+                <span class="about-word">What Our </span><span class="gradient-text">Clients Say</span>
+            </h2>
+            <p class="reviews-subtitle">Trusted by students and institutions worldwide</p>
+        </div>
+
+        <!-- Reviews Slider Wrapper -->
+        <div class="reviews-slider-wrapper position-relative">
+            <!-- Navigation Buttons -->
+            <button class="reviews-nav-btn reviews-prev-btn" id="reviewsPrevBtn" aria-label="Previous">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="reviews-nav-btn reviews-next-btn" id="reviewsNextBtn" aria-label="Next">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+
+            <!-- Swiper Slider -->
+            <div class="swiper reviews-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 - 4 Reviews -->
+                    <div class="swiper-slide">
+                        <div class="reviews-slide-grid">
+                            <!-- Review 1 -->
+                            <div class="review-card">
+                                <div class="review-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="review-text">"AB Technologies helped me complete my research paper with exceptional guidance. The team was incredibly supportive throughout my journey."</p>
+                                <div class="review-author">
+                                    <div class="author-avatar">
+                                        <i class="bi bi-person-circle"></i>
+                                    </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Tajbul Hassaan Rafi</h4>
+                                        <p class="author-institution">Concordia University</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review 2 -->
+                            <div class="review-card">
+                                <div class="review-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="review-text">"Alhamdulillah, got my visa within a week. AB Technologies helped me throughout my visa application. Highly recommended!"</p>
+                                <div class="review-author">
+                                    <div class="author-avatar">
+                                        <i class="bi bi-person-circle"></i>
+                                    </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Yasmin Hossain Lion</h4>
+                                        <p class="author-institution">University of Windsor</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review 3 -->
+                            <div class="review-card">
+                                <div class="review-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="review-text">"Outstanding service! AB Technologies provided me with comprehensive project guidance and industry insights that shaped my career."</p>
+                                <div class="review-author">
+                                    <div class="author-avatar">
+                                        <i class="bi bi-person-circle"></i>
+                                    </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Ahmed Hassan</h4>
+                                        <p class="author-institution">MIT - Massachusetts</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review 4 -->
+                            <div class="review-card">
+                                <div class="review-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="review-text">"The training programs at AB Technologies are world-class. I gained practical skills that directly helped me land my dream job."</p>
+                                <div class="review-author">
+                                    <div class="author-avatar">
+                                        <i class="bi bi-person-circle"></i>
+                                    </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Priya Sharma</h4>
+                                        <p class="author-institution">Stanford University</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 - 4 More Reviews -->
+                    <div class="swiper-slide">
+                        <div class="reviews-slide-grid">
+                            <!-- Review 5 -->
+                            <div class="review-card">
+                                <div class="review-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="review-text">"Exceptional guidance on research publication. AB Technologies team helped me get my paper accepted in a top-tier journal."</p>
+                                <div class="review-author">
+                                    <div class="author-avatar">
+                                        <i class="bi bi-person-circle"></i>
+                                    </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Rahul Kumar</h4>
+                                        <p class="author-institution">IIT Delhi</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review 6 -->
+                            <div class="review-card">
+                                <div class="review-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="review-text">"Best investment in my career development. The courses are comprehensive and the mentors are incredibly knowledgeable."</p>
+                                <div class="review-author">
+                                    <div class="author-avatar">
+                                        <i class="bi bi-person-circle"></i>
+                                    </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Neha Verma</h4>
+                                        <p class="author-institution">NIT Trichy</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review 7 -->
+                            <div class="review-card">
+                                <div class="review-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="review-text">"Incredible support for my industrial project. AB Technologies provided valuable insights that made my project stand out."</p>
+                                <div class="review-author">
+                                    <div class="author-avatar">
+                                        <i class="bi bi-person-circle"></i>
+                                    </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Vikram Singh</h4>
+                                        <p class="author-institution">Delhi University</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review 8 -->
+                            <div class="review-card">
+                                <div class="review-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="review-text">"Professional and dedicated team. AB Technologies made my thesis writing process smooth and enjoyable. Highly recommended!"</p>
+                                <div class="review-author">
+                                    <div class="author-avatar">
+                                        <i class="bi bi-person-circle"></i>
+                                    </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Anjali Patel</h4>
+                                        <p class="author-institution">Anna University</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 - 4 More Reviews -->
+                    <div class="swiper-slide">
+                        <div class="reviews-slide-grid">
+                            <!-- Review 9 -->
+                            <div class="review-card">
+                                <div class="review-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="review-text">"Amazing workshops and seminars. The practical knowledge I gained has been invaluable in my professional journey."</p>
+                                <div class="review-author">
+                                    <div class="author-avatar">
+                                        <i class="bi bi-person-circle"></i>
+                                    </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Sanjay Kumar</h4>
+                                        <p class="author-institution">Bangalore University</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review 10 -->
+                            <div class="review-card">
+                                <div class="review-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="review-text">"Great mentorship program! The guidance I received helped me make informed decisions about my career path."</p>
+                                <div class="review-author">
+                                    <div class="author-avatar">
+                                        <i class="bi bi-person-circle"></i>
+                                    </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Deepika Singh</h4>
+                                        <p class="author-institution">Pune Institute</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review 11 -->
+                            <div class="review-card">
+                                <div class="review-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="review-text">"Excellent resource library and documentation. AB Technologies makes learning accessible and comprehensive for everyone."</p>
+                                <div class="review-author">
+                                    <div class="author-avatar">
+                                        <i class="bi bi-person-circle"></i>
+                                    </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Arjun Nair</h4>
+                                        <p class="author-institution">Cochin University</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review 12 -->
+                            <div class="review-card">
+                                <div class="review-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="review-text">"Outstanding customer service and support. AB Technologies truly cares about their students' success and growth."</p>
+                                <div class="review-author">
+                                    <div class="author-avatar">
+                                        <i class="bi bi-person-circle"></i>
+                                    </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Meera Nath</h4>
+                                        <p class="author-institution">VIT University</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof Swiper !== 'undefined') {
+            new Swiper('.reviews-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: '#reviewsNextBtn',
+                    prevEl: '#reviewsPrevBtn',
+                },
+            });
+        }
+    });
+</script>
+
 <!-- Modal 1: Branch Selection -->
-<div class="modal fade" id="branchSelectionModal" tabindex="-1" aria-labelledby="branchSelectionLabel" aria-hidden="true">
+<div class="modal fade" id="branchSelectionModal" tabindex="-1" aria-labelledby="branchSelectionLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header bg-light ">
@@ -328,25 +709,34 @@ Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" style="padding: 0; text-align: center;">
-                
-                <ul class="nav nav-tabs justify-content-center" id="branchTabs" role="tablist" style="border-bottom: 2px solid #dee2e6;">
+
+                <ul class="nav nav-tabs justify-content-center" id="branchTabs" role="tablist"
+                    style="border-bottom: 2px solid #dee2e6;">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="nagercoil-tab" data-bs-toggle="tab" data-bs-target="#nagercoil" type="button" role="tab" aria-controls="nagercoil" aria-selected="true" onclick="switchBranch(1, 'NAGERCOIL')">
+                        <button class="nav-link active" id="nagercoil-tab" data-bs-toggle="tab"
+                            data-bs-target="#nagercoil" type="button" role="tab" aria-controls="nagercoil"
+                            aria-selected="true" onclick="switchBranch(1, 'NAGERCOIL')">
                             NAGERCOIL
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tirunelveli-tab" data-bs-toggle="tab" data-bs-target="#tirunelveli" type="button" role="tab" aria-controls="tirunelveli" aria-selected="false" onclick="switchBranch(2, 'TIRUNELVELI')">
+                        <button class="nav-link" id="tirunelveli-tab" data-bs-toggle="tab" data-bs-target="#tirunelveli"
+                            type="button" role="tab" aria-controls="tirunelveli" aria-selected="false"
+                            onclick="switchBranch(2, 'TIRUNELVELI')">
                             TIRUNELVELI
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="chennai-tab" data-bs-toggle="tab" data-bs-target="#chennai" type="button" role="tab" aria-controls="chennai" aria-selected="false" onclick="switchBranch(3, 'CHENNAI')">
+                        <button class="nav-link" id="chennai-tab" data-bs-toggle="tab" data-bs-target="#chennai"
+                            type="button" role="tab" aria-controls="chennai" aria-selected="false"
+                            onclick="switchBranch(3, 'CHENNAI')">
                             CHENNAI
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pudukottai-tab" data-bs-toggle="tab" data-bs-target="#pudukottai" type="button" role="tab" aria-controls="pudukottai" aria-selected="false" onclick="switchBranch(4, 'PUDUKOTTAI')">
+                        <button class="nav-link" id="pudukottai-tab" data-bs-toggle="tab" data-bs-target="#pudukottai"
+                            type="button" role="tab" aria-controls="pudukottai" aria-selected="false"
+                            onclick="switchBranch(4, 'PUDUKOTTAI')">
                             PUDUKOTTAI
                         </button>
                     </li>
@@ -355,16 +745,23 @@ Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a
                 <!-- Tab Content -->
                 <div class="tab-content" id="branchTabContent" style="padding: 30px;">
                     <!-- NAGERCOIL Tab -->
-                    <div class="tab-pane fade show active" id="nagercoil" role="tabpanel" aria-labelledby="nagercoil-tab">
-                        <div id="cardContainer" style="perspective: 1000px; min-height: 400px; display: flex; align-items: center; justify-content: center;">
-                            <div id="flipCard" class="flip-card" style="width: 100%; height: 400px; position: relative; transition: transform 0.6s; transform-style: preserve-3d;">
+                    <div class="tab-pane fade show active" id="nagercoil" role="tabpanel"
+                        aria-labelledby="nagercoil-tab">
+                        <div id="cardContainer"
+                            style="perspective: 1000px; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                            <div id="flipCard" class="flip-card"
+                                style="width: 100%; height: 400px; position: relative; transition: transform 0.6s; transform-style: preserve-3d;">
                                 <!-- Front of Card -->
-                                <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden;color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(0deg);background-color: #dee2e6;">
-                                    <img id="cardImage4" src="{% static 'abtapp/images/4.png' %}" alt="Visiting Card" style="width: 100%; height: 100%; object-fit: contain ; border-radius: 8px;">
+                                <div class="flip-card-front"
+                                    style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden;color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(0deg);background-color: #dee2e6;">
+                                    <img id="cardImage4" src="{% static 'abtapp/images/4.png' %}" alt="Visiting Card"
+                                        style="width: 100%; height: 100%; object-fit: contain ; border-radius: 8px;">
                                 </div>
                                 <!-- Back of Card -->
-                                <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg); backface-visibility: hidden;background-color: #dee2e6;">
-                                    <img src="{% static 'abtapp/images/5.png' %}" alt="Card Back" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
+                                <div class="flip-card-back"
+                                    style="position: absolute; width: 100%; height: 100%;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg); backface-visibility: hidden;background-color: #dee2e6;">
+                                    <img src="{% static 'abtapp/images/5.png' %}" alt="Card Back"
+                                        style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
                                 </div>
                             </div>
                         </div>
@@ -379,13 +776,19 @@ Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a
 
                     <!-- TIRUNELVELI Tab -->
                     <div class="tab-pane fade" id="tirunelveli" role="tabpanel" aria-labelledby="tirunelveli-tab">
-                        <div id="cardContainer2" style="perspective: 1000px; min-height: 400px; display: flex; align-items: center; justify-content: center;">
-                            <div id="flipCard2" class="flip-card" style="width: 100%; height: 400px; position: relative; transition: transform 0.6s; transform-style: preserve-3d;">
-                                <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(0deg);background-color: #dee2e6;">
-                                    <img id="cardImage2" src="{% static 'abtapp/images/2.png' %}" alt="Visiting Card" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
+                        <div id="cardContainer2"
+                            style="perspective: 1000px; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                            <div id="flipCard2" class="flip-card"
+                                style="width: 100%; height: 400px; position: relative; transition: transform 0.6s; transform-style: preserve-3d;">
+                                <div class="flip-card-front"
+                                    style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(0deg);background-color: #dee2e6;">
+                                    <img id="cardImage2" src="{% static 'abtapp/images/2.png' %}" alt="Visiting Card"
+                                        style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
                                 </div>
-                                <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg); backface-visibility: hidden;background-color: #dee2e6;">
-                                    <img src="{% static 'abtapp/images/5.png' %}" alt="Card Back" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
+                                <div class="flip-card-back"
+                                    style="position: absolute; width: 100%; height: 100%;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg); backface-visibility: hidden;background-color: #dee2e6;">
+                                    <img src="{% static 'abtapp/images/5.png' %}" alt="Card Back"
+                                        style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
                                 </div>
                             </div>
                         </div>
@@ -398,13 +801,19 @@ Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a
 
                     <!-- CHENNAI Tab -->
                     <div class="tab-pane fade" id="chennai" role="tabpanel" aria-labelledby="chennai-tab">
-                        <div id="cardContainer3" style="perspective: 1000px; min-height: 400px; display: flex; align-items: center; justify-content: center;">
-                            <div id="flipCard3" class="flip-card" style="width: 100%; height: 400px; position: relative; transition: transform 0.6s; transform-style: preserve-3d;">
-                                <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(0deg);background-color: #dee2e6;">
-                                    <img id="cardImage" src="{% static 'abtapp/images/1.png' %}" alt="Visiting Card" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
+                        <div id="cardContainer3"
+                            style="perspective: 1000px; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                            <div id="flipCard3" class="flip-card"
+                                style="width: 100%; height: 400px; position: relative; transition: transform 0.6s; transform-style: preserve-3d;">
+                                <div class="flip-card-front"
+                                    style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(0deg);background-color: #dee2e6;">
+                                    <img id="cardImage" src="{% static 'abtapp/images/1.png' %}" alt="Visiting Card"
+                                        style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
                                 </div>
-                                <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg); backface-visibility: hidden;background-color: #dee2e6;">
-                                    <img src="{% static 'abtapp/images/5.png' %}" alt="Card Back" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
+                                <div class="flip-card-back"
+                                    style="position: absolute; width: 100%; height: 100%;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg); backface-visibility: hidden;background-color: #dee2e6;">
+                                    <img src="{% static 'abtapp/images/5.png' %}" alt="Card Back"
+                                        style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
                                 </div>
                             </div>
                         </div>
@@ -417,13 +826,19 @@ Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a
 
                     <!-- PUDUKOTTAI Tab -->
                     <div class="tab-pane fade" id="pudukottai" role="tabpanel" aria-labelledby="pudukottai-tab">
-                        <div id="cardContainer4" style="perspective: 1000px; min-height: 400px; display: flex; align-items: center; justify-content: center;">
-                            <div id="flipCard4" class="flip-card" style="width: 100%; height: 400px; position: relative; transition: transform 0.6s; transform-style: preserve-3d;">
-                                <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(0deg);background-color: #dee2e6;">
-                                    <img id="cardImage4" src="{% static 'abtapp/images/2.png' %}" alt="Visiting Card" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
+                        <div id="cardContainer4"
+                            style="perspective: 1000px; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                            <div id="flipCard4" class="flip-card"
+                                style="width: 100%; height: 400px; position: relative; transition: transform 0.6s; transform-style: preserve-3d;">
+                                <div class="flip-card-front"
+                                    style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(0deg);background-color: #dee2e6;">
+                                    <img id="cardImage4" src="{% static 'abtapp/images/2.png' %}" alt="Visiting Card"
+                                        style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
                                 </div>
-                                <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg); backface-visibility: hidden;background-color: #dee2e6;">
-                                    <img src="{% static 'abtapp/images/5.png' %}" alt="Card Back" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
+                                <div class="flip-card-back"
+                                    style="position: absolute; width: 100%; height: 100%;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg); backface-visibility: hidden;background-color: #dee2e6;">
+                                    <img src="{% static 'abtapp/images/5.png' %}" alt="Card Back"
+                                        style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
                                 </div>
                             </div>
                         </div>
@@ -449,14 +864,19 @@ Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a
             </div>
             <div class="modal-body">
                 <!-- Card Container -->
-                <div id="cardContainer" style="perspective: 1000px; min-height: 400px; display: flex; align-items: center; justify-content: center;">
-                    <div id="flipCard" class="flip-card" style="width: 100%; height: 400px; position: relative; transition: transform 0.6s;">
+                <div id="cardContainer"
+                    style="perspective: 1000px; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                    <div id="flipCard" class="flip-card"
+                        style="width: 100%; height: 400px; position: relative; transition: transform 0.6s;">
                         <!-- Front of Card -->
-                        <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px;">
-                            <img id="cardImage" src="{% static 'abtapp/images/1.png' %}" alt="Visiting Card" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
+                        <div class="flip-card-front"
+                            style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden;  color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; padding: 20px;">
+                            <img id="cardImage" src="{% static 'abtapp/images/1.png' %}" alt="Visiting Card"
+                                style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
                         </div>
                         <!-- Back of Card -->
-                        <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden;  color: rgb(19, 18, 18); display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg);">
+                        <div class="flip-card-back"
+                            style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden;  color: rgb(19, 18, 18); display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 8px; padding: 20px; transform: rotateY(180deg);">
                             <h4>AB Technologies</h4>
                             <p style="text-align: center; margin-top: 10px;">Innovation & Excellence</p>
                             <p style="margin-top: 20px; font-size: 0.9rem;">Swipe to flip</p>
@@ -484,7 +904,8 @@ Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="backToBranchSelection()">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    onclick="backToBranchSelection()">
                     <i class="bi bi-arrow-left"></i> Back
                 </button>
             </div>
@@ -493,155 +914,155 @@ Er. A.T.R. Krishna Priya is one of the Directors of AB Technologies. She holds a
 </div>
 
 <script>
-let currentBranch = 1;
-let currentCardIndex = 0;
-let isFlipped = false;
-let isFlipped2 = false;
-let isFlipped3 = false;
-let isFlipped4 = false;
-let branchSelectionModal;
-let visitingCardModal;
+    let currentBranch = 1;
+    let currentCardIndex = 0;
+    let isFlipped = false;
+    let isFlipped2 = false;
+    let isFlipped3 = false;
+    let isFlipped4 = false;
+    let branchSelectionModal;
+    let visitingCardModal;
 
-const branches = {
-    1: 'NAGERCOIL',
-    2: 'TIRUNELVELI',
-    3: 'CHENNAI',
-    4: 'PUDUKOTTAI'
-};
+    const branches = {
+        1: 'NAGERCOIL',
+        2: 'TIRUNELVELI',
+        3: 'CHENNAI',
+        4: 'PUDUKOTTAI'
+    };
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize modals
-    branchSelectionModal = new bootstrap.Modal(document.getElementById('branchSelectionModal'));
-    visitingCardModal = new bootstrap.Modal(document.getElementById('visitingCardModal'));
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize modals
+        branchSelectionModal = new bootstrap.Modal(document.getElementById('branchSelectionModal'));
+        visitingCardModal = new bootstrap.Modal(document.getElementById('visitingCardModal'));
 
-    // Open Branch Selection Modal
-    const visitingCardBtn = document.getElementById('visitingCardBtn');
-    if (visitingCardBtn) {
-        visitingCardBtn.addEventListener('click', function() {
-            branchSelectionModal.show();
-        });
+        // Open Branch Selection Modal
+        const visitingCardBtn = document.getElementById('visitingCardBtn');
+        if (visitingCardBtn) {
+            visitingCardBtn.addEventListener('click', function () {
+                branchSelectionModal.show();
+            });
+        }
+    });
+
+    // Switch Branch Function
+    function switchBranch(branchNum, branchNameText) {
+        currentBranch = branchNum;
+        // Reset all flip states
+        isFlipped = false;
+        isFlipped2 = false;
+        isFlipped3 = false;
+        isFlipped4 = false;
+
+        // Reset all card flips
+        resetCardFlip();
+        if (document.getElementById('flipCard2')) {
+            document.getElementById('flipCard2').style.transform = 'rotateY(0deg)';
+        }
+        if (document.getElementById('flipCard3')) {
+            document.getElementById('flipCard3').style.transform = 'rotateY(0deg)';
+        }
+        if (document.getElementById('flipCard4')) {
+            document.getElementById('flipCard4').style.transform = 'rotateY(0deg)';
+        }
     }
-});
 
-// Switch Branch Function
-function switchBranch(branchNum, branchNameText) {
-    currentBranch = branchNum;
-    // Reset all flip states
-    isFlipped = false;
-    isFlipped2 = false;
-    isFlipped3 = false;
-    isFlipped4 = false;
-    
-    // Reset all card flips
-    resetCardFlip();
-    if (document.getElementById('flipCard2')) {
-        document.getElementById('flipCard2').style.transform = 'rotateY(0deg)';
+    // Flip Card Function for Branch 1 (NAGERCOIL)
+    function flipCard() {
+        const flipCard = document.getElementById('flipCard');
+        if (!flipCard) return;
+        isFlipped = !isFlipped;
+        flipCard.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
     }
-    if (document.getElementById('flipCard3')) {
-        document.getElementById('flipCard3').style.transform = 'rotateY(0deg)';
+
+    // Flip Card Function for Branch 2 (TIRUNELVELI)
+    function flipCard2() {
+        const flipCard = document.getElementById('flipCard2');
+        if (!flipCard) return;
+        isFlipped2 = !isFlipped2;
+        flipCard.style.transform = isFlipped2 ? 'rotateY(180deg)' : 'rotateY(0deg)';
     }
-    if (document.getElementById('flipCard4')) {
-        document.getElementById('flipCard4').style.transform = 'rotateY(0deg)';
+
+    // Flip Card Function for Branch 3 (CHENNAI)
+    function flipCard3() {
+        const flipCard = document.getElementById('flipCard3');
+        if (!flipCard) return;
+        isFlipped3 = !isFlipped3;
+        flipCard.style.transform = isFlipped3 ? 'rotateY(180deg)' : 'rotateY(0deg)';
     }
-}
 
-// Flip Card Function for Branch 1 (NAGERCOIL)
-function flipCard() {
-    const flipCard = document.getElementById('flipCard');
-    if (!flipCard) return;
-    isFlipped = !isFlipped;
-    flipCard.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
-}
-
-// Flip Card Function for Branch 2 (TIRUNELVELI)
-function flipCard2() {
-    const flipCard = document.getElementById('flipCard2');
-    if (!flipCard) return;
-    isFlipped2 = !isFlipped2;
-    flipCard.style.transform = isFlipped2 ? 'rotateY(180deg)' : 'rotateY(0deg)';
-}
-
-// Flip Card Function for Branch 3 (CHENNAI)
-function flipCard3() {
-    const flipCard = document.getElementById('flipCard3');
-    if (!flipCard) return;
-    isFlipped3 = !isFlipped3;
-    flipCard.style.transform = isFlipped3 ? 'rotateY(180deg)' : 'rotateY(0deg)';
-}
-
-// Flip Card Function for Branch 4 (PUDUKOTTAI)
-function flipCard4() {
-    const flipCard = document.getElementById('flipCard4');
-    if (!flipCard) return;
-    isFlipped4 = !isFlipped4;
-    flipCard.style.transform = isFlipped4 ? 'rotateY(180deg)' : 'rotateY(0deg)';
-}
-
-// Previous Card
-function prevCard() {
-    currentCardIndex--;
-    if (currentCardIndex < 1) currentCardIndex = 4;
-    updateCard();
-}
-
-// Next Card
-function nextCard() {
-    currentCardIndex++;
-    if (currentCardIndex > 4) currentCardIndex = 1;
-    updateCard();
-}
-
-// Update Card Display
-function updateCard() {
-    document.getElementById('cardImage').src = '{% static "abtapp/images/" %}' + currentCardIndex + '.png';
-    isFlipped = false;
-    resetCardFlip();
-    updateCardCounter();
-}
-
-// Update Card Counter
-function updateCardCounter() {
-    document.getElementById('cardCounter').textContent = currentCardIndex + ' / 4';
-}
-
-// Reset Card Flip
-function resetCardFlip() {
-    const flipCard = document.getElementById('flipCard');
-    if (flipCard) {
-        flipCard.style.transform = 'rotateY(0deg)';
+    // Flip Card Function for Branch 4 (PUDUKOTTAI)
+    function flipCard4() {
+        const flipCard = document.getElementById('flipCard4');
+        if (!flipCard) return;
+        isFlipped4 = !isFlipped4;
+        flipCard.style.transform = isFlipped4 ? 'rotateY(180deg)' : 'rotateY(0deg)';
     }
-}
 
-// Back to Branch Selection
-function backToBranchSelection() {
-    visitingCardModal.hide();
-    branchSelectionModal.show();
-}
-
-// Open Visiting Card Modal
-function openVisitingCardModal(branchNum) {
-    currentBranch = branchNum;
-    currentCardIndex = branchNum;
-    isFlipped = false;
-    document.getElementById('branchName').textContent = 'Branch ' + branchNum;
-    document.getElementById('cardImage').src = '{% static "abtapp/images/" %}' + branchNum + '.png';
-    updateCardCounter();
-    resetCardFlip();
-    branchSelectionModal.hide();
-    visitingCardModal.show();
-}
-
-// Touch swipe support
-let touchStartX = 0;
-let touchEndX = 0;
-
-function handleSwipe() {
-    if (touchEndX < touchStartX - 50) {
-        nextCard();
+    // Previous Card
+    function prevCard() {
+        currentCardIndex--;
+        if (currentCardIndex < 1) currentCardIndex = 4;
+        updateCard();
     }
-    if (touchEndX > touchStartX + 50) {
-        prevCard();
+
+    // Next Card
+    function nextCard() {
+        currentCardIndex++;
+        if (currentCardIndex > 4) currentCardIndex = 1;
+        updateCard();
     }
-}
+
+    // Update Card Display
+    function updateCard() {
+        document.getElementById('cardImage').src = '{% static "abtapp/images/" %}' + currentCardIndex + '.png';
+        isFlipped = false;
+        resetCardFlip();
+        updateCardCounter();
+    }
+
+    // Update Card Counter
+    function updateCardCounter() {
+        document.getElementById('cardCounter').textContent = currentCardIndex + ' / 4';
+    }
+
+    // Reset Card Flip
+    function resetCardFlip() {
+        const flipCard = document.getElementById('flipCard');
+        if (flipCard) {
+            flipCard.style.transform = 'rotateY(0deg)';
+        }
+    }
+
+    // Back to Branch Selection
+    function backToBranchSelection() {
+        visitingCardModal.hide();
+        branchSelectionModal.show();
+    }
+
+    // Open Visiting Card Modal
+    function openVisitingCardModal(branchNum) {
+        currentBranch = branchNum;
+        currentCardIndex = branchNum;
+        isFlipped = false;
+        document.getElementById('branchName').textContent = 'Branch ' + branchNum;
+        document.getElementById('cardImage').src = '{% static "abtapp/images/" %}' + branchNum + '.png';
+        updateCardCounter();
+        resetCardFlip();
+        branchSelectionModal.hide();
+        visitingCardModal.show();
+    }
+
+    // Touch swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function handleSwipe() {
+        if (touchEndX < touchStartX - 50) {
+            nextCard();
+        }
+        if (touchEndX > touchStartX + 50) {
+            prevCard();
+        }
+    }
 </script>
 {% endblock %}
