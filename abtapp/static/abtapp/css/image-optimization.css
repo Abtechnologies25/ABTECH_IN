@@ -1,0 +1,366 @@
+/**
+ * Image Optimization & Lazy Loading Styles
+ * Blur-up effect, fade-in animations, and responsive optimization
+ */
+
+/* ==================== Blur-Up Effect ==================== */
+
+/* Base lazy image styling */
+img[loading="lazy"],
+.lazy-image {
+    opacity: 0;
+    animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+img[loading="lazy"].lazy-blur {
+    filter: blur(10px);
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loaded image transition */
+img.lazy-loaded {
+    animation: imageLoadComplete 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes imageLoadComplete {
+    from {
+        filter: blur(5px);
+        opacity: 0.7;
+    }
+    to {
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+/* Error state */
+img.lazy-error {
+    opacity: 0.5;
+    background: linear-gradient(45deg, #f0f0f0 25%, #e0e0e0 25%, #e0e0e0 50%, #f0f0f0 50%);
+    background-size: 20px 20px;
+}
+
+/* ==================== Picture Element Styles ==================== */
+
+picture {
+    display: contents;
+}
+
+picture img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ==================== Responsive Image Container ==================== */
+
+.image-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==================== Gallery Optimization ==================== */
+
+.lazy-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.lazy-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.lazy-gallery img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Loading skeleton for gallery */
+.gallery-skeleton {
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 0%,
+        #e0e0e0 50%,
+        #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ==================== Carousel Image Optimization ==================== */
+
+.carousel img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Preload carousel images */
+.carousel [data-slide="1"] img,
+.carousel [data-slide="2"] img,
+.carousel [data-slide="3"] img {
+    loading: eager;
+}
+
+.carousel [data-slide]:not([data-slide="0"]) img {
+    loading: lazy;
+}
+
+/* ==================== Responsive Image Optimization ==================== */
+
+/* Optimize for different screen sizes */
+@media (max-width: 768px) {
+    img[loading="lazy"] {
+        /* Prioritize viewport on mobile */
+        loading: eager;
+    }
+
+    /* Reduce animation for better performance on mobile */
+    .lazy-image {
+        animation: fadeInMobile 0.3s ease-in-out forwards;
+    }
+
+    @keyframes fadeInMobile {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .lazy-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+}
+
+/* ==================== Network-Aware Styling ==================== */
+
+/* Slow connection - reduce quality */
+[data-connection-quality="low"] img,
+[data-connection-quality="low"] picture img {
+    filter: blur(0.5px);
+    opacity: 0.95;
+}
+
+/* Fast connection - higher quality */
+[data-connection-quality="high"] img,
+[data-connection-quality="high"] picture img {
+    image-rendering: high-quality;
+    image-rendering: crisp-edges;
+}
+
+/* ==================== Image Progress Indicator ==================== */
+
+.image-loading-progress {
+    position: relative;
+}
+
+.image-loading-progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0b57af, #38bdf8, #0b57af);
+    background-size: 200% 100%;
+    animation: loadingProgress 2s infinite;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.image-loading-progress.loading::before {
+    opacity: 1;
+}
+
+@keyframes loadingProgress {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ==================== WebP Support Detection ==================== */
+
+/* Use WebP when available */
+.supports-webp {
+    /* Browser supports WebP */
+}
+
+.no-webp {
+    /* Fallback for browsers without WebP support */
+}
+
+/* ==================== Image Transform Optimization ==================== */
+
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.responsive-img[sizes*="100vw"] {
+    width: 100%;
+}
+
+/* ==================== Banner Images ==================== */
+
+.banner-image {
+    width: 100%;
+    height: auto;
+}
+
+.banner-image[loading="lazy"] {
+    background-color: #f0f0f0;
+    min-height: 400px;
+}
+
+/* ==================== Thumbnail Optimization ==================== */
+
+.thumbnail-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.thumbnail-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+/* ==================== Performance: Reduce Motion ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+    img[loading="lazy"],
+    .lazy-image,
+    img.lazy-loaded {
+        animation: none;
+    }
+
+    .thumbnail-wrapper:hover img {
+        transform: none;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+/* ==================== High DPI (Retina) Optimization ==================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Use higher quality images for retina displays */
+    img[loading="lazy"],
+    .lazy-image {
+        image-rendering: high-quality;
+    }
+}
+
+/* ==================== Print Optimization ==================== */
+
+@media print {
+    img[loading="lazy"],
+    .lazy-image {
+        loading: eager;
+    }
+}
+
+/* ==================== Dark Mode ==================== */
+
+@media (prefers-color-scheme: dark) {
+    .gallery-skeleton {
+        background: linear-gradient(
+            90deg,
+            #2a2a2a 0%,
+            #1a1a1a 50%,
+            #2a2a2a 100%
+        );
+    }
+
+    img.lazy-error {
+        background-color: #333;
+    }
+}
+
+/* ==================== Utilities ==================== */
+
+.image-fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.image-zoom-in {
+    animation: zoomIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.image-blur {
+    filter: blur(10px);
+}
+
+.image-brightness {
+    filter: brightness(1.1);
+}
+
+/* Prevent FOUC (Flash of Unstyled Content) */
+img:not([loading="lazy"]) {
+    display: block;
+}
