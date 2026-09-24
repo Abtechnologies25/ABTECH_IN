@@ -296,20 +296,20 @@
         <div class="gallery-filter-wrap" data-aos="fade-up">
             <button class="filter-btn active" onclick="filterCategory('all', this)">All Gallery</button>
             {% for category in categories %}
-                <button class="filter-btn" onclick="filterCategory('cat-{{ forloop.counter }}', this)">{{ category.name }}</button>
+                <button class="filter-btn" data-filter-key="cat-{{ forloop.counter }}" onclick="filterCategory('cat-{{ forloop.counter }}', this)">{{ category.name }}</button>
             {% endfor %}
         </div>
 
         <!-- Gallery Collections -->
         {% for category in categories %}
-            <div class="category-section" id="section-cat-{{ forloop.counter }}" data-category-id="cat-{{ forloop.counter }}" data-aos="fade-up">
+            <div class="category-section" id="section-cat-{{ forloop.counter }}" data-category-id="cat-{{ forloop.counter }}" data-db-id="{{ category.id }}" data-aos="fade-up">
                 <div class="category-header-wrap">
                     <span class="category-number">0{{ forloop.counter }}</span>
                     <h2 class="category-title" id="cat-{{ forloop.counter }}">{{ category.name }}</h2>
                 </div>
                 <div class="row g-4">
                     {% for image in category.images.all %}
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-image-id="{{ image.id }}">
                             <div class="card gallery-card h-100 border-0 shadow-sm" onclick="openLightbox('{{ image.image.url }}', '{{ image.name|default:category.name|escapejs }}')">
                                 <div class="card-img-wrapper p-0">
                                     <img src="{{ image.image.url }}" 
@@ -412,5 +412,76 @@
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeLightbox();
     });
+
+    // ── Auto-filter from URL param (?category=ID  or  ?image=ID) ───────────
+    (function autoFilterFromURL() {
+        const params   = new URLSearchParams(window.location.search);
+        const imageId  = params.get('image');
+        const catId    = params.get('category');
+
+        // ── Handle ?image=ID ──────────────────────────────────────────────
+        if (imageId) {
+            const imageCol = document.querySelector(
+                `[data-image-id="${imageId}"]`
+            );
+            if (!imageCol) return;
+
+            // Find parent category section
+            const section = imageCol.closest('.category-section');
+            if (!section) return;
+
+            const catKey = section.getAttribute('data-category-id');
+            const matchBtn = document.querySelector(
+                `.filter-btn[data-filter-key="${catKey}"]`
+            );
+
+            // Filter to that category
+            if (matchBtn) {
+                filterCategory(catKey, matchBtn);
+            } else {
+                document.querySelectorAll('.category-section').forEach(s => {
+                    s.style.display = s === section ? 'block' : 'none';
+                });
+            }
+
+            // Scroll to the image card, then open lightbox
+            setTimeout(() => {
+                imageCol.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // After scroll, open lightbox for that specific image
+                setTimeout(() => {
+                    const card = imageCol.querySelector('.gallery-card');
+                    if (card) card.click();
+                }, 600);
+            }, 200);
+            return;
+        }
+
+        // ── Handle ?category=ID ───────────────────────────────────────────
+        if (catId) {
+            const targetSection = document.querySelector(
+                `.category-section[data-db-id="${catId}"]`
+            );
+            if (!targetSection) return;
+
+            const catKey   = targetSection.getAttribute('data-category-id');
+            const matchBtn = document.querySelector(
+                `.filter-btn[data-filter-key="${catKey}"]`
+            );
+
+            if (matchBtn) {
+                filterCategory(catKey, matchBtn);
+            } else {
+                document.querySelectorAll('.category-section').forEach(s => {
+                    s.style.display = s === targetSection ? 'block' : 'none';
+                });
+            }
+
+            setTimeout(() => {
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 150);
+        }
+    })();
+
 </script>
 {% endblock %}

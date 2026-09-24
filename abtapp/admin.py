@@ -87,3 +87,45 @@ admin.site.register(GalleryCategory, GalleryCategoryAdmin)
 admin.site.register(GalleryImage)
 admin.site.register(ProjectCategory, ProjectCategoryAdmin)
 admin.site.register(Project, ProjectAdmin)
+
+
+class VACAdmin(admin.ModelAdmin):
+    list_display = ('vac_no', 'vac_title', 'college_name', 'department_name', 'no_of_days', 'from_date', 'to_date', 'gallery_category', 'gallery_image_preview')
+    list_filter = ('from_date', 'gallery_category')
+    search_fields = ('vac_no', 'vac_title', 'college_name', 'department_name')
+    readonly_fields = ('created_at', 'gallery_image_preview')
+    
+    fieldsets = (
+        ('VAC Identification', {
+            'fields': ('vac_no',)
+        }),
+        ('Course Information', {
+            'fields': ('vac_title', 'college_name', 'department_name')
+        }),
+        ('Course Duration', {
+            'fields': ('from_date', 'to_date', 'no_of_days')
+        }),
+        ('Gallery', {
+            'fields': ('gallery_category', 'gallery_image', 'gallery_image_preview'),
+            'description': 'Select the specific gallery image to link to this VAC entry. The image must belong to the selected category.'
+        }),
+        ('Meta Information', {
+            'fields': ('created_at',),
+            'classes': ('collapse',)
+        }),
+    )
+
+    def gallery_image_preview(self, obj):
+        if obj.gallery_image and obj.gallery_image.image:
+            return format_html(
+                '<img src="{}" style="height:80px; border-radius:6px; border:1px solid #ddd;" />',
+                obj.gallery_image.image.url
+            )
+        return "No image selected"
+    gallery_image_preview.short_description = "Image Preview"
+    
+    def get_readonly_fields(self, request, obj=None):
+        return self.readonly_fields
+
+
+admin.site.register(VAC, VACAdmin)

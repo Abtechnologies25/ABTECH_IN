@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse
 from .models import *
+import json
 
 def home_view(request):
     return render(request, 'abtapp/home.html', {'active_page': 'home'})
@@ -27,7 +29,43 @@ def research_guidance_view(request):
     return render(request, 'abtapp/research_guidance.html', {'active_page': 'research_guidance'})
 
 def training_workshop_view(request):
-    return render(request, 'abtapp/training_workshop.html', {'active_page': 'training_workshop'})
+    vacs = VAC.objects.all().order_by('-from_date')
+    context = {
+        'vacs': vacs,
+        'active_page': 'training_workshop'
+    }
+    return render(request, 'abtapp/training_workshop.html', context)
+
+def gallery_api(request, category_id):
+    """API endpoint to fetch gallery images for a category"""
+    try:
+        category = GalleryCategory.objects.get(id=category_id)
+        images = category.images.all()
+        
+        images_data = []
+        for image in images:
+            images_data.append({
+                'id': image.id,
+                'image': image.image.url,
+                'name': image.name,
+                'alt_text': image.get_seo_alt()
+            })
+        
+        return JsonResponse({
+            'success': True,
+            'category': category.name,
+            'images': images_data
+        })
+    except GalleryCategory.DoesNotExist:
+        return JsonResponse({
+            'success': False,
+            'error': 'Category not found'
+        }, status=404)
+    except Exception as e:
+        return JsonResponse({
+            'success': False,
+            'error': str(e)
+        }, status=500)
 
 def products_view(request):
     return render(request, 'abtapp/products.html', {'active_page': 'products'})

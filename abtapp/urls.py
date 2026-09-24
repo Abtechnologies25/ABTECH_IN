@@ -15,4 +15,6 @@ urlpatterns = [
     path('our-team/', views.our_team_view, name='our_team'),
     path('our-branches/', views.our_branches_view, name='our_branches'),
     path('contact-us/', views.contact_us_view, name='contact_us'),
+    # API endpoints
+    path('api/gallery/<int:category_id>/', views.gallery_api, name='gallery_api'),
 ]

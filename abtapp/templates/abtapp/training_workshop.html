@@ -19,7 +19,7 @@
         <div class="row align-items-center g-5">
             <!-- Left Column - Content -->
             <div class="col-lg-6">
-                <h2 class="section-title mb-4">
+                <h2 class="section-title mb-2">
                     <span class="about-word">Comprehensive</span> <span class="company-name">Training</span>
                 </h2>
                 <p class="training-content">
@@ -31,7 +31,7 @@
             <div class="col-lg-6">
                 <div class="row g-3">
                     <div class="col-md-6">
-                        <div class="training-card">
+                        <div class="training-card ">
                             <div class="training-card-icon">
                                 <i class="bi bi-briefcase"></i>
                             </div>
@@ -72,6 +72,124 @@
     </div>
 </section>
 
+<!-- VAC Table Section -->
+<section class="vac-table-section ">
+    <div class="container px-lg-2">
+        <div class="text-center mb-4">
+            <h2 class=" justify-content-center" style="font-size: 2.4rem;font-weight: 900;">
+                <span class="about-word">List of Value Added Courses</span> <span class="company-name">(Workshop/Training) </span><span class="about-word">Details</span>
+            </h2>
+        </div>
+
+        <div class="vac-table-wrapper">
+            <table class="table table-vac-list table-bordered align-middle mb-0">
+                <thead>
+                    <tr class="text-center">
+                        <th class="text-center" style="width: 60px;">S.NO</th>
+                        <th style="width: 110px;">VAC NO</th>
+                        <th style="width: 240px;">COLLEGE NAME</th>
+                        <th style="width: 180px;">DEPARTMENT NAME</th>
+                        <th>VAC TITLE</th>
+                        <th style="width: 90px;">NO. OF DAYS</th>
+                        <th style="width: 120px;">FROM</th>
+                        <th style="width: 120px;">TO</th>
+                        <th style="width: 130px;">GALLERY</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for vac in vacs %}
+                    <tr>
+                        <td class="text-center">{{ forloop.counter }}</td>
+                        <td class="text-center"><strong>{{ vac.vac_no }}</strong></td>
+                        <td>{{ vac.college_name }}</td>
+                        <td>{{ vac.department_name }}</td>
+                        <td>{{ vac.vac_title }}</td>
+                        <td class="text-center">{{ vac.no_of_days }}</td>
+                        <td class="text-center">{{ vac.from_date|date:"d M Y" }}</td>
+                        <td class="text-center">{{ vac.to_date|date:"d M Y" }}</td>
+                        <td class="text-center">
+                            {% if vac.gallery_image %}
+                                <a href="{% url 'gallery' %}?image={{ vac.gallery_image.id }}"
+                                   class="btn btn-sm btn-primary gallery-btn">
+                                    <i class="bi bi-images"></i> View Gallery
+                                </a>
+                            {% elif vac.gallery_category %}
+                                <a href="{% url 'gallery' %}?category={{ vac.gallery_category.id }}"
+                                   class="btn btn-sm btn-outline-primary gallery-btn">
+                                    <i class="bi bi-grid"></i> View Category
+                                </a>
+                            {% else %}
+                                <span class="text-muted">-</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="9" class="text-center py-4 text-muted">No Value Added Courses available yet.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<style>
+/* ============================================================
+   VAC TABLE — MATCHING MoU PAGE DESIGN
+   ============================================================ */
+.vac-table-wrapper {
+    overflow-x: auto;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.table-vac-list {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Header */
+.table-vac-list thead tr {
+    background-color: #0b57af !important;
+}
+
+.table-vac-list thead th {
+    background-color: #0b57af !important;
+    color: #ffffff !important;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    white-space: nowrap;
+}
+
+/* Body rows */
+.table-vac-list tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.table-vac-list tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.table-vac-list tbody td {
+    font-size: 0.85rem;
+    color: #1e293b;
+    padding: 10px 16px;
+    vertical-align: middle;
+    border: 1px solid #e2e8f0 !important;
+}
+
+@media (max-width: 768px) {
+    .table-vac-list {
+        min-width: 900px;
+    }
+}
+</style>
+
 <!-- Workshop Section -->
 <section class="workshop-section">
     <div class="container workshop-container">
@@ -92,4 +210,5 @@
         </div>
     </div>
 </section>
+
 {% endblock %}

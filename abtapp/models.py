@@ -105,3 +105,25 @@ class Project(models.Model):
     class Meta:
         ordering = ['-id']
         verbose_name_plural = "Projects"
+
+
+class VAC(models.Model):
+    """Value Added Course - Training and Workshop"""
+    vac_no = models.CharField(max_length=50, unique=True, help_text="Unique VAC Number")
+    college_name = models.CharField(max_length=255)
+    department_name = models.CharField(max_length=255)
+    vac_title = models.CharField(max_length=255)
+    no_of_days = models.IntegerField()
+    from_date = models.DateField()
+    to_date = models.DateField()
+    gallery_category = models.ForeignKey(GalleryCategory, on_delete=models.SET_NULL, null=True, blank=True, related_name='vac_trainings')
+    gallery_image = models.ForeignKey(GalleryImage, on_delete=models.SET_NULL, null=True, blank=True, related_name='vac_entries', help_text="Select the specific gallery image for this VAC")
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f"{self.vac_no} - {self.vac_title}"
+    
+    class Meta:
+        ordering = ['-from_date']
+        verbose_name = "Value Added Course"
+        verbose_name_plural = "Value Added Courses"
