@@ -121,7 +121,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_URL = '/media/'
 if 'RENDER' in os.environ:
-    MEDIA_ROOT = '/media'
+    MEDIA_ROOT = os.environ.get('MEDIA_ROOT', '/var/data/media')
 else:
     MEDIA_ROOT = BASE_DIR / 'abtapp' / 'media'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
