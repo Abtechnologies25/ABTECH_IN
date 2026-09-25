@@ -133,6 +133,91 @@ body {
     padding: 0.5rem 0.85rem;
 }
 
+/* Navbar Services Dropdown Styling */
+.nav-dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.nav-dropdown .dropdown-toggle-custom {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    cursor: pointer;
+}
+
+.nav-dropdown-icon {
+    font-size: 0.75rem;
+    transition: transform 0.25s ease;
+}
+
+.nav-dropdown:hover .nav-dropdown-icon,
+.nav-dropdown.show .nav-dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    min-width: 220px;
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    list-style: none !important;
+    list-style-type: none !important;
+    padding: 0.5rem 0 !important;
+    margin: 0 !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1050;
+}
+
+.nav-dropdown-menu li {
+    list-style: none !important;
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.show .nav-dropdown-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+.nav-dropdown-item {
+    display: flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.25rem !important;
+    color: #1e293b !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    white-space: nowrap !important;
+    border-radius: 8px;
+    margin: 2px 6px !important;
+}
+
+.nav-dropdown-item:hover {
+    background-color: #eff6ff !important;
+    color: #0b57af !important;
+    transform: translateX(4px);
+}
+
+.nav-dropdown-item.active {
+    background-color: #0b57af !important;
+    color: #ffffff !important;
+}
+
+
+
 /* .nav-link.nav-btn {
     background: linear-gradient(135deg, #0284c7, #4f46e5);
     color: #ffffff;
@@ -230,7 +315,33 @@ body {
         text-align: center;
         margin-top: 0.5rem;
     }
+
+    .nav-dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        margin-top: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .nav-dropdown-item {
+        color: #f8fafc;
+        padding: 0.6rem 1rem;
+        border-radius: 6px;
+    }
+
+    .nav-dropdown-item:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+        padding-left: 1.25rem;
+    }
 }
+
 
 
 .carousel {
@@ -950,15 +1061,19 @@ body {
 }
 
 .training-banner .page-banner-title {
-    font-size: 1rem;
+    font-size: 1.4rem;
 }
 
 .training-banner .title-modern {
-    font-size: 2.4rem;
+    font-size: 1.5rem;
 }
 
 .training-banner .title-highlight {
-    font-size: 1.4rem;
+    font-size: 2.6rem;
+}
+
+.training-banner {
+    min-height: 120px;
 }
 
 .mou-banner .page-banner-title {
@@ -1458,7 +1573,7 @@ body {
 }
 
 .director-card-2 {
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
 
 .director-card:hover {
@@ -2687,9 +2802,9 @@ body {
 
 
 .training-section {
-    padding: 60px 0;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
-    margin-bottom: 60px;
+    padding: 25px 0;
+    background: #ffffff;
+    margin-bottom: 0;
 }
 
 .training-section .row {
@@ -2714,7 +2829,7 @@ body {
 .training-card {
     background: white;
     border-radius: 12px;
-    padding: 30px 20px;
+    padding: 18px 14px;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -2730,26 +2845,26 @@ body {
 }
 
 .training-card-icon {
-    width: 60px;
-    height: 60px;
+    width: 44px;
+    height: 44px;
     background: #e8f0ff;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .training-card-icon i {
     color: #007bff;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
 }
 
 .training-card-title {
-    font-size: 1.1rem;
+    font-size: 0.92rem;
     font-weight: 600;
     color: #333;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
 }
 
 .training-card-description {
@@ -2759,9 +2874,14 @@ body {
     margin: 0;
 }
 
+.vac-table-section {
+    padding: 50px 0;
+    background: #f8fafc;
+}
+
 .workshop-section {
-    /* padding: 60px 0; */
-    background: #fff;
+    padding: 50px 0;
+    background: #ffffff;
 }
 
 .workshop-container {
@@ -4995,3 +5115,173 @@ body {
 
 
 /* End of Custom Styles */
+
+
+/* ============== VAC TABLE SECTION ============== */
+
+.vac-table-section {
+    background: #ffffff;
+    padding: 20px 0;
+    margin: 0;
+}
+
+.vac-table {
+    background: #ffffff;
+    border-collapse: collapse;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.vac-table thead {
+    background: linear-gradient(135deg, #043873, #0b57af);
+}
+
+.vac-table thead th {
+    color: #ffffff;
+    font-weight: 700;
+    padding: 1.2rem 1rem;
+    text-align: left;
+    font-size: 0.95rem;
+    border: none;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.vac-table tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.vac-table tbody tr:hover {
+    background-color: #f0f9ff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.vac-table tbody td {
+    padding: 1rem;
+    color: #1f2937;
+    font-size: 0.95rem;
+    border: none;
+}
+
+.vac-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+/* Gallery Button */
+.gallery-btn {
+    background: linear-gradient(135deg, #043873, #0b57af);
+    border: none;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gallery-btn:hover {
+    background: linear-gradient(135deg, #0b57af, #043873);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(4, 56, 115, 0.4);
+    color: #ffffff;
+}
+
+.gallery-btn:active {
+    transform: translateY(0);
+}
+
+/* Gallery Modal */
+.modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #043873, #0b57af);
+    border: none;
+    padding: 1.5rem 1.5rem;
+}
+
+.modal-title {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.gallery-images-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-image-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.gallery-image-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-image-wrapper img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .vac-table-section {
+        padding: 60px 0;
+    }
+
+    .table-responsive {
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+    }
+
+    .vac-table thead th {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .vac-table tbody td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .gallery-btn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .gallery-images-container {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-image-wrapper img {
+        height: 200px;
+    }
+}
