@@ -38,6 +38,23 @@
             Products
           </a>
         </li>
+        <li class="nav-item nav-dropdown {% if active_page == 'consultancy_projects' or active_page == 'funded_projects' %}active-dropdown{% endif %}">
+          <a href="javascript:void(0)" class="nav-link dropdown-toggle-custom {% if active_page == 'consultancy_projects' or active_page == 'funded_projects' %}active{% endif %}" id="servicesDropdown">
+            Services <i class="bi bi-chevron-down nav-dropdown-icon"></i>
+          </a>
+          <ul class="nav-dropdown-menu">
+            <li>
+              <a href="{% url 'consultancy_projects' %}" class="nav-dropdown-item {% if active_page == 'consultancy_projects' %}active{% endif %}">
+                Consultancy Projects
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'funded_projects' %}" class="nav-dropdown-item {% if active_page == 'funded_projects' %}active{% endif %}">
+                Funded Projects
+              </a>
+            </li>
+          </ul>
+        </li>
         <li class="nav-item">
           <a href="{% url 'mou' %}" class="nav-link {% if active_page == 'mou' %}active{% endif %}">
             MoU

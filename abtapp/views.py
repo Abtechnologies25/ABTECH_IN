@@ -106,3 +106,20 @@ def our_branches_view(request):
 def contact_us_view(request):
     return render(request, 'abtapp/contact_us.html', {'active_page': 'contact_us'})
 
+def consultancy_projects_view(request):
+    projects = ConsultancyProject.objects.all().order_by('-id')
+    context = {
+        'projects': projects,
+        'active_page': 'consultancy_projects',
+    }
+    return render(request, 'abtapp/consultancy_projects.html', context)
+
+def funded_projects_view(request):
+    projects = FundedProject.objects.all().order_by('-id')
+    context = {
+        'projects': projects,
+        'active_page': 'funded_projects',
+    }
+    return render(request, 'abtapp/funded_projects.html', context)
+
+

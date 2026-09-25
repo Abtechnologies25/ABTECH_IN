@@ -127,3 +127,42 @@ class VAC(models.Model):
         ordering = ['-from_date']
         verbose_name = "Value Added Course"
         verbose_name_plural = "Value Added Courses"
+
+
+class ConsultancyProject(models.Model):
+    """Consultancy Projects model"""
+    project_name = models.CharField(max_length=255)
+    institution_name = models.CharField(max_length=255)
+    staff_name = models.CharField(max_length=255)
+    designation = models.CharField(max_length=255)
+    department = models.CharField(max_length=255)
+    fund_amount = models.CharField(max_length=100)
+    date_of_transaction = models.DateField(blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.project_name} - {self.institution_name}"
+
+    class Meta:
+        ordering = ['-id']
+        verbose_name = "Consultancy Project"
+        verbose_name_plural = "Consultancy Projects"
+
+
+class FundedProject(models.Model):
+    """Funded Projects model"""
+    project_name = models.CharField(max_length=255)
+    institution_name = models.CharField(max_length=255)
+    staff_name = models.CharField(max_length=255)
+    designation = models.CharField(max_length=255)
+    department = models.CharField(max_length=255)
+    fund_amount = models.CharField(max_length=100)
+    date_of_transaction = models.DateField(blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.project_name} - {self.institution_name}"
+
+    class Meta:
+        ordering = ['-id']
+        verbose_name = "Funded Project"
+        verbose_name_plural = "Funded Projects"
+

@@ -129,3 +129,20 @@ class VACAdmin(admin.ModelAdmin):
 
 
 admin.site.register(VAC, VACAdmin)
+
+
+class ConsultancyProjectAdmin(admin.ModelAdmin):
+    list_display = ('project_name', 'institution_name', 'staff_name', 'designation', 'department', 'fund_amount', 'date_of_transaction')
+    search_fields = ('project_name', 'institution_name', 'staff_name', 'department')
+    list_filter = ('institution_name', 'department', 'date_of_transaction')
+
+
+class FundedProjectAdmin(admin.ModelAdmin):
+    list_display = ('project_name', 'institution_name', 'staff_name', 'designation', 'department', 'fund_amount', 'date_of_transaction')
+    search_fields = ('project_name', 'institution_name', 'staff_name', 'department')
+    list_filter = ('institution_name', 'department', 'date_of_transaction')
+
+
+admin.site.register(ConsultancyProject, ConsultancyProjectAdmin)
+admin.site.register(FundedProject, FundedProjectAdmin)
+

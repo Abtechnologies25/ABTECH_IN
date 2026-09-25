@@ -67,6 +67,25 @@
                 });
             }
 
+            const servicesDropdownBtn = document.getElementById('servicesDropdown');
+            if (servicesDropdownBtn) {
+                servicesDropdownBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const parent = servicesDropdownBtn.closest('.nav-dropdown');
+                    if (parent) {
+                        parent.classList.toggle('show');
+                    }
+                });
+                
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.nav-dropdown')) {
+                        document.querySelectorAll('.nav-dropdown.show').forEach(el => el.classList.remove('show'));
+                    }
+                });
+            }
+
+
             // Modern Directors Section JavaScript
             
             // Toggle Bio Function

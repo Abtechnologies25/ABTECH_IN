@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Consultancy Projects - AB Technologies{% endblock %}
+
+{% block content %}
+<div class="page-banner mou-banner">
+    <div class="page-banner-content">
+        <h1 class="page-banner-title">
+            <!-- <span class="title-modern"> </span> -->
+            <span class="title-highlight">Consultancy Projects</span>
+        </h1>
+    </div>
+</div>
+
+<section class="mou-list-section py-5 bg-light">
+    <div class="container px-lg-4">
+        <div class="text-center mb-4">
+            <h2 class="section-title justify-content-center">
+                <span class="about-word">List of </span> <span class="company-name">Consultancy Projects</span>
+            </h2>
+        </div>
+
+        <div class="mou-table-wrapper">
+            <table class="table table-mou-list table-bordered align-middle mb-0 text-center">
+                <thead>
+                    <tr class="text-center">
+                        <th rowspan="2" class="text-center align-middle" style="width: 70px;">S.NO</th>
+                        <th rowspan="2" class="align-middle" style="width: 260px;">PROJECT NAME</th>
+                        <th colspan="4" class="text-center">DEVELOPED BY</th>
+                        <th rowspan="2" class="align-middle" style="width: 150px;">FUND AMOUNT</th>
+                        <th rowspan="2" class="align-middle" style="width: 170px;">DATE OF TRANSACTION</th>
+                    </tr>
+                    <tr class="text-center">
+                        <th>INSTITUTION NAME</th>
+                        <th>STAFF NAME</th>
+                        <th>DESIGNATION</th>
+                        <th>DEPARTMENT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for project in projects %}
+                    <tr>
+                        <td class="text-center">{{ forloop.counter }}</td>
+                        <td class="text-start fw-bold">{{ project.project_name }}</td>
+                        <td>{{ project.institution_name }}</td>
+                        <td>{{ project.staff_name }}</td>
+                        <td>{{ project.designation }}</td>
+                        <td>{{ project.department }}</td>
+                        <td class="text-center fw-bold text-success">{{ project.fund_amount }}</td>
+                        <td class="text-center">{{ project.date_of_transaction|date:"d/m/Y"|default:"-" }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="8" class="text-center py-4 text-muted">No Consultancy Projects recorded yet</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>  
+        </div>
+    </div>
+</section>
+
+<style>
+/* ============================================================
+   SERVICES TABLE — MATCHING MOU PAGE DESIGN
+   ============================================================ */
+.mou-table-wrapper {
+    overflow-x: auto;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.table-mou-list {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-mou-list thead tr {
+    background-color: #0b57af !important;
+}
+
+.table-mou-list thead th {
+    background-color: #0b57af !important;
+    color: #ffffff !important;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.table-mou-list tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.table-mou-list tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.table-mou-list tbody td {
+    font-size: 0.88rem;
+    color: #1e293b;
+    padding: 12px 16px;
+    vertical-align: middle;
+    border: 1px solid #e2e8f0 !important;
+}
+
+@media (max-width: 992px) {
+    .table-mou-list {
+        min-width: 950px;
+    }
+}
+</style>
+{% endblock %}
