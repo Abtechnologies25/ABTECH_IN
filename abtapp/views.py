@@ -1,5 +1,13 @@
-from django.shortcuts import render, get_object_or_404
+import os
+import re
+import smtplib
+
+from django.conf import settings
+from django.core.exceptions import ValidationError
+from django.core.mail import EmailMessage
+from django.core.validators import validate_email
 from django.http import JsonResponse
+from django.shortcuts import render, get_object_or_404
 from .models import *
 import json
 
@@ -105,7 +113,62 @@ def videos_view(request):
     return render(request, 'abtapp/videos.html', context)
 
 def career_view(request):
-    return render(request, 'abtapp/career.html', {'active_page': 'career'})
+    if request.method == 'GET':
+        return render(request, 'abtapp/career.html', {'active_page': 'career'})
+    if request.method != 'POST':
+        return JsonResponse({'success': False, 'error': 'Method not allowed.'}, status=405)
+
+    full_name = request.POST.get('full_name', '').strip()
+    email = request.POST.get('email', '').strip()
+    phone = request.POST.get('phone', '').strip()
+    resume = request.FILES.get('resume')
+
+    if not full_name or len(full_name) > 200:
+        return JsonResponse({'success': False, 'error': 'Enter your name (up to 200 characters).'}, status=400)
+    try:
+        validate_email(email)
+    except ValidationError:
+        return JsonResponse({'success': False, 'error': 'Enter a valid email address.'}, status=400)
+    if not re.fullmatch(r'\d{10}', phone):
+        return JsonResponse({'success': False, 'error': 'Enter a valid 10-digit phone number.'}, status=400)
+    if resume is None:
+        return JsonResponse({'success': False, 'error': 'Please upload your resume.'}, status=400)
+    if resume.size > 5 * 1024 * 1024:
+        return JsonResponse({'success': False, 'error': 'Resume must be 5MB or smaller.'}, status=400)
+    if os.path.splitext(resume.name)[1].lower() not in {'.pdf', '.doc', '.docx'}:
+        return JsonResponse({'success': False, 'error': 'Upload a PDF or DOC/DOCX resume.'}, status=400)
+
+    sender = settings.DEFAULT_FROM_EMAIL
+    if not settings.EMAIL_HOST or not sender:
+        return JsonResponse({
+            'success': False,
+            'error': 'Email delivery is not configured. Please contact us directly.'
+        }, status=503)
+
+    message = EmailMessage(
+        subject=f'Career application from {full_name}',
+        body=f'Name: {full_name}\nEmail: {email}\nPhone: {phone}',
+        from_email=sender,
+        to=['abtechchennai@gmail.com'],
+        reply_to=[email],
+    )
+    safe_filename = os.path.basename(resume.name).replace('\r', '').replace('\n', '')
+    message.attach(safe_filename, resume.read(), resume.content_type or 'application/octet-stream')
+
+    try:
+        sent_count = message.send(fail_silently=False)
+    except (OSError, smtplib.SMTPException):
+        return JsonResponse({
+            'success': False,
+            'error': 'We could not send your application right now. Please try again later.'
+        }, status=503)
+    if sent_count != 1:
+        return JsonResponse({
+            'success': False,
+            'error': 'We could not send your application right now. Please try again later.'
+        }, status=503)
+
+    return JsonResponse({'success': True})
 
 def our_team_view(request):
     return render(request, 'abtapp/our_team.html', {'active_page': 'our_team'})
@@ -146,5 +209,4 @@ def funded_projects_view(request):
         'active_page': 'funded_projects',
     }
     return render(request, 'abtapp/funded_projects.html', context)
-
 

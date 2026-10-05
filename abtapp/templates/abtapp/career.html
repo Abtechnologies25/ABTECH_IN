@@ -94,14 +94,14 @@
                             <p>Resume Submission Form</p>
                         </div>
 
-                        <form id="resumeForm" onsubmit="handleResumeSubmit(event)" enctype="multipart/form-data">
+                        <form id="resumeForm" action="{% url 'career' %}" method="post" onsubmit="handleResumeSubmit(event)" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="mb-3">
                                 <label for="fullName" class="form-label">Full Name <span
                                         class="text-danger">*</span></label>
                                 <div class="input-group-modern">
                                     <span class="input-icon"><i class="bi bi-person"></i></span>
-                                    <input type="text" class="form-control-modern" id="fullName"
+                                    <input type="text" class="form-control-modern" id="fullName" name="full_name"
                                         placeholder="Enter your full name" required>
                                 </div>
                             </div>
@@ -111,7 +111,7 @@
                                         class="text-danger">*</span></label>
                                 <div class="input-group-modern">
                                     <span class="input-icon"><i class="bi bi-envelope"></i></span>
-                                    <input type="email" class="form-control-modern" id="emailAddress"
+                                    <input type="email" class="form-control-modern" id="emailAddress" name="email"
                                         placeholder="Enter your email" required>
                                 </div>
                             </div>
@@ -121,25 +121,8 @@
                                         class="text-danger">*</span></label>
                                 <div class="input-group-modern">
                                     <span class="input-icon"><i class="bi bi-telephone"></i></span>
-                                    <input type="tel" class="form-control-modern" id="phoneNumber"
+                                    <input type="tel" class="form-control-modern" id="phoneNumber" name="phone"
                                         placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" required>
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="appliedRole" class="form-label">Position Applied For <span
-                                        class="text-danger">*</span></label>
-                                <div class="input-group-modern">
-                                    <span class="input-icon"><i class="bi bi-briefcase"></i></span>
-                                    <select class="form-control-modern form-select-modern" id="appliedRole" required>
-                                        <option value="" disabled selected>Select Position</option>
-                                        <option value="research_dev">Research & Development Engineer</option>
-                                        <option value="tech_trainer">Technical Trainer / Tutor</option>
-                                        <option value="software_dev">Software Developer (Python/Django/React)</option>
-                                        <option value="hardware_eng">Embedded Systems / IoT Engineer</option>
-                                        <option value="internship">Student Intern</option>
-                                        <option value="other">Other Office Position</option>
-                                    </select>
                                 </div>
                             </div>
 
@@ -147,7 +130,7 @@
                                 <label for="resumeFile" class="form-label">Upload Resume (PDF / DOCX) <span
                                         class="text-danger">*</span></label>
                                 <div class="file-upload-wrapper">
-                                    <input type="file" id="resumeFile" accept=".pdf,.doc,.docx"
+                                    <input type="file" id="resumeFile" name="resume" accept=".pdf,.doc,.docx"
                                         onchange="updateFileName(this)" required>
                                     <div class="file-upload-design" id="uploadDesign">
                                         <i class="bi bi-cloud-arrow-up-fill"></i>
@@ -160,6 +143,7 @@
                             <button type="submit" class="submit-btn-modern">
                                 <span>Submit Application</span> <i class="bi bi-send-fill"></i>
                             </button>
+                            <p class="text-danger mt-3 mb-0" id="resumeFormError" role="alert" hidden></p>
                         </form>
 
                         <!-- Success Message (Initially Hidden) -->
@@ -206,17 +190,37 @@
         }
     }
 
-    function handleResumeSubmit(event) {
+    async function handleResumeSubmit(event) {
         event.preventDefault();
 
-        // Show the success overlay
-        const overlay = document.getElementById('successOverlay');
-        overlay.classList.add('active');
+        const form = document.getElementById('resumeForm');
+        const submitButton = form.querySelector('[type="submit"]');
+        const errorMessage = document.getElementById('resumeFormError');
+        errorMessage.hidden = true;
+        submitButton.disabled = true;
 
-        // Reset the form
-        document.getElementById('resumeForm').reset();
-        document.getElementById('fileNameText').textContent = 'Choose a file or drag it here';
-        document.getElementById('uploadDesign').classList.remove('selected');
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            });
+            const result = await response.json();
+
+            if (!response.ok || !result.success) {
+                throw new Error(result.error || 'Your application could not be sent. Please try again.');
+            }
+
+            document.getElementById('successOverlay').classList.add('active');
+            form.reset();
+            document.getElementById('fileNameText').textContent = 'Choose a file or drag it here';
+            document.getElementById('uploadDesign').classList.remove('selected');
+        } catch (error) {
+            errorMessage.textContent = error.message || 'Your application could not be sent. Please try again.';
+            errorMessage.hidden = false;
+        } finally {
+            submitButton.disabled = false;
+        }
     }
 
     function closeSuccessOverlay() {

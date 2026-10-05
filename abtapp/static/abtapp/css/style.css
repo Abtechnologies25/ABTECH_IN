@@ -974,7 +974,7 @@ body {
 .page-banner {
     width: 100%;
     min-height: 180px;
-    background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.8)), url('../images/zobc.png');
+    background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.8)), url('../images/bag.webp');
     background-size: cover;
     background-position: center center;
     /* background-attachment: fixed; */
@@ -1368,7 +1368,7 @@ text-align: justify;
     padding: 5rem 0;
     position: relative;
     margin-top: 0;
-    background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.8)), url('../images/vis.jpg');
+    background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.8)), url('../images/vision.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -2276,7 +2276,7 @@ text-align: justify;
 /* Project Category Cards Styles (Reference Design) */
 .project-cards-section {
     /* background-color: #f8fafc; */
-    background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.8)), url('../images/zobc.png');
+    background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.8)), url('../images/bag.webp');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
@@ -4127,6 +4127,82 @@ text-align: justify;
     transform: translate(-50%, -50%) scale(1.1);
 }
 
+.videos-channel-links {
+    display: grid;
+    gap: .75rem;
+    margin-top: 1.5rem;
+}
+
+.videos-channel-label {
+    margin: 0 0 .1rem;
+    color: #0b57af;
+    font-size: .95rem;
+    font-weight: 800;
+}
+
+.youtube-channel-card {
+    display: flex;
+    min-height: 76px;
+    align-items: center;
+    gap: .85rem;
+    padding: .8rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #fff, #f8fafc);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, .06);
+    color: inherit;
+    text-decoration: none;
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.youtube-channel-card:hover {
+    transform: translateY(-4px);
+    border-color: #fecaca;
+    box-shadow: 0 14px 32px rgba(127, 29, 29, .1);
+}
+
+.youtube-channel-icon {
+    display: inline-flex;
+    width: 3.25rem;
+    height: 3.25rem;
+    flex: 0 0 3.25rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #fff1f2;
+    color: #e11d48;
+    font-size: 1.75rem;
+}
+
+.youtube-channel-copy {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.youtube-channel-copy strong {
+    color: #0f172a;
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+.youtube-channel-copy small {
+    color: #64748b;
+    font-size: .9rem;
+}
+
+.youtube-channel-arrow {
+    color: #0b57af;
+    font-size: 1.2rem;
+    transition: transform .25s ease;
+}
+
+.youtube-channel-card:hover .youtube-channel-arrow {
+    transform: translate(3px, -3px);
+}
+
 /* Background Light Modern */
 .bg-light-modern {
     background: #f8fafc;
@@ -4946,8 +5022,8 @@ text-align: justify;
 /* ============== REVIEWS SECTION ============== */
 
 .reviews-section {
-    padding: 5rem 0;
-    background: #eff2f6;
+    padding: 2rem 0;
+    background: #ffffff;
     position: relative;
     overflow: hidden;
 }
@@ -4955,13 +5031,13 @@ text-align: justify;
 .reviews-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 1rem 2rem;
 }
 
 /* Section Header */
 .reviews-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 .reviews-title {
@@ -5018,7 +5094,7 @@ text-align: justify;
 
 /* Review Card Styles */
 .review-card {
-    background: #ffffff;
+    background: #f6f8fa;
     border-radius: 20px;
     padding: 2rem;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
