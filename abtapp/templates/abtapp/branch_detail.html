@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ branch_name }} Branch | AB Technologies{% endblock %}
+{% block meta_description %}<meta name="description" content="AB Technologies {{ branch_name }} Branch. {{ address }}">{% endblock %}
+
+{% block content %}
+<div class="page-banner contact-banner">
+    <div class="page-banner-content">
+        <div class="banner-badge">📍 {{ badge_label }}</div>
+        <h1 class="page-banner-title">
+            <span class="title-highlight">AB Technologies - {{ branch_name }}</span>
+        </h1>
+        <p class="page-banner-subtitle">Serving engineering students and research scholars in {{ branch_name }} and surrounding regions.</p>
+    </div>
+</div>
+
+<section class="contact-section">
+    <div class="container py-5">
+        <div class="row g-4 align-items-stretch">
+            <div class="col-lg-5">
+                <div class="branch-info-card">
+                    <div class="branch-badge">
+                        <i class="bi bi-building"></i> {{ badge_label }}
+                    </div>
+                    <h2 class="branch-city-name">{{ branch_name }}</h2>
+                    <div class="branch-detail-item">
+                        <div class="detail-icon"><i class="bi bi-pin-map-fill"></i></div>
+                        <div class="detail-text">
+                            <strong>Address</strong>
+                            <p>{{ address }}</p>
+                        </div>
+                    </div>
+                    <div class="branch-detail-item">
+                        <div class="detail-icon"><i class="bi bi-telephone-fill"></i></div>
+                        <div class="detail-text">
+                            <strong>Phone</strong>
+                            <p>
+                                {% for phone in phones %}
+                                    <a href="tel:{{ phone|cut:' ' }}">{{ phone }}</a>{% if not forloop.last %}<br>{% endif %}
+                                {% endfor %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="branch-detail-item">
+                        <div class="detail-icon"><i class="bi bi-clock-fill"></i></div>
+                        <div class="detail-text">
+                            <strong>Business Hours</strong>
+                            <p>{{ hours }}</p>
+                        </div>
+                    </div>
+                    <div class="branch-actions">
+                        <a href="tel:+919840511458" class="branch-action-btn call-btn">
+                            <i class="bi bi-telephone-outbound-fill"></i> Call Now
+                        </a>
+                        <a href="{{ directions_url }}" target="_blank" class="branch-action-btn direction-btn">
+                            <i class="bi bi-cursor-fill"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="branch-map-wrapper" style="height: 100%; min-height: 400px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <iframe
+                        src="{{ map_url }}"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="AB Technologies {{ branch_name }} Office Location"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5 text-center">
+            <a href="{% url 'our_branches' %}" class="btn btn-outline-primary px-4 py-2" style="border-radius: 25px; font-weight: 600;">
+                <i class="bi bi-arrow-left me-2"></i> View All Branches Modal / Hub
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

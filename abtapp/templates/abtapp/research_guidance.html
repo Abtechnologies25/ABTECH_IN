@@ -1,158 +1,196 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Research Guidance - AB Technologies{% endblock %}
+{% block title %}Research Paper & Thesis Guidance | AB Technologies{% endblock %}
+{% block meta_description %}<meta name="description" content="Expert guidance for SCI, SCOPUS & Web of Science publications, thesis writing & conference papers. Centers in Nagercoil, Chennai, Tirunelveli & Pudukottai.">{% endblock %}
+
 {% block banner %}
-<div class="page-banner research-banner ">
-    <div class="page-banner-content">
-        <!-- <div class="banner-badge">💡 Innovation Portfolio</div> -->
+<div class="page-banner research-banner">
+    <div class="page-banner-content text-center ">
+        
         <h1 class="page-banner-title">
-            <span class="title-modern">Transforming  </span>
-            <span class="title-highlight"> Research into Results</span>
+            <span class="title-modern">Transforming </span>
+            <span class="title-highlight">Research into Results</span>
         </h1>
-        <!-- <p class="page-banner-subtitle">Discover our cutting-edge projects that transform academic concepts into real-world innovations, empowering the next generation of engineers and researchers.</p> -->
-        <!-- <div class="banner-stats-mini">
-            <div class="stat-mini">
-                <span class="stat-number-mini">200+</span>
-                <span class="stat-label-mini">Projects Delivered</span>
-            </div>
-            <div class="stat-mini">
-                <span class="stat-number-mini">15+</span>
-                <span class="stat-label-mini">Domains</span>
-            </div>
-            <div class="stat-mini">
-                <span class="stat-number-mini">98%</span>
-                <span class="stat-label-mini">Success Rate</span>
-            </div>
-        </div> -->
+        <!-- <p class="text-white-50 max-w-600 mx-auto mt-2 fs-6">End-to-end support for research scholars from manuscript drafting to high-impact journal publication & thesis completion.</p> -->
     </div>
 </div>
 {% endblock %}
+
 {% block content %}
-<!-- Research Intro Section with Hexagon Gallery -->
-<section class="about-section" style="padding-bottom: 0 !important;">
-    <div class="container mt-3" style="">
-        <div class="row  justify-content-center" >
-            <!-- Left Side Text Content (Vertically Centered) -->
-            <div class="col-md-7 d-flex justify-content-center ">
-                <div class="about-all-text-projects">
-                    <h2 class="section-title"><span class="about-word">Our</span> <span class="company-name">Guidance </span></h2>
-                    <p>We provide step by step guidance to research scholars in developing their ideas into real time manuscripts. We assist them in putting their ideas into paper and mentor them in publishing their work in reputed journals. We also assist the scholars in writing Thesis.</p>
+<!-- Modern Hero Guidance & Types Section -->
+<section class="py-5 position-relative overflow-hidden" style="background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);">
+    <div class="container" >
+        <!-- Main Intro Row (Single Unified Card) -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="bg-white p-4 p-md-5 rounded-4 shadow-lg  overflow-hidden" style="border:2px solid #0b57af;">
+                    <div class="row align-items-center g-4">
+                        <!-- Left Side Content -->
+                        <div class="col-lg-7">
+                            
+                            <h2 class="section-title">
+                                Our <span class="company-name">Guidance</span>
+                            </h2>
+                            <p class="mb-4" style="line-height: 1.8;text-indent: 3em;">
+We provide step by step guidance to research scholars in developing their ideas into real time manuscripts. We assist them in putting their ideas into paper and mentor them in publishing their work in reputed journals. We also assist the scholars in writing Thesis.                             </p>
+                            
+                            <div class="row g-3 pt-2">
+                                <div class="col-sm-4">
+                                    <div class="p-3 rounded-3 bg-light border text-center">
+                                        <h3 class="fw-bold text-primary mb-1">1000+</h3>
+                                        <span class="text-muted fs-7">Papers Published</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="p-3 rounded-3 bg-light border text-center">
+                                        <h3 class="fw-bold text-primary mb-1">Q1-Q4</h3>
+                                        <span class="text-muted fs-7">Quartile Journals</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="p-3 rounded-3 bg-light border text-center">
+                                        <h3 class="fw-bold text-primary mb-1">100%</h3>
+                                        <span class="text-muted fs-7">Authentic Support</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Side Image (Inside the Same Card) -->
+                        <div class="col-lg-5 text-center text-lg-end">
+                            <img src="{% static 'abtapp/images/rese2.png' %}" alt="Research Guidance" class="img-fluid" style="max-height: 380px; width: auto; object-fit: contain;" />
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Right Side Image Content (Flush to Bottom) -->
-            <div class="col-md-5 d-flex justify-content-end align-items-end p-0 m-0">
-                <img src="{% static 'abtapp/images/rese2.png' %}" alt="Research Guidance" class="img-fluid d-block m-0 p-0" loading="lazy" decoding="async" style="margin-bottom: 0 !important; padding-bottom: 0 !important; display: block; width: 100%; max-width: 500px; height: auto;" />
+        </div>
+
+        <!-- Section Title: Type of Publications -->
+        <div class="text-center mb-4">
+            <h3 class="section-title mb-2"><span class="about-word">Type of</span> <span class="company-name">Publications</span></h3>
+            <p class="text-muted max-w-600 mx-auto fs-6">We focus on guiding scholars in all types of prestigious global publications</p>
+        </div>
+
+        <!-- Grid of 4 Cards -->
+        <div class="row g-4">
+            <!-- SCI / SCIE JOURNALS Card -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100 p-4 transition-all hover-translate-y" style="background: #ffffff; border-left: 4px solid #0b57af !important;">
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="p-3 rounded-3 text-white flex-shrink-0" style="background: linear-gradient(135deg, #0b57af, #043873);">
+                            <i class="bi bi-file-earmark-text fs-3"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold fs-5 text-dark mb-2">SCI / SCIE JOURNALS</h4>
+                            <p class="text-secondary fs-6 mb-0" style="line-height: 1.6;">
+                               At AB Technologies, we process the paper writing and publication of SCI / SCIE papers in reputed journals with Q1, Q2 and Q3 quartile ranks. It covers journals from major publishing groups.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCOPUS / WEB OF SCIENCE JOURNALS Card -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100 p-4 transition-all hover-translate-y" style="background: #ffffff; border-left: 4px solid #00a8ff !important;">
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="p-3 rounded-3 text-white flex-shrink-0" style="background: linear-gradient(135deg, #00a8ff, #0b57af);">
+                            <i class="bi bi-globe fs-3"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold fs-5 text-dark mb-2">SCOPUS / WEB OF SCIENCE</h4>
+                            <p class="text-secondary fs-6 mb-0" style="line-height: 1.6;">
+                                The organization focuses on publishing the papers in genuine journals that are Scopus indexed. We also process Web of Science publications based on the requirement of the client.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONFERENCE PUBLICATION Card -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100 p-4 transition-all hover-translate-y" style="background: #ffffff; border-left: 4px solid #8b5cf6 !important;">
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="p-3 rounded-3 text-white flex-shrink-0" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">
+                            <i class="bi bi-chat-dots fs-3"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold fs-5 text-dark mb-2">CONFERENCE PUBLICATION</h4>
+                            <p class="text-secondary fs-6 mb-0" style="line-height: 1.6;">
+                                AB Technologies is well known for processing conference publications – IEEE (Scopus indexed), Springer Conferences and other National and International Conferences in a timely manner.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOOK CHAPTER Card -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100 p-4 transition-all hover-translate-y" style="background: #ffffff; border-left: 4px solid #10b981 !important;">
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="p-3 rounded-3 text-white flex-shrink-0" style="background: linear-gradient(135deg, #10b981, #047857);">
+                            <i class="bi bi-book fs-3"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold fs-5 text-dark mb-2">BOOK CHAPTER</h4>
+                            <p class="text-secondary fs-6 mb-0" style="line-height: 1.6;">
+                               Publication of on contemporary and trending topics as book chapters with ISBN that are internationally recognized.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="research-guidance-section">
+<!-- Step-by-Step Guidance Process Section -->
+<!-- <section class="py-5 bg-white">
     <div class="container">
-        
-        
-        <div class="research-focus">
-<center>
-            <h3 class="section-title text-center pb-3">Type of <span class="company-name"> Publications</span></h3></center>
-            <p class="text-center pb-5">We focus on guiding scholars in all types of publications such as</p>
-            <div class="row align-items-stretch g-4">
-                <!-- Left Side: Research Image (Full Height) -->
-                <div class="col-lg-5 col-md-6 d-flex flex-column">
-                    <div class="research-image-wrapper flex-grow-1">
-                        <img src="{% static 'abtapp/images/research.jpg' %}" alt="Research Publications" class="research-full-img rounded-4 shadow-lg" loading="lazy" decoding="async" />
-                    </div>
+        <div class="text-center mb-5">
+            <h3 class="section-title mb-2"><span class="about-word">Our</span> <span class="company-name">Process</span></h3>
+            <p class="text-muted max-w-600 mx-auto fs-6">A structured workflow to guarantee quality research output and seamless publication</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md">
+                <div class="p-4 rounded-4 bg-light border text-center h-100 position-relative">
+                    <div class="badge bg-primary rounded-circle p-3 fs-5 mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">1</div>
+                    <h5 class="fw-bold text-dark fs-6 mb-2">Topic & Scope</h5>
+                    <p class="text-secondary fs-7 mb-0">Refining research ideas into viable high-impact topics.</p>
                 </div>
-
-                <!-- Right Side: Publication Cards -->
-                <div class="col-lg-7 col-md-6">
-                    <div class="row g-3">
-                        <div class="col-md-4 col-sm-6">
-                            <div class="publication-card h-100">
-                                <div class="publication-icon">
-                                    <i class="bi bi-file-earmark-text"></i>
-                                </div>
-                                <h4 class="publication-name">SCI / SCIE / Annexure I Journals</h4>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6">
-                            <div class="publication-card h-100">
-                                <div class="publication-icon">
-                                    <i class="bi bi-globe"></i>
-                                </div>
-                                <h4 class="publication-name">SCOPUS</h4>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6">
-                            <div class="publication-card h-100">
-                                <div class="publication-icon">
-                                    <i class="bi bi-diagram-3"></i>
-                                </div>
-                                <h4 class="publication-name">Web of Science</h4>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-sm-6">
-                            <div class="publication-card h-100">
-                                <div class="publication-icon">
-                                    <i class="bi bi-chat-dots"></i>
-                                </div>
-                                <h4 class="publication-name">Conference Papers</h4>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-sm-6">
-                            <div class="publication-card h-100">
-                                <div class="publication-icon">
-                                    <i class="bi bi-book"></i>
-                                </div>
-                                <h4 class="publication-name">Book Chapter</h4>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            <div class="col-md">
+                <div class="p-4 rounded-4 bg-light border text-center h-100 position-relative">
+                    <div class="badge bg-primary rounded-circle p-3 fs-5 mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">2</div>
+                    <h5 class="fw-bold text-dark fs-6 mb-2">Manuscript Writing</h5>
+                    <p class="text-secondary fs-7 mb-0">Structuring findings into professional standard formats.</p>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="p-4 rounded-4 bg-light border text-center h-100 position-relative">
+                    <div class="badge bg-primary rounded-circle p-3 fs-5 mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">3</div>
+                    <h5 class="fw-bold text-dark fs-6 mb-2">Journal Selection</h5>
+                    <p class="text-secondary fs-7 mb-0">Matching paper scope with relevant SCI/Scopus journals.</p>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="p-4 rounded-4 bg-light border text-center h-100 position-relative">
+                    <div class="badge bg-primary rounded-circle p-3 fs-5 mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">4</div>
+                    <h5 class="fw-bold text-dark fs-6 mb-2">Review & Submit</h5>
+                    <p class="text-secondary fs-7 mb-0">Plagiarism checks, formatting, and submission support.</p>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="p-4 rounded-4 bg-light border text-center h-100 position-relative">
+                    <div class="badge bg-primary rounded-circle p-3 fs-5 mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">5</div>
+                    <h5 class="fw-bold text-dark fs-6 mb-2">Thesis / Final Doc</h5>
+                    <p class="text-secondary fs-7 mb-0">End-to-end guidance for Ph.D./Master's thesis completion.</p>
                 </div>
             </div>
         </div>
-
-        <!-- Guidance Process -->
-        <!-- <div class="guidance-process">
-            <h3 class="process-title">Our Step-by-Step Guidance Process</h3>
-            
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h4 class="step-title">Idea Development</h4>
-                    <p class="step-desc">Help you refine and structure your research concepts into viable research proposals</p>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h4 class="step-title">Manuscript Preparation</h4>
-                    <p class="step-desc">Assist in writing and organizing your findings into professional manuscript format</p>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h4 class="step-title">Journal Selection</h4>
-                    <p class="step-desc">Guide you in selecting the most appropriate journal for your research</p>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h4 class="step-title">Publication Support</h4>
-                    <p class="step-desc">Provide mentorship through the submission and publication process</p>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <h4 class="step-title">Thesis Assistance</h4>
-                    <p class="step-desc">Complete support in structuring and finalizing your Ph.D. or Master's thesis</p>
-                </div>
-            </div>
-        </div> -->
-
     </div>
-</section>
+</section> -->
 {% endblock %}
+

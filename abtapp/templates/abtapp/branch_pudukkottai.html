@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Best IEEE Project Center & Expert Guidance in Pudukkottai{% endblock %}
+{% block meta_description %}<meta name="description" content="Top IEEE & engineering project center in Pudukkottai. Expert guidance for final year, IEEE & non-IEEE projects across ECE, CSE, EEE & Mechanical. Enquire now!">{% endblock %}
+
+{% block banner %}{% include 'abtapp/branch_home_banner.html' %}{% endblock %}
+
+{% block content %}
+<div class="branch-page-content">
+
+<!-- ══════════════════════════════════════ ABOUT + DOMAINS -->
+<section class="branch-about-section">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-8 branch-about-content">
+        <div class="section-header-modern text-start mb-4">
+            <span class="section-pill">About Us</span>
+            <h2 class="section-title-modern">Best Project Centre in <span class="highlight-text">Pudukkottai</span></h2>
+            <p class="section-desc-modern">AB Technologies is the best Project Centre in Pudukkottai involved in the development of Final year IEEE and non-IEEE projects. The team deals with developing Engineering, Arts and Science, Business Administration related Projects and covers wide range of domains.</p>
+        </div>
+        
+            </div>
+            <div class="col-lg-4 branch-about-gallery d-flex justify-content-center align-items-center">
+                <svg width="0" height="0" style="position: absolute;">
+                    <defs>
+                        <filter id="round-corner-hex">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+                        </filter>
+                    </defs>
+                </svg>
+                <div class="hexagon-gallery">
+                    <div class="hex-item hex-1">
+                        <div class="hex-inner">
+                            <img src="{% static 'abtapp/images/project1.webp' %}" alt="AB Technologies engineering project" />
+                        </div>
+                    </div>
+                    <div class="hex-item hex-2">
+                        <div class="hex-inner">
+                            <img src="{% static 'abtapp/images/project2.webp' %}" alt="AB Technologies student project" />
+                        </div>
+                    </div>
+                    <div class="hex-item hex-3">
+                        <div class="hex-inner">
+                            <img src="{% static 'abtapp/images/project3.webp' %}" alt="AB Technologies innovation project" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="branch-domains-section">
+    <div class="container">
+        <div class="section-header-modern text-center mb-5">
+            <span class="section-pill">Our Expertise</span>
+            <h2 class="section-title-modern">Explore Our <span class="highlight-text">Domains</span></h2>
+            <p class="section-desc-modern">Project guidance for students across engineering, science, management and school-level learning.</p>
+        </div>
+        <div class="domains-grid branch-domains-grid">
+            <div class="domain-card engg">
+                <div class="domain-icon"><i class="bi bi-cpu-fill"></i></div>
+                <h3>Engineering Domains</h3>
+                <ul>
+                    <li><i class="bi bi-check2-circle"></i> Artificial Intelligence &amp; Machine Learning (AI/ML)</li>
+                    <li><i class="bi bi-check2-circle"></i> Artificial Intelligence &amp; Data Science (AI/DS)</li>
+                    <li><i class="bi bi-check2-circle"></i> Computer Science &amp; Engineering (CSE)</li>
+                    <li><i class="bi bi-check2-circle"></i> Electronics &amp; Communication Engineering (ECE)</li>
+                    <li><i class="bi bi-check2-circle"></i> Electrical &amp; Electronics Engineering (EEE)</li>
+                    <li><i class="bi bi-check2-circle"></i> Electrical &amp; Instrumentation Engineering (E&amp;I)</li>
+                    <li><i class="bi bi-check2-circle"></i> Bio Medical Science</li>
+                    <li><i class="bi bi-check2-circle"></i> Civil Engineering</li>
+                    <li><i class="bi bi-check2-circle"></i> Mechanical Engineering</li>
+                </ul>
+            </div>
+            <div class="domain-card mgmt">
+                <div class="domain-icon"><i class="bi bi-briefcase-fill"></i></div>
+                <h3>Management &amp; Science</h3>
+                <ul>
+                    <li><i class="bi bi-check2-circle"></i> BBA &amp; MBA</li>
+                    <li><i class="bi bi-check2-circle"></i> BCA &amp; MCA</li>
+                    <li><i class="bi bi-check2-circle"></i> B.Com &amp; M.Com</li>
+                    <li><i class="bi bi-check2-circle"></i> BSc &amp; MSc</li>
+                </ul>
+            </div>
+            <div class="domain-card school">
+                <div class="domain-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                <h3>School Students</h3>
+                <ul>
+                    <li><i class="bi bi-check2-circle"></i> Innovative School Projects</li>
+                    <li><i class="bi bi-check2-circle"></i> Working Models</li>
+                    <li><i class="bi bi-check2-circle"></i> Science Projects</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="branch-activities-section">
+    <div class="container">
+        <div class="section-header-modern text-center mb-5">
+            <span class="section-pill">What We Offer</span>
+            <h2 class="section-title-modern">Our Major <span class="highlight-text">Activities</span></h2>
+            <p class="section-desc-modern">AB Technologies is specialised in providing the following activities in Pudukkottai and nearby regions.</p>
+        </div>
+        <div class="activities-grid">
+            <div class="activity-card">
+                <div class="activity-icon-wrap" style="background:linear-gradient(135deg,#6366f1,#4f46e5)"><i class="bi bi-person-workspace"></i></div>
+                <h4>Internship</h4>
+                <p>Industry-relevant internship programs for students in Pudukkottai. Hands-on experience in real-time projects and technical domains.</p>
+                <span class="activity-tag">Students</span>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon-wrap" style="background:linear-gradient(135deg,#ec4899,#be185d)"><i class="bi bi-journal-bookmark-fill"></i></div>
+                <h4>Value Added Courses</h4>
+                <p>Skill-enhancing short-term courses in Embedded Systems, IoT, AI/ML, Python, Java, Web Development, and many more technical tools.</p>
+                <span class="activity-tag">All Levels</span>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon-wrap" style="background:linear-gradient(135deg,#f59e0b,#d97706)"><i class="bi bi-building-gear"></i></div>
+                <h4>In-Plant Training</h4>
+                <p>Comprehensive in-plant training for engineering and science students in Pudukkottai – bridging the gap between academics and industry.</p>
+                <span class="activity-tag">Engineering</span>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon-wrap" style="background:linear-gradient(135deg,#10b981,#059669)"><i class="bi bi-bus-front-fill"></i></div>
+                <h4>Industrial Visit</h4>
+                <p>Organised industrial visits for college departments and schools in Pudukkottai to experience real-world engineering environments.</p>
+                <span class="activity-tag">Groups</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════ CTA -->
+<section class="branch-cta-section">
+    <div class="container">
+        <div class="branch-cta-card">
+            <div class="cta-content">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Connect with our Pudukkottai team today. We're here to guide you through IEEE &amp; Non-IEEE final year projects, research, and training.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+919840511458" class="cta-btn primary"><i class="bi bi-telephone-outbound-fill"></i> Call +91 98405 11458</a>
+                    <button type="button" class="cta-btn secondary" data-bs-toggle="modal" data-bs-target="#ourBranchesModal"><i class="bi bi-grid-fill"></i> View All Branches</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════ CONTACT INFO + MAP -->
+<section class="branch-contact-section">
+    <div class="container">
+        <h2 class="section-title-modern text-center mb-4">Our Location</h2>
+        <div class="row g-4 align-items-stretch">
+            <div class="col-lg-5">
+                <div class="branch-info-card">
+                    <div class="branch-badge pudukkottai-badge"><i class="bi bi-building"></i> Branch Office</div>
+                    <h2 class="branch-city-name">Pudukkottai</h2>
+                    <p class="big-city-subtitle">Serving students in Pudukkottai &amp; nearby districts</p>
+                    <div>
+                        <div class="branch-detail-item">
+                            <div class="detail-icon"><i class="bi bi-pin-map-fill"></i></div>
+                            <div class="detail-text">
+                                <strong>Address</strong>
+                                <p>5378/2B, Second Floor, Jansi Plaza, Nizam Colony, Pudukkottai, Tamil Nadu - 622001.</p>
+                            </div>
+                        </div>
+                        <div class="branch-detail-item">
+                            <div class="detail-icon"><i class="bi bi-telephone-fill"></i></div>
+                            <div class="detail-text">
+                                <strong>Phone</strong>
+                                <p><a href="tel:+919840511458">+91 98405 11458</a><br><a href="tel:+919789966059">+91 97899 66059</a></p>
+                            </div>
+                        </div>
+                        <div class="branch-detail-item">
+                            <div class="detail-icon"><i class="bi bi-clock-fill"></i></div>
+                            <div class="detail-text">
+                                <strong>Business Hours</strong>
+                                <p>Mon – Sat: 9:00 AM – 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="branch-actions">
+                        <a href="tel:+919840511458" class="branch-action-btn call-btn"><i class="bi bi-telephone-outbound-fill"></i> Call Now</a>
+                        <a href="https://maps.google.com/?q=Jansi+Plaza+Nizam+Colony+Pudukkottai" target="_blank" class="branch-action-btn direction-btn"><i class="bi bi-cursor-fill"></i> Directions</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="branch-map-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.5825367237667!2d78.8202352!3d10.375225399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b007943755b4f8f%3A0xe77409980d5111e0!2sAB%20TECHNOLOGIES!5e0!3m2!1sen!2sin!4v1791191936061!5m2!1sen!2sin"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" title="AB Technologies Pudukkottai Office Location"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div>
+{% endblock %}

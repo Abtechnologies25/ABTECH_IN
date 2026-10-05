@@ -1,0 +1,273 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block title %}Training - AB Technologies{% endblock %}
+
+{% block content %}
+<div class="page-banner training-banner">
+    <div class="page-banner-content">
+        <!-- <div class="banner-badge">💡 Innovation Portfolio</div> -->
+        <h1 class="page-banner-title">
+            <span class="title-modern"> </span>
+            <span class="title-highlight">Training</span>
+            <p class="mt-2 "><i>Learn..! Skill Up.! Succeed.!</i></p>
+        </h1>
+    </div>
+</div>
+
+<div class="training-page-wrapper py-5" style="background-color: #f7f9fb; min-height: 100vh;" >
+    <div class="container bg-white p-4 p-md-5 rounded-4 shadow-lg " style="border:3px solid #0b57af;">
+        
+        <!-- Hands-On Training Header & Cards -->
+        <div class="row align-items-stretch g-4 mb-5" >
+            <!-- Left Column - Content -->
+            <div class="col-lg-6 d-flex flex-column justify-content-between">
+                <div>
+                    <h2 class="section-title mb-3">
+                        <span class="about-word">Hands-On</span> <span class="company-name"> Training</span>
+                    </h2>
+                    <p class="training-content lh-lg mb-4">
+                        AB Technologies is fully equipped with advanced infrastructure and well experienced trainers providing hands-on training to the students and professionals. The training covers various trending technologies across all the disciplines, covering students from Engineering, Diploma courses and also Arts and Science courses. We have the most experienced faculties with minimum 5 years of industrial experience in their respective field imparting knowledge according to the needs of current industry standards.
+                    </p>
+                </div>
+
+                <div>
+                    <a href="{% url 'contact_us' %}" class="btn px-4 py-2.5 rounded-pill shadow-sm fw-semibold text-light" style="background-color: #0b57af;">
+                        <i class="bi bi-telephone-outbound me-2"></i>Join Training Now
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Right Column - Training Cards Grid -->
+            <div class="col-lg-6">
+                <div class="row g-3 h-100">
+                    <div class="col-md-6">
+                        <div class="training-card shadow-sm h-100 p-4 border border-light-subtle rounded-4 bg-light">
+                            <div class="training-card-icon text-primary fs-2 mb-3">
+                                <i class="bi bi-briefcase"></i>
+                            </div>
+                            <h5 class="training-card-title fw-bold">Internship for Students</h5>
+                            <p class="small text-muted mb-0">Practical industry exposure & project guidance.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="{% url 'value_added_courses' %}" class="training-card-link text-decoration-none h-100 d-block">
+                            <div class="training-card training-card-clickable shadow-sm h-100 p-4 border border-light-subtle rounded-4 bg-light">
+                                <div class="training-card-icon text-primary fs-2 mb-3">
+                                    <i class="bi bi-star"></i>
+                                </div>
+                                <h5 class="training-card-title fw-bold">Value Added Courses</h5>
+                                <p class="small text-muted mb-0">College level VAC programs & certifications.</p>
+                                <span class="training-card-arrow"><i class="bi bi-arrow-right"></i></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="training-card shadow-sm h-100 p-4 border border-light-subtle rounded-4 bg-light">
+                            <div class="training-card-icon text-primary fs-2 mb-3">
+                                <i class="bi bi-gear-wide"></i>
+                            </div>
+                            <h5 class="training-card-title fw-bold">In-Plant Training</h5>
+                            <p class="small text-muted mb-0">Short term technical training for college students.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="training-card shadow-sm h-100 p-4 border border-light-subtle rounded-4 bg-light">
+                            <div class="training-card-icon text-primary fs-2 mb-3">
+                                <i class="bi bi-lightbulb"></i>
+                            </div>
+                            <h5 class="training-card-title fw-bold">School Projects</h5>
+                            <p class="small text-muted mb-0">Innovative project mentorship for school students.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Banner / Location CTA inside the same container -->
+        <div class="rounded-4 shadow-sm border border-light-subtle p-4 p-md-4 mb-5" style="background-color: #0b57af;">
+            <div class="row align-items-center justify-content-between g-4">
+                <div class="col-lg-8">
+                    <p class="text-light mb-0 fs-5">
+                        Hands-on training in Embedded Systems, IoT, AI, VLSI, ANSYS, Web Development & more. Internships & workshops in <b> Nagercoil, Chennai, Tirunelveli, Pudukkottai, Marthandam </b> and all over India. 
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="{% url 'contact_us' %}" class="btn btn-light btn-lg px-4 py-3 rounded-pill fw-bold shadow-sm">
+                        Join Now <i class="bi bi-arrow-right-circle-fill ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Programs Section inside the same container -->
+        <div class="pt-2">
+            <div class="text-center mb-5">
+               <h2 class="section-title mb-3">
+                <span class="about-word">Explore Our Training Courses</span>
+               </h2>
+            </div>
+
+            <div class="row g-4">
+                <!-- 1. Embedded Systems & IoT -->
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 course-card bg-white hover-lift">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-square bg-primary-subtle text-primary rounded-3 p-3 fs-3 d-flex align-items-center justify-content-center">
+                                <i class="bi bi-cpu"></i>
+                            </div>
+                            <div>
+                                <h4 class="fw-bold text-dark mb-1">Embedded Systems & Internet of Things (IoT)</h4>
+                            </div>
+                        </div>
+                        <p class="lh-base flex-grow-1">
+                            Know the basics of embedded systems and microcontrollers such as Arduino, ESP32, FPGA Controller, Raspberry Pi etc., Get hands-on training in embedded programming, sensor interfacing and IoT Technologies through developing real time projects.
+                        </p>
+                        <div class="d-flex flex-wrap gap-2 mt-3 pt-3 border-top">
+                            <span class="chip border small px-2 py-1 rounded">Arduino</span>
+                            <span class="chip border small px-2 py-1 rounded">ESP32</span>
+                            <span class="chip border small px-2 py-1 rounded">FPGA</span>
+                            <span class="chip border small px-2 py-1 rounded">Raspberry Pi</span>
+                            <span class="chip border small px-2 py-1 rounded">Sensor Interfacing</span>
+                            <span class="chip border small px-2 py-1 rounded">IoT Protocols</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Artificial Intelligence -->
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 course-card bg-white hover-lift">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-square bg-primary-subtle text-primary rounded-3 p-3 fs-3 d-flex align-items-center justify-content-center">
+                                <i class="bi bi-robot"></i>
+                            </div>
+                            <div>
+                                <h4 class="fw-bold text-dark mb-1">Artificial Intelligence</h4>
+                            </div>
+                        </div>
+                        <p class="lh-base flex-grow-1">
+                          Get to know the basic concepts related to Machine Learning and Deep Learning, the basic programming tools such as Python for building AI applications and build models.
+                        </p>
+                        <div class="d-flex flex-wrap gap-2 mt-3 pt-3 border-top">
+                            <span class="chip border small px-2 py-1 rounded">Machine Learning</span>
+                            <span class="chip border small px-2 py-1 rounded">Deep Learning</span>
+                            <span class="chip border small px-2 py-1 rounded">Python</span>
+                            <span class="chip border small px-2 py-1 rounded">Model Building</span>
+                            <span class="chip border small px-2 py-1 rounded">Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Robotics -->
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 course-card bg-white hover-lift">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-square bg-primary-subtle text-primary rounded-3 p-3 fs-3 d-flex align-items-center justify-content-center">
+                                <i class="bi bi-diagram-3"></i>
+                            </div>
+                            <div>
+                                <h4 class="fw-bold text-dark mb-1">Robotics</h4>
+                            </div>
+                        </div>
+                        <p class="lh-base flex-grow-1">
+                            Learning through fundamentals, the programming and control and building Robots based on the trending applications.
+                        </p>
+                        <div class="d-flex flex-wrap gap-2 mt-3 pt-3 border-top">
+                            <span class="chip border small px-2 py-1 rounded">Fundamentals</span>
+                            <span class="chip border small px-2 py-1 rounded">Robot Programming</span>
+                            <span class="chip border small px-2 py-1 rounded">Control Systems</span>
+                            <span class="chip border small px-2 py-1 rounded">Autonomous Bots</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Software Courses -->
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 course-card bg-white hover-lift">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-square bg-primary-subtle text-primary rounded-3 p-3 fs-3 d-flex align-items-center justify-content-center">
+                                <i class="bi bi-pc-display"></i>
+                            </div>
+                            <div>
+                                <h4 class="fw-bold text-dark mb-1">Software Courses</h4>
+                            </div>
+                        </div>
+                        <p class="lh-base flex-grow-1">
+                            Software courses such as QElectroTech, MEP, CREO, SOLIDWORKS etc.
+                        </p>
+                        <div class="d-flex flex-wrap gap-2 mt-3 pt-3 border-top">
+                            <span class="chip border small px-2 py-1 rounded">QElectroTech</span>
+                            <span class="chip border small px-2 py-1 rounded">MEP</span>
+                            <span class="chip border small px-2 py-1 rounded">CREO</span>
+                            <span class="chip border small px-2 py-1 rounded">SOLIDWORKS</span>
+                            <span class="chip border small px-2 py-1 rounded">CAD Modeling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .chip{
+        background-color: #0b57af;
+        color: #ffffff;
+    }
+.training-page-wrapper {
+    background-color: #f7f9fb !important;
+}
+
+/* Clickable Training Card */
+.training-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.training-card-clickable {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.training-card-clickable:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(11, 87, 175, 0.15) !important;
+    border-color: #0b57af !important;
+}
+
+.training-card-arrow {
+    position: absolute;
+    bottom: 12px;
+    right: 14px;
+    font-size: 1.1rem;
+    color: #0b57af;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.training-card-clickable:hover .training-card-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+}
+
+.course-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(11, 87, 175, 0.08) !important;
+    background-color: #ffffff !important;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(11, 87, 175, 0.12) !important;
+    border-color: rgba(11, 87, 175, 0.3) !important;
+}
+
+.icon-square {
+    width: 56px;
+    height: 56px;
+}
+</style>
+
+{% endblock %}

@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Home - AB Technologies{% endblock %}
+{% block title %}AB Technologies | IEEE Projects, Internship & Research Guidance{% endblock %}
+{% block meta_description %}<meta name="description" content="AB Technologies offers IEEE/final year projects, internships & research guidance across Nagercoil, Chennai, Tirunelveli & Pudukottai. 15k+ projects, 11+ years experience.">{% endblock %}
 
 {% block banner %}
 <div class="banner-section">
@@ -234,6 +235,9 @@
 
 {% block content %}
 
+<!-- Our Statistics Section -->
+
+
 <section class="about-section " style="padding-top: 0; padding-bottom: 0 !important;">
 
     <div class="about-layout container " style="margin-bottom: 0; padding-bottom: 0 ;">
@@ -243,63 +247,52 @@
                 <div class="about-all-text ">
                     <h2 class="section-title"><span class="about-word">About</span> <span class="company-name">Us</span>
                     </h2>
-                    <p>AB Technologies is an organization that primarily deals with developing research concepts and
-                        real time projects. AB Technologies is specialized in guiding the students to develop
-                        engineering projects with real time applications. AB Technologies assists the research scholars
-                        and mentor them in understanding the concepts, ideas and also support them in writing and
-                        publishing their research works in reputed journals of different standards such as UGC, Scopus
-                        indexed and SCI indexed journals. The organization is well versed in assisting Synopsis and
-                        Thesis development.</p>
+                    <p>AB Technologies is an organization that primarily deals with developing research concepts and real time projects. AB Technologies is specialized in guiding the students to develop engineering projects with real time applications. AB Technologies assists the research scholars and mentor them in understanding the concepts, ideas and also support them in writing and publishing their research works in reputed journals of different standards such as UGC, Scopus indexed and SCI indexed journals. The organization is well versed in assisting Synopsis and Thesis development.</p>
 
-                    <p>AB Technologies is also involved in conducting Training, Internship and Courses in various
-                        disciplines like Embedded Systems, Internet of Things (IoT), Robotics &amp; Automation,
-                        Artificial Intelligence, Matlab, PCB, CAD design, Python, Java, VLSI, ANSYS, Antenna Design, Web
-                        Development, Game Development, Computer Hardware &amp; Software, Database Management and
-                        networking.</p>
-
-                    <p>AB Technologies is experienced in the preparation of proposals and in the implementation of
-                        engineering oriented funded projects. AB Technologies is skilled and engaged in the
-                        manufacturing of Lab Equipment. AB Technologies is well known for conducting various workshops,
-                        value added courses, trainings, and Guest Lecture Programs, National and International
-                        conferences in various colleges across India.<br><b>Click Here for Office Profile :</b> <a
+                    <p>AB Technologies is also involved in conducting Training, Internship and Courses in various disciplines like Embedded Systems, Internet of Things (IoT), Robotics & Automation, Artificial Intelligence, Matlab, PCB, PLC, CAD design, Python, Java, VLSI, ANSYS, Antenna Design, Web Development, Game Development, Computer Hardware & Software, Database Management and networking, Data Analytic and Power Bi, Power Electronics, Electric Vehicles, QELECTROTECH, Optimization For Engineering Applications, ECAD, CREO, MEP, Solid Works, Business Management And Artificial Intelligence.</p>
+<p>The organization also offers an opportunity for Industrial Visits to the student that enable them to get an idea of field level knowledge.</p>
+                    <p>AB Technologies is experienced in the preparation of proposals and in the implementation of engineering oriented funded projects. AB Technologies is skilled and engaged in the manufacturing of Lab Equipment. AB Technologies is well known for conducting various workshops, value added courses, trainings, and Guest Lecture Programs, National and International conferences in various colleges across India. AB Technologies strives to establish itself as the best Project centre in Tamil Nadu, India.<br><b>Click Here for Office Profile :</b> <a
                             href="{% static 'abtapp/AB TECHNOLOGIES COMPANY PROFILE.pdf' %}" class="btn" target="_blank"
                             style="background-color: #0b57af;font-weight: 900;text-align: center;text-indent: 0;padding: 5px 15px;color:#ffffff">Click</a>
                     </p>
 
                 </div>
             </div>
-            <div class="col-md-5 d-flex justify-content-end align-items-end p-0 m-0">
+            <div class="col-md-5 d-flex justify-content-center align-items-center p-0 m-0">
                 <img src="{% static 'abtapp/images/about.png' %}" alt="About AB Technologies"
-                    class="img-fluid d-block m-0 p-0" loading="lazy" decoding="async"
-                    style="margin-bottom: 0 !important; padding-bottom: 0 !important; display: block; width: 100%; max-width: 500px; height: auto;" />
+                    class="img-fluid about-img d-block m-0 p-0" loading="lazy" decoding="async"
+                    style="margin-bottom: 0 !important; padding-bottom: 0 !important; display: block; width: 100%; max-width: 550px; height: 100%; object-fit: cover;" />
             </div>
         </div>
     </div>
 
 </section>
-
-<!-- Vision & Mission Section -->
+<!-- Vision, Mission & Statistics Section -->
 <section class="vision-mission-section">
     <div class="container">
-        <div class="row align-items-center g-5">
-            <!-- Left Column - Image -->
-            <div class="col-md-6">
-                <div class="vision-content">
-                    <div class="vision-block">
-                        <h3 class="vision-heading">VISION</h3>
-                        <p class="vision-text">To mentor and guide in research and development of innovative ideas and
-                            to give efficient training to the students in various domains of engineering.</p>
-                    </div>
-
+        <!-- Our Statistics (Top Row) -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="stats-block">
+                    <h3 class="stats-heading text-center">OUR STATISTICS</h3>
+                    <p class="vision-text">AB Technologies offers Final year IEEE projects, Internships, Courses &amp; Research guidance across Nagercoil, Chennai, Tirunelveli, Pudukkottai, Marthandam and all over India. We have successfully delivered more than 15k+ projects so far and with about 14+ years of experience.</p>
                 </div>
-
             </div>
-            <!-- Right Column - Content -->
+        </div>
+        <!-- Vision & Mission (Bottom Row - 2 Columns) -->
+        <div class="row g-4 align-items-stretch">
+            <!-- Vision -->
+            <div class="col-md-6">
+                <div class="vision-block">
+                    <h3 class="vision-heading">VISION</h3>
+                    <p class="vision-text">To mentor and guide in research and development of innovative ideas and to give efficient training to the students in various domains of engineering.</p>
+                </div>
+            </div>
+            <!-- Mission -->
             <div class="col-md-6">
                 <div class="mission-block">
                     <h3 class="mission-heading">MISSION</h3>
-                    <p class="vision-text">To unfold creative engineering thoughts into meaningful products that
-                        contribute to the society positively.</p>
+                    <p class="vision-text">To unfold creative engineering thoughts into meaningful products that contribute to the society positively.</p>
                 </div>
             </div>
         </div>

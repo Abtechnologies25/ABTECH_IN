@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Value Added Courses - AB Technologies{% endblock %}
+{% block meta_description %}<meta name="description" content="Explore our comprehensive Value Added Courses (VAC) including workshops and training programs conducted across leading colleges and universities.">{% endblock %}
+
+{% block content %}
+<div class="page-banner vac-banner">
+    <div class="page-banner-content">
+        <h1 class="page-banner-title ">
+            <!-- <span class="title-modern">Value Added</span> -->
+            <span class="title-highlight"> Value Added Course</span>
+            <p class="mt-2"><i>-	Workshops and Training Programs</i></p>
+        </h1>
+    </div>
+</div>
+
+<div class="vac-page-wrapper py-5" style="background-color: #f7f9fb; min-height: 100vh;">
+    <div class="container bg-white p-4 p-md-5 rounded-4 shadow-lg" style="border: 3px solid #0b57af;">
+        
+        <!-- VAC Intro Section -->
+        <div class="row align-items-center g-5 mb-5">
+            <div class="col-lg-6">
+                <p class="vac-description">
+                    AB Technologies is well known for conducting Value Added Courses such as workshops and training programs in reputed colleges across the country. We engage in giving real time and hands on training to the students that enable them in skilling them technically and to gain knowledge. We conduct Value Added Courses such as workshops and training programs covering concepts from all the domains. Below is the list of Value Added Courses being conducted by AB Technologies.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <div class="vac-image-container">
+                    <img src="{% static 'abtapp/images/vac.webp' %}" alt="Value Added Courses" class="img-fluid rounded-3 shadow-sm" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Workshops Section -->
+        <div class="row align-items-center g-5 mb-5">
+            <div class="col-md-6">
+                <div class="workshop-image-container">
+                    <img src="{% static 'abtapp/images/workshop.png' %}" alt="Workshop" class="img-fluid" loading="lazy" decoding="async">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2 class="section-title mb-2">
+                    <span class="company-name">Technical</span> <span class="about-word"> Workshops</span>
+                </h2>
+                <p class="workshop-content">
+                    AB Technologies is well known for conducting workshops and training programs in reputed colleges across the country. We engage in giving real time and hands on training to the students that enable them in skilling them technically and to gain knowledge. We conduct workshop covering concepts from all the domains.
+                </p>
+            </div>
+        </div>
+
+        <!-- VAC Table Section -->
+        <div class="pt-2">
+            <div class="text-center mb-4">
+                <h2 class="justify-content-center" style="font-size: 2.4rem; font-weight: 900;">
+                    <span class="about-word">List of Value Added Courses</span> <span class="company-name">(Workshop/Training) </span><span class="about-word">Details</span>
+                </h2>
+            </div>
+
+            <div class="vac-table-wrapper border">
+                <table class="table table-vac-list table-bordered align-middle mb-0">
+                    <thead>
+                        <tr class="text-center">
+                            <th class="text-center" style="width: 60px;">S.NO</th>
+                            <th style="width: 110px;">VAC NO</th>
+                            <th style="width: 240px;">COLLEGE NAME</th>
+                            <th style="width: 180px;">DEPARTMENT NAME</th>
+                            <th>VAC TITLE</th>
+                            <th style="width: 90px;">NO. OF DAYS</th>
+                            <th style="width: 120px;">FROM</th>
+                            <th style="width: 120px;">TO</th>
+                            <th style="width: 130px;">GALLERY</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for vac in vacs %}
+                        <tr>
+                            <td class="text-center">{{ forloop.counter }}</td>
+                            <td class="text-center"><strong>{{ vac.vac_no }}</strong></td>
+                            <td>{{ vac.college_name }}</td>
+                            <td>{{ vac.department_name }}</td>
+                            <td>{{ vac.vac_title }}</td>
+                            <td class="text-center">{{ vac.no_of_days }}</td>
+                            <td class="text-center">{{ vac.from_date|date:"d M Y" }}</td>
+                            <td class="text-center">{{ vac.to_date|date:"d M Y" }}</td>
+                            <td class="text-center">
+                                {% if vac.gallery_image %}
+                                    <a href="{% url 'gallery' %}?image={{ vac.gallery_image.id }}"
+                                       class="btn btn-sm btn-primary gallery-btn">
+                                        <i class="bi bi-images"></i> View Gallery
+                                    </a>
+                                {% elif vac.gallery_category %}
+                                    <a href="{% url 'gallery' %}?category={{ vac.gallery_category.id }}"
+                                       class="btn btn-sm btn-outline-primary gallery-btn">
+                                        <i class="bi bi-grid"></i> View Category
+                                    </a>
+                                {% else %}
+                                    <span class="text-muted">-</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="9" class="text-center py-4 text-muted">No Value Added Courses available yet.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+/* ============================================================
+   VAC PAGE — INTRO SECTION
+   ============================================================ */
+.vac-intro-section {
+    padding: 60px 0;
+}
+
+.vac-description {
+    font-size: 1.05rem;
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.vac-image-container img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vac-image-container img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(11, 87, 175, 0.15);
+}
+
+/* ============================================================
+   VAC TABLE — MATCHING MoU PAGE DESIGN
+   ============================================================ */
+.vac-table-section {
+    padding: 40px 0 60px;
+    background: #f8fafc;
+}
+
+.vac-table-wrapper {
+    overflow-x: auto;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.table-vac-list {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Header */
+.table-vac-list thead tr {
+    background-color: #0b57af !important;
+}
+
+.table-vac-list thead th {
+    background-color: #0b57af !important;
+    color: #ffffff !important;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    white-space: nowrap;
+}
+
+/* Body rows */
+.table-vac-list tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.table-vac-list tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.table-vac-list tbody td {
+    font-size: 0.85rem;
+    color: #1e293b;
+    padding: 10px 16px;
+    vertical-align: middle;
+    border: 1px solid #e2e8f0 !important;
+}
+
+@media (max-width: 768px) {
+    .table-vac-list {
+        min-width: 900px;
+    }
+    
+    .vac-intro-section {
+        padding: 40px 0;
+    }
+}
+</style>
+
+{% endblock %}

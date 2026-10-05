@@ -1,0 +1,98 @@
+<!-- Our Branches Modal -->
+<div class="modal fade" id="ourBranchesModal" tabindex="-1" aria-labelledby="ourBranchesModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content ob-modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header ob-modal-header">
+        <div class="ob-header-badge">
+          <i class="bi bi-geo-alt-fill me-1"></i> OUR NETWORK
+        </div>
+        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <!-- Modal Body -->
+      <div class="modal-body ob-modal-body text-center">
+        <div class="ob-hero-icon">
+          <i class="bi bi-globe2"></i>
+        </div>
+        <h3 class="ob-title-text">
+          Our dream is to serve across the country.<br>
+          <span class="ob-subtitle-text">At present, AB Technologies is present in</span>
+        </h3>
+
+        <!-- Branch Grid Cards -->
+        <div class="ob-grid-container">
+          <a href="{% url 'branch_nagercoil' %}" class="ob-grid-card">
+            <div class="ob-card-icon-wrapper head-office-bg">
+              <i class="bi bi-building"></i>
+            </div>
+            <div class="ob-card-content">
+              <span class="ob-city-title">Nagercoil</span>
+              <span class="ob-city-tag head-office-tag">Head Office</span>
+            </div>
+            <div class="ob-card-chevron">
+              <i class="bi bi-arrow-right-short"></i>
+            </div>
+          </a>
+
+          <a href="{% url 'branch_tirunelveli' %}" class="ob-grid-card">
+            <div class="ob-card-icon-wrapper">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <div class="ob-card-content">
+              <span class="ob-city-title">Tirunelveli</span>
+              <span class="ob-city-tag">Branch</span>
+            </div>
+            <div class="ob-card-chevron">
+              <i class="bi bi-arrow-right-short"></i>
+            </div>
+          </a>
+
+          <a href="{% url 'branch_chennai' %}" class="ob-grid-card">
+            <div class="ob-card-icon-wrapper">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <div class="ob-card-content">
+              <span class="ob-city-title">Chennai</span>
+              <span class="ob-city-tag">Branch</span>
+            </div>
+            <div class="ob-card-chevron">
+              <i class="bi bi-arrow-right-short"></i>
+            </div>
+          </a>
+
+          <a href="{% url 'branch_pudukkottai' %}" class="ob-grid-card">
+            <div class="ob-card-icon-wrapper">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <div class="ob-card-content">
+              <span class="ob-city-title">Pudukkottai</span>
+              <span class="ob-city-tag">Branch</span>
+            </div>
+            <div class="ob-card-chevron">
+              <i class="bi bi-arrow-right-short"></i>
+            </div>
+          </a>
+
+          <a href="{% url 'branch_marthandam' %}" class="ob-grid-card">
+            <div class="ob-card-icon-wrapper">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <div class="ob-card-content">
+              <span class="ob-city-title">Marthandam</span>
+              <span class="ob-city-tag">Branch</span>
+            </div>
+            <div class="ob-card-chevron">
+              <i class="bi bi-arrow-right-short"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer ob-modal-footer">
+        <button type="button" class="btn ob-close-btn" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

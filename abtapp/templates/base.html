@@ -14,7 +14,9 @@
     <meta name="google-site-verification" content="fFkuNVfscsUXDyplKhEUUgLXXB2VsdENlTdQTxvuB_s" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" sizes="32x32" href="{% static 'abtapp/images/ABTECHNOLOGY_LOGO.webp' %}" type="image/png">
     <title>{% block title %}AB Technologies{% endblock %}</title>
+    {% block meta_description %}{% endblock %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -24,17 +26,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <style>
-        /* Smooth Scrolling for the entire page */
+       
         html {
             scroll-behavior: smooth;
         }
         
-        /* Enhanced smooth scrolling with custom easing */
+        
         * {
             scroll-behavior: smooth;
         }
         
-        /* Webkit browsers smooth scrolling */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -63,6 +64,7 @@
             {% block content %}
             {% endblock %}
         </main>
+        {% include 'branches_modal.html' %}
         {% include 'footer.html' %}
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

@@ -28,13 +28,23 @@ def project_category_detail_view(request, category_id):
 def research_guidance_view(request):
     return render(request, 'abtapp/research_guidance.html', {'active_page': 'research_guidance'})
 
-def training_workshop_view(request):
+def training_view(request):
+    context = {
+        'active_page': 'training'
+    }
+    return render(request, 'abtapp/training.html', context)
+
+def value_added_courses_view(request):
     vacs = VAC.objects.all().order_by('-from_date')
+    college_count = VAC.objects.values('college_name').distinct().count()
+    dept_count = VAC.objects.values('department_name').distinct().count()
     context = {
         'vacs': vacs,
-        'active_page': 'training_workshop'
+        'college_count': college_count,
+        'dept_count': dept_count,
+        'active_page': 'value_added_courses',
     }
-    return render(request, 'abtapp/training_workshop.html', context)
+    return render(request, 'abtapp/value_added_courses.html', context)
 
 def gallery_api(request, category_id):
     """API endpoint to fetch gallery images for a category"""
@@ -102,6 +112,21 @@ def our_team_view(request):
 
 def our_branches_view(request):
     return render(request, 'abtapp/our_branches.html', {'active_page': 'our_branches'})
+
+def branch_nagercoil_view(request):
+    return render(request, 'abtapp/branch_nagercoil.html', {'active_page': 'our_branches'})
+
+def branch_tirunelveli_view(request):
+    return render(request, 'abtapp/branch_tirunelveli.html', {'active_page': 'our_branches'})
+
+def branch_chennai_view(request):
+    return render(request, 'abtapp/branch_chennai.html', {'active_page': 'our_branches'})
+
+def branch_pudukkottai_view(request):
+    return render(request, 'abtapp/branch_pudukkottai.html', {'active_page': 'our_branches'})
+
+def branch_marthandam_view(request):
+    return render(request, 'abtapp/branch_marthandam.html', {'active_page': 'our_branches'})
 
 def contact_us_view(request):
     return render(request, 'abtapp/contact_us.html', {'active_page': 'contact_us'})

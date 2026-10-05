@@ -28,11 +28,33 @@
             Research Guidance
           </a>
         </li>
-        <li class="nav-item">
-          <a href="{% url 'training_workshop' %}" class="nav-link {% if active_page == 'training_workshop' %}active{% endif %}">
-            Training & Workshop
+                <li class="nav-item">
+          <a href="{% url 'training' %}" class="nav-link {% if active_page == 'training' %}active{% endif %}">
+            Training
           </a>
         </li>
+                        <li class="nav-item">
+          <a href="{% url 'value_added_courses' %}" class="nav-link {% if active_page == 'value_added_courses' %}active{% endif %}">
+            Value Added Courses
+          </a>
+        </li>
+        <!-- <li class="nav-item nav-dropdown {% if active_page == 'training' or active_page == 'value_added_courses' %}active-dropdown{% endif %}">
+          <a href="javascript:void(0)" class="nav-link dropdown-toggle-custom {% if active_page == 'training' or active_page == 'value_added_courses' %}active{% endif %}" id="trainingDropdown">
+            Training <i class="bi bi-chevron-down nav-dropdown-icon"></i>
+          </a>
+          <ul class="nav-dropdown-menu">
+            <li>
+              <a href="{% url 'training' %}" class="nav-dropdown-item {% if active_page == 'training' %}active{% endif %}">
+                Training
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'value_added_courses' %}" class="nav-dropdown-item {% if active_page == 'value_added_courses' %}active{% endif %}">
+                Value Added Courses
+              </a>
+            </li>
+          </ul>
+        </li> -->
         <li class="nav-item">
           <a href="{% url 'products' %}" class="nav-link {% if active_page == 'products' %}active{% endif %}">
             Products
@@ -80,11 +102,11 @@
             Our Team
           </a>
         </li> -->
-        <!-- <li class="nav-item">
-          <a href="{% url 'our_branches' %}" class="nav-link {% if active_page == 'our_branches' %}active{% endif %}">
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link {% if active_page == 'our_branches' %}active{% endif %}" data-bs-toggle="modal" data-bs-target="#ourBranchesModal">
             Our Branches
           </a>
-        </li> -->
+        </li>
         <li class="nav-item">
           <a href="{% url 'contact_us' %}" class="nav-link nav-btn {% if active_page == 'contact_us' %}active{% endif %}">
             Contact Us
