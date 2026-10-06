@@ -400,5 +400,117 @@
 
 /* No results state */
 .no-videos-state i { font-size: 3rem; color: #94a3b8; display: block; }
+
+@media (max-width: 768px) {
+    .videos-banner {
+        min-height: 170px;
+        padding: 1.5rem 1rem;
+    }
+
+    .videos-banner .page-banner-content {
+        width: 100%;
+    }
+
+    .videos-banner .page-banner-title {
+        margin-bottom: 0;
+        line-height: 1.2;
+    }
+
+    .videos-banner .title-highlight {
+        font-size: clamp(2rem, 9vw, 2.5rem);
+    }
+
+    .videos-intro-section.py-5,
+    .video-gallery-section.py-5 {
+        padding-block: 2rem !important;
+    }
+
+    .videos-intro-section .row {
+        --bs-gutter-y: 1.25rem !important;
+    }
+
+    .videos-intro-section .section-title {
+        margin-bottom: 1rem !important;
+        font-size: 1.7rem;
+        text-align: center;
+    }
+
+    .videos-intro-section .mou-description {
+        font-size: 0.95rem;
+        line-height: 1.65;
+        text-align: justify;
+    }
+
+    .videos-channel-label {
+        font-size: 1.05rem;
+        text-align: center;
+    }
+
+    .youtube-channel-card {
+        padding: 0.8rem 0.9rem;
+    }
+
+    .video-intro-image-wrapper {
+        border-radius: 22px;
+    }
+
+    .video-intro-image-wrapper img {
+        height: clamp(180px, 58vw, 250px);
+    }
+
+    .image-overlay-pulse {
+        font-size: 3rem;
+    }
+
+    .gallery-controls-card {
+        padding: 0.9rem;
+        border-radius: 14px;
+    }
+
+    .gallery-controls-card .row {
+        --bs-gutter-y: 0.75rem;
+    }
+
+    .filter-pills {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .filter-pill {
+        flex: 1 1 calc(50% - 0.5rem);
+        min-height: 40px;
+        padding: 0.45rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .table-video-list {
+        min-width: 800px;
+    }
+
+    .table-video-list thead th,
+    .table-video-list tbody td {
+        padding: 0.55rem 0.65rem;
+        font-size: 0.78rem;
+    }
+
+    .yt-table-link {
+        font-size: 0.78rem;
+    }
+
+    .video-modal-header {
+        padding: 1rem 1rem 0;
+    }
+
+    .video-modal-title {
+        padding-right: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .video-modal-body {
+        padding: 1rem !important;
+    }
+}
 </style>
 {% endblock %}

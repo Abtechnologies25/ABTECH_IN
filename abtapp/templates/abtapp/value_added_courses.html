@@ -6,11 +6,11 @@
 {% block content %}
 <div class="page-banner vac-banner">
     <div class="page-banner-content">
-        <h1 class="page-banner-title ">
+        <h1 class="page-banner-title">
             <!-- <span class="title-modern">Value Added</span> -->
-            <span class="title-highlight"> Value Added Course</span>
-            <p class="mt-2"><i>-	Workshops and Training Programs</i></p>
+            <span class="title-highlight">Value Added Course</span>
         </h1>
+        <p class="vac-banner-subtitle"><i>Workshops and Training Programs</i></p>
     </div>
 </div>
 
@@ -55,7 +55,7 @@
         <!-- VAC Table Section -->
         <div class="pt-2">
             <div class="text-center mb-4">
-                <h2 class="justify-content-center" style="font-size: 2.4rem; font-weight: 900;">
+                <h2 class="vac-table-heading" style="font-size: 2.4rem; font-weight: 900;">
                     <span class="about-word">List of Value Added Courses</span> <span class="company-name">(Workshop/Training) </span><span class="about-word">Details</span>
                 </h2>
             </div>
@@ -196,8 +196,91 @@
 }
 
 @media (max-width: 768px) {
+    .vac-banner {
+        min-height: 220px;
+        padding: 2rem 1rem;
+    }
+
+    .vac-banner .page-banner-content {
+        width: 100%;
+        padding: 0 0.5rem;
+    }
+
+    .vac-banner .page-banner-title {
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .vac-banner .title-highlight {
+        font-size: clamp(1.8rem, 8vw, 2.3rem);
+        overflow-wrap: anywhere;
+    }
+
+    .vac-banner-subtitle {
+        margin: 0.5rem 0 0;
+        color: #ffffff;
+        font-size: 0.95rem;
+    }
+
+    .vac-page-wrapper {
+        padding: 1.5rem 0 !important;
+        min-height: auto !important;
+    }
+
+    .vac-page-wrapper > .container {
+        padding: 1rem !important;
+        border-width: 2px !important;
+        border-radius: 1rem !important;
+    }
+
+    .vac-page-wrapper .row {
+        --bs-gutter-y: 0.75rem;
+    }
+
+    .vac-page-wrapper .row.mb-5 {
+        margin-bottom: 0.75rem !important;
+    }
+
+    .vac-page-wrapper .section-title {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .vac-description,
+    .workshop-content {
+        font-size: 0.95rem;
+        line-height: 1.65;
+        text-align: justify;
+        text-indent: 0;
+    }
+
+    .vac-image-container img,
+    .workshop-image-container img {
+        width: 100%;
+        height: auto !important;
+        max-height: 240px;
+        object-fit: cover;
+        border-radius: 0.75rem;
+    }
+
+    .vac-page-wrapper .workshop-image-container {
+        height: auto;
+        min-height: 0;
+    }
+
+    .vac-table-heading {
+        font-size: 1.5rem !important;
+        line-height: 1.3;
+        text-align: center;
+    }
+
     .table-vac-list {
         min-width: 900px;
+    }
+
+    .vac-table-wrapper {
+        max-width: 100%;
+        -webkit-overflow-scrolling: touch;
     }
     
     .vac-intro-section {

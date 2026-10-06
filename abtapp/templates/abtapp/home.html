@@ -720,20 +720,59 @@ and problem-solving skills."</p>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        if (typeof Swiper !== 'undefined') {
-            new Swiper('.reviews-swiper', {
-                slidesPerView: 1,
-                spaceBetween: 0,
-                loop: true,
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false,
-                },
-                navigation: {
-                    nextEl: '#reviewsNextBtn',
-                    prevEl: '#reviewsPrevBtn',
-                },
-            });
+        const swiperElement = document.querySelector('.reviews-swiper');
+        if (typeof Swiper !== 'undefined' && swiperElement) {
+            const wrapper = swiperElement.querySelector('.swiper-wrapper');
+            const originalSlides = Array.from(wrapper.children);
+            const reviewGroups = originalSlides.map((slide) =>
+                Array.from(slide.querySelectorAll('.review-card'))
+            );
+            const reviewCards = reviewGroups.flat();
+            let isMobileLayout = null;
+            let reviewsSwiper;
+
+            function updateReviewsLayout() {
+                const useMobileLayout = window.matchMedia('(max-width: 768px)').matches;
+                if (useMobileLayout === isMobileLayout) {
+                    return;
+                }
+
+                if (reviewsSwiper) {
+                    reviewsSwiper.destroy(true, true);
+                }
+
+                if (useMobileLayout) {
+                    wrapper.replaceChildren(...reviewCards.map((card) => {
+                        const slide = document.createElement('div');
+                        slide.className = 'swiper-slide';
+                        slide.appendChild(card);
+                        return slide;
+                    }));
+                } else {
+                    originalSlides.forEach((slide, index) => {
+                        slide.querySelector('.reviews-slide-grid').replaceChildren(...reviewGroups[index]);
+                    });
+                    wrapper.replaceChildren(...originalSlides);
+                }
+
+                isMobileLayout = useMobileLayout;
+                reviewsSwiper = new Swiper(swiperElement, {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    loop: true,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
+                    navigation: {
+                        nextEl: '#reviewsNextBtn',
+                        prevEl: '#reviewsPrevBtn',
+                    },
+                });
+            }
+
+            updateReviewsLayout();
+            window.addEventListener('resize', updateReviewsLayout);
         }
     });
 </script>

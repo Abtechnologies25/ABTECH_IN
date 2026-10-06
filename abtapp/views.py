@@ -6,10 +6,14 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.mail import EmailMessage
 from django.core.validators import validate_email
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404
 from .models import *
 import json
+
+def robots_txt_view(request):
+    content = "User-agent: *\nAllow: /\nDisallow: /admin/\n"
+    return HttpResponse(content, content_type='text/plain')
 
 def home_view(request):
     return render(request, 'abtapp/home.html', {'active_page': 'home'})
@@ -139,7 +143,12 @@ def career_view(request):
         return JsonResponse({'success': False, 'error': 'Upload a PDF or DOC/DOCX resume.'}, status=400)
 
     sender = settings.DEFAULT_FROM_EMAIL
-    if not settings.EMAIL_HOST or not sender:
+    if not all((
+        settings.EMAIL_HOST,
+        settings.EMAIL_HOST_USER,
+        settings.EMAIL_HOST_PASSWORD,
+        sender,
+    )):
         return JsonResponse({
             'success': False,
             'error': 'Email delivery is not configured. Please contact us directly.'
@@ -209,4 +218,3 @@ def funded_projects_view(request):
         'active_page': 'funded_projects',
     }
     return render(request, 'abtapp/funded_projects.html', context)
-

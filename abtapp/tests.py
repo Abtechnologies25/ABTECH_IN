@@ -5,10 +5,23 @@ from django.test import override_settings
 from django.urls import reverse
 
 
+class RobotsTxtTests(TestCase):
+    def test_robots_txt_is_served_as_plain_text(self):
+        response = self.client.get(reverse('robots_txt'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response['Content-Type'], 'text/plain')
+        self.assertContains(response, 'User-agent: *')
+        self.assertContains(response, 'Allow: /')
+        self.assertContains(response, 'Disallow: /admin/')
+
+
 class CareerApplicationTests(TestCase):
     @override_settings(
         EMAIL_BACKEND='django.core.mail.backends.locmem.EmailBackend',
-        EMAIL_HOST='localhost',
+        EMAIL_HOST='smtp.gmail.com',
+        EMAIL_HOST_USER='abtech.mgmt@gmail.com',
+        EMAIL_HOST_PASSWORD='test-app-password',
         DEFAULT_FROM_EMAIL='careers@example.com',
     )
     def test_application_emails_resume_to_career_inbox(self):
@@ -28,6 +41,7 @@ class CareerApplicationTests(TestCase):
         self.assertEqual(response.json(), {'success': True})
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(mail.outbox[0].to, ['abtechchennai@gmail.com'])
+        self.assertEqual(mail.outbox[0].from_email, 'careers@example.com')
         self.assertEqual(mail.outbox[0].reply_to, ['applicant@example.com'])
         self.assertEqual(mail.outbox[0].attachments[0][0], 'resume.pdf')
 
