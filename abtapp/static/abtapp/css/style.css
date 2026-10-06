@@ -1169,7 +1169,22 @@ body {
 .training-banner .title-highlight,
 .vac-banner .title-highlight {
     font-size: 2.8rem;
-    padding-bottom: 10px;
+    padding-bottom: 0;
+}
+
+.training-banner .page-banner-title,
+.vac-banner .page-banner-title {
+    margin: 0;
+}
+
+.training-banner .page-banner-subtitle,
+.vac-banner .vac-banner-subtitle {
+    margin: 0.5rem 0 0;
+    color:#ffffff
+}
+
+.vac-banner .vac-banner-subtitle {
+    font-size: 1.2rem;
 }
 
 .training-banner,
@@ -1190,6 +1205,22 @@ text-align: justify;
 
 .mou-banner .title-highlight {
     font-size: 3.4rem;
+}
+
+.mou-banner .title-highlight,
+.products-banner .title-highlight,
+.career-banner .title-highlight {
+    font-size: 2.8rem;
+}
+
+.career-banner .title-modern {
+    font-size: 1.5rem;
+}
+
+.mou-page-banner .page-banner-title > span:last-child {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
 }
 
 .gallery-banner .page-banner-title {
@@ -1336,7 +1367,7 @@ text-align: justify;
     }
 
     .products-banner .title-highlight {
-        font-size: clamp(2rem, 9vw, 2.6rem);
+        font-size: clamp(2rem, 9vw, 2.5rem);
         overflow-wrap: anywhere;
     }
 
@@ -4423,7 +4454,7 @@ text-align: justify;
 
 /* Scoped Career Banner override */
 .career-banner {
-    min-height: 250px;
+    min-height: 180px;
 }
 
 .career-banner .page-banner-title {
@@ -4439,7 +4470,7 @@ text-align: justify;
 
 @media (max-width: 768px) {
     .career-banner {
-        min-height: 190px;
+        min-height: 160px;
         padding: 2rem 1rem;
     }
 
@@ -4468,7 +4499,7 @@ text-align: justify;
     }
 
     .career-banner .title-highlight {
-        font-size: clamp(1.8rem, 8vw, 2.3rem);
+        font-size: clamp(2rem, 9vw, 2.5rem);
         overflow-wrap: anywhere;
     }
 
