@@ -18,9 +18,18 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.sitemaps.views import sitemap
+
+from abtproject.sitemaps import ProjectCategorySitemap, StaticPageSitemap
+
+sitemaps = {
+    'pages': StaticPageSitemap,
+    'project_categories': ProjectCategorySitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
     path('', include('abtapp.urls')),
 ]
 
@@ -32,6 +41,3 @@ else:
     urlpatterns += [
         re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     ]
-
-
-

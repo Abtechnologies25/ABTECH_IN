@@ -8,11 +8,13 @@ from django.core.mail import EmailMessage
 from django.core.validators import validate_email
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
 from .models import *
 import json
 
 def robots_txt_view(request):
-    content = "User-agent: *\nAllow: /\nDisallow: /admin/\n"
+    sitemap_url = request.build_absolute_uri(reverse('sitemap'))
+    content = f"User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: {sitemap_url}\n"
     return HttpResponse(content, content_type='text/plain')
 
 def home_view(request):

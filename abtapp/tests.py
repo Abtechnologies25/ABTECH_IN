@@ -14,6 +14,30 @@ class RobotsTxtTests(TestCase):
         self.assertContains(response, 'User-agent: *')
         self.assertContains(response, 'Allow: /')
         self.assertContains(response, 'Disallow: /admin/')
+        self.assertContains(response, 'Sitemap: http://testserver/sitemap.xml')
+
+
+class SitemapTests(TestCase):
+    def test_sitemap_is_generated_from_python(self):
+        response = self.client.get(reverse('sitemap'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response['Content-Type'], 'application/xml')
+        self.assertContains(response, '<loc>http://testserver/</loc>')
+        self.assertContains(response, '<loc>http://testserver/projects/</loc>')
+        self.assertNotContains(response, '<lastmod>')
+
+    def test_project_category_pages_are_included(self):
+        from .models import ProjectCategory
+
+        category = ProjectCategory.objects.create(name='Sitemap Test Category')
+
+        response = self.client.get(reverse('sitemap'))
+
+        self.assertContains(
+            response,
+            f'<loc>http://testserver/projects/{category.pk}/</loc>',
+        )
 
 
 class CareerApplicationTests(TestCase):
