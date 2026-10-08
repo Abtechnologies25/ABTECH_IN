@@ -5691,7 +5691,7 @@ text-align: justify;
 /* ============== REVIEWS SECTION ============== */
 
 .reviews-section {
-    padding: 2rem 0;
+    padding: 4.5rem 0 3.5rem;
     background: #ffffff;
     position: relative;
     overflow: hidden;
@@ -5706,7 +5706,7 @@ text-align: justify;
 /* Section Header */
 .reviews-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .reviews-title {
@@ -5736,13 +5736,14 @@ text-align: justify;
 .reviews-slider-wrapper {
     position: relative;
     max-width: 1200px;
-    margin: 0 auto;
-    overflow: hidden;
+    margin: 1.5rem auto 0;
+    overflow: visible;
 }
 
 .reviews-swiper {
     width: 100%;
-    padding: 20px 0 40px;
+    padding: 25px 10px 40px;
+    overflow: hidden;
 }
 
 .reviews-swiper .swiper-wrapper {
@@ -5751,6 +5752,7 @@ text-align: justify;
 
 .reviews-swiper .swiper-slide {
     height: auto;
+    padding-top: 5px;
 }
 
 .reviews-slide-grid {
@@ -5759,6 +5761,7 @@ text-align: justify;
     gap: 2rem;
     width: 100%;
     align-items: stretch;
+    padding-top: 5px;
 }
 
 /* Review Card Styles */
@@ -5775,6 +5778,7 @@ text-align: justify;
     position: relative;
     overflow: hidden;
 }
+
 
 .review-card::before {
     content: '';
