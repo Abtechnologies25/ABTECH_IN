@@ -16,11 +16,10 @@
     </div>
 </div>
 
-<!-- Contact Section -->
 <section class="contact-section contact-us-section">
     <div class="container py-5">
 
-        <!-- Branch Selector Tabs -->
+       
         <div class="contact-branch-tabs" id="branchTabs">
             <button class="branch-tab active" data-branch="nagercoil" onclick="switchBranch('nagercoil', this)">
                 <i class="bi bi-geo-alt-fill"></i>
@@ -49,10 +48,10 @@
             </button>
         </div>
 
-        <!-- Branch Content Cards -->
+        
         <div class="contact-branch-content">
 
-            <!-- NAGERCOIL -->
+            
             <div class="branch-panel active" id="branch-nagercoil">
                 <div class="row g-4 align-items-stretch">
                     <div class="col-lg-5">
@@ -108,7 +107,7 @@
                 </div>
             </div>
 
-            <!-- TIRUNELVELI -->
+           
             <div class="branch-panel" id="branch-tirunelveli">
                 <div class="row g-4 align-items-stretch">
                     <div class="col-lg-5">
@@ -163,7 +162,7 @@
                 </div>
             </div>
 
-            <!-- CHENNAI -->
+            
             <div class="branch-panel" id="branch-chennai">
                 <div class="row g-4 align-items-stretch">
                     <div class="col-lg-5">
@@ -218,7 +217,7 @@
                 </div>
             </div>
 
-            <!-- PUDUKKOTTAI -->
+            
             <div class="branch-panel" id="branch-pudukkottai">
                 <div class="row g-4 align-items-stretch">
                     <div class="col-lg-5">
@@ -273,7 +272,7 @@
                 </div>
             </div>
 
-            <!-- MARTHANDAM -->
+            
             <div class="branch-panel" id="branch-marthandam">
                 <div class="row g-4 align-items-stretch">
                     <div class="col-lg-5">
@@ -329,7 +328,7 @@
     </div>
 </section>
 
-<!-- Quick Contact Bar -->
+
 <!-- <section class="quick-contact-bar">
     <div class="container">
         <div class="quick-contact-grid">
@@ -367,14 +366,14 @@
 
 <script>
     function switchBranch(branchId, btn) {
-        // Remove active from all tabs
+        
         document.querySelectorAll('.branch-tab').forEach(tab => tab.classList.remove('active'));
-        // Remove active from all panels
+        
         document.querySelectorAll('.branch-panel').forEach(panel => panel.classList.remove('active'));
         
-        // Add active to clicked tab
+        
         btn.classList.add('active');
-        // Add active to target panel
+        
         const targetPanel = document.getElementById('branch-' + branchId);
         if (targetPanel) {
             targetPanel.classList.add('active');

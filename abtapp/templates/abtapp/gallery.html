@@ -20,7 +20,7 @@
 
 {% block content %}
 <style>
-    /* Modern Gallery Styles */
+    
     .gallery-container {
         padding: 4rem 0;
         background-color: #f8fafc;
@@ -97,7 +97,7 @@
         margin: 0;
     }
 
-    /* Bootstrap Gallery Card Custom Styling */
+    
     .gallery-card {
         border-radius: 16px;
         overflow: hidden;
@@ -408,7 +408,7 @@
 
 <div class="gallery-container gallery-page-content">
     <div class="container">
-        <!-- Interactive Category Filters -->
+       
         <div class="gallery-filter-wrap" data-aos="fade-up">
             <button class="filter-btn active" onclick="filterCategory('all', this)">All Gallery</button>
             {% for category in categories %}
@@ -416,7 +416,7 @@
             {% endfor %}
         </div>
 
-        <!-- Gallery Collections -->
+       
         {% for category in categories %}
             <div class="category-section" id="section-cat-{{ forloop.counter }}" data-category-id="cat-{{ forloop.counter }}" data-db-id="{{ category.id }}" data-aos="fade-up">
                 <div class="category-header-wrap">
@@ -456,7 +456,7 @@
     </div>
 </div>
 
-<!-- Premium Lightbox Component -->
+
 <div class="lightbox" id="galleryLightbox" onclick="closeLightbox()">
     <div class="lightbox-content" onclick="event.stopPropagation()">
         <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
@@ -468,20 +468,20 @@
 </div>
 
 <script>
-    // Filtering logic
+   
     function filterCategory(catId, btn) {
-        // Toggle Active Button styling
+        
         const buttons = document.querySelectorAll('.filter-btn');
         buttons.forEach(button => button.classList.remove('active'));
         btn.classList.add('active');
         
-        // Toggle sections based on selection
+        
         const sections = document.querySelectorAll('.category-section');
         sections.forEach(section => {
             if (catId === 'all') {
                 section.style.opacity = '0';
                 section.style.display = 'block';
-                // Trigger reflow for transition
+                
                 section.offsetHeight;
                 section.style.opacity = '1';
             } else {
@@ -497,7 +497,7 @@
         });
     }
 
-    // Lightbox triggers
+    
     function openLightbox(url, name) {
         const lb = document.getElementById('galleryLightbox');
         const img = document.getElementById('lightboxImg');
@@ -507,7 +507,7 @@
         caption.textContent = name || "AB Technologies Showcase";
         
         lb.style.display = 'flex';
-        // Delay active class slightly to trigger fade-in transition
+        
         setTimeout(() => {
             lb.classList.add('active');
         }, 30);
@@ -517,32 +517,32 @@
     function closeLightbox() {
         const lb = document.getElementById('galleryLightbox');
         lb.classList.remove('active');
-        // Delay display setting to allow fade-out animation to complete
+        
         setTimeout(() => {
             lb.style.display = 'none';
         }, 300);
         document.body.style.overflow = 'auto';
     }
 
-    // Close lightbox on Escape key press
+  
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeLightbox();
     });
 
-    // ── Auto-filter from URL param (?category=ID  or  ?image=ID) ───────────
+   
     (function autoFilterFromURL() {
         const params   = new URLSearchParams(window.location.search);
         const imageId  = params.get('image');
         const catId    = params.get('category');
 
-        // ── Handle ?image=ID ──────────────────────────────────────────────
+        
         if (imageId) {
             const imageCol = document.querySelector(
                 `[data-image-id="${imageId}"]`
             );
             if (!imageCol) return;
 
-            // Find parent category section
+            
             const section = imageCol.closest('.category-section');
             if (!section) return;
 
@@ -551,7 +551,7 @@
                 `.filter-btn[data-filter-key="${catKey}"]`
             );
 
-            // Filter to that category
+            
             if (matchBtn) {
                 filterCategory(catKey, matchBtn);
             } else {
@@ -560,11 +560,11 @@
                 });
             }
 
-            // Scroll to the image card, then open lightbox
+            
             setTimeout(() => {
                 imageCol.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-                // After scroll, open lightbox for that specific image
+                
                 setTimeout(() => {
                     const card = imageCol.querySelector('.gallery-card');
                     if (card) card.click();
@@ -573,7 +573,7 @@
             return;
         }
 
-        // ── Handle ?category=ID ───────────────────────────────────────────
+        
         if (catId) {
             const targetSection = document.querySelector(
                 `.category-section[data-db-id="${catId}"]`
