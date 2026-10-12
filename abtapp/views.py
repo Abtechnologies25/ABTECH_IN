@@ -111,9 +111,17 @@ def gallery_view(request):
     return render(request, 'abtapp/gallery.html', context)
 
 def videos_view(request):
-    videos = Video.objects.all().order_by('UPLOADED_DATE', 'CODE')
+    try:
+        videos = Video.objects.all().order_by('UPLOADED_DATE', 'CODE')
+        videos2 = Video2.objects.all().order_by('UPLOADED_DATE', 'CODE')
+    except Exception as e:
+        # Handle database connection errors - show empty lists
+        videos = []
+        videos2 = []
+    
     context = {
         'videos': videos,
+        'videos2': videos2,
         'active_page': 'videos',
     }
     return render(request, 'abtapp/videos.html', context)

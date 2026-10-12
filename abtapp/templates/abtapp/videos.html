@@ -39,6 +39,7 @@
                         aria-label="Visit AB Technologies Official YouTube channel">
                         <span class="youtube-channel-icon"><i class="bi bi-youtube" aria-hidden="true"></i></span>
                         <span class="youtube-channel-copy">
+                            <span class="youtube-channel-label">Channel 1</span>
                             <strong>AB Technologies Official</strong>
                         </span>
                         <i class="bi bi-arrow-up-right youtube-channel-arrow" aria-hidden="true"></i>
@@ -48,6 +49,7 @@
                         aria-label="Visit AB Technologies 2.0 YouTube channel">
                         <span class="youtube-channel-icon"><i class="bi bi-youtube" aria-hidden="true"></i></span>
                         <span class="youtube-channel-copy">
+                            <span class="youtube-channel-label">Channel 2</span>
                             <strong>AB Technologies 2.0</strong>
                         </span>
                         <i class="bi bi-arrow-up-right youtube-channel-arrow" aria-hidden="true"></i>
@@ -101,7 +103,20 @@
 
         <!-- Video Table -->
         <div id="videoTableWrapper">
-            <div class="video-table-wrapper">
+            <!-- Channel Switch Button -->
+            <div class="channel-switch-container mb-4">
+                <div class="channel-tab-group mt-3">
+                    <button class="channel-tab-btn channel-tab-active" data-channel="1">
+                        <i class="bi bi-collection-play"></i> Channel 1
+                    </button>
+                    <button class="channel-tab-btn" data-channel="2">
+                        <i class="bi bi-collection-play"></i> Channel 2
+                    </button>
+                </div>
+            </div>
+
+            <!-- Channel 1 Table -->
+            <div class="video-table-wrapper" id="channel1Table">
                 <table class="table table-video-list table-bordered align-middle mb-0">
                     <thead>
                         <tr class="text-center">
@@ -130,20 +145,60 @@
                         </tr>
                         {% empty %}
                         <tr>
-                            <td colspan="6" class="text-center py-5 text-muted">No videos available</td>
+                            <td colspan="6" class="text-center py-5">
+                                <div class="no-videos-state">
+                                    <i class="bi bi-camera-video-off" style="font-size: 2rem; color: #94a3b8;"></i>
+                                    <h4 class="mt-2 text-secondary">No Videos Found</h4>
+                                    <p class="text-muted" style="font-size: 0.9rem;">No videos available in this channel</p>
+                                </div>
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
             </div>
-        </div>
 
-        <!-- No Results Message -->
-        <div class="text-center py-5 d-none w-100" id="liveFilterEmpty">
-            <div class="no-videos-state">
-                <i class="bi bi-camera-video-off" style="font-size: 3rem; color: #94a3b8;"></i>
-                <h4 class="mt-3 text-secondary">No Videos Found</h4>
-                <p class="text-muted">We couldn't find any videos matching your search query or selected category.</p>
+            <!-- Channel 2 Table -->
+            <div class="video-table-wrapper d-none" id="channel2Table">
+                <table class="table table-video-list table-bordered align-middle mb-0">
+                    <thead>
+                        <tr class="text-center">
+                            <th class="text-center" style="width: 70px;">S.NO</th>
+                            <th style="width: 160px;">CODE</th>
+                            <th style="width: 160px;">UPLOADED DATE</th>
+                            <th>TITLE</th>
+                            <th style="width: 120px;">TYPE</th>
+                            <th>YOUTUBE LINK</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for v in videos2 %}
+                        <tr class="video-item-table-row" data-title="{{ v.TITLE|lower }}" data-type="{{ v.TYPE }}"
+                            data-code="{{ v.CODE|lower }}">
+                            <td class="text-center">{{ forloop.counter }}</td>
+                            <td class="text-center">{{ v.CODE }}</td>
+                            <td class="text-center">{{ v.UPLOADED_DATE|date:"d-m-Y" }}</td>
+                            <td>{{ v.TITLE }}</td>
+                            <td class="text-center">{{ v.TYPE }}</td>
+                            <td>
+                                <a href="{{ v.YOUTUBE_LINK }}" target="_blank" rel="noopener" class="yt-table-link">
+                                    {{ v.YOUTUBE_LINK }}
+                                </a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="6" class="text-center py-5">
+                                <div class="no-videos-state">
+                                    <i class="bi bi-camera-video-off" style="font-size: 2rem; color: #94a3b8;"></i>
+                                    <h4 class="mt-2 text-secondary">No Videos Found</h4>
+                                    <p class="text-muted" style="font-size: 0.9rem;">No videos available in this channel</p>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -172,20 +227,62 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        // Channel Switching
+        const channelBtns = document.querySelectorAll(".channel-tab-btn");
+        const channel1Table = document.getElementById("channel1Table");
+        const channel2Table = document.getElementById("channel2Table");
+        let activeChannel = 1;
+
+        channelBtns.forEach(btn => {
+            btn.addEventListener("click", function () {
+                const channel = parseInt(this.getAttribute("data-channel"));
+                
+                // Update button states
+                channelBtns.forEach(b => b.classList.remove("channel-tab-active"));
+                this.classList.add("channel-tab-active");
+
+                // Toggle tables
+                if (channel === 1) {
+                    channel1Table.classList.remove("d-none");
+                    channel2Table.classList.add("d-none");
+                    activeChannel = 1;
+                } else {
+                    channel1Table.classList.add("d-none");
+                    channel2Table.classList.remove("d-none");
+                    activeChannel = 2;
+                }
+
+                // Reset filters
+                searchInput.value = "";
+                searchQuery = "";
+                activeFilter = "all";
+                filterPills.forEach(pill => {
+                    if (pill.getAttribute("data-filter") === "all") {
+                        pill.classList.add("active");
+                    } else {
+                        pill.classList.remove("active");
+                    }
+                });
+
+                // Re-apply filtering
+                filterVideos();
+            });
+        });
+
         // Search and Filter Functionality
         const searchInput = document.getElementById("videoSearch");
         const filterPills = document.querySelectorAll(".filter-pill");
-        const videoTableRows = document.querySelectorAll(".video-item-table-row");
         const tableWrapper = document.getElementById("videoTableWrapper");
-        const liveFilterEmpty = document.getElementById("liveFilterEmpty");
 
         let activeFilter = "all";
         let searchQuery = "";
 
         function filterVideos() {
+            const activeTable = activeChannel === 1 ? channel1Table : channel2Table;
+            const activeRows = activeTable.querySelectorAll(".video-item-table-row");
             let visibleCount = 0;
 
-            videoTableRows.forEach(item => {
+            activeRows.forEach(item => {
                 const title = item.getAttribute("data-title");
                 const code = item.getAttribute("data-code");
                 const type = item.getAttribute("data-type");
@@ -201,13 +298,8 @@
                 }
             });
 
-            if (visibleCount === 0) {
-                liveFilterEmpty.classList.remove("d-none");
-                tableWrapper.classList.add("d-none");
-            } else {
-                liveFilterEmpty.classList.add("d-none");
-                tableWrapper.classList.remove("d-none");
-            }
+            // No need to hide table - just show/hide rows
+            // The empty rows will show "No videos" message automatically
         }
 
         // Live Search Input Listener
@@ -268,6 +360,77 @@
 /* ============================================================
    VIDEOS PAGE — STYLES
    ============================================================ */
+
+/* ---------- Channel Switch Container ---------- */
+.channel-switch-container {
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.channel-tab-group {
+    display: inline-flex;
+    border: 2px solid #0b57af;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.channel-tab-btn {
+    background: #ffffff;
+    color: #0b57af;
+    border: none;
+    padding: 10px 28px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    outline: none;
+}
+
+.channel-tab-btn:not(:last-child) {
+    border-right: 2px solid #0b57af;
+}
+
+.channel-tab-btn:hover {
+    background: #e8f1fb;
+}
+
+.channel-tab-active {
+    background: #0b57af !important;
+    color: #ffffff !important;
+}
+
+.channel-tab-btn i {
+    font-size: 1rem;
+}
+
+/* YouTube Channel Row Styling */
+.youtube-channel-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.youtube-channel-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #ffffff;
+    display: inline-block;
+    padding: 6px 12px;
+    background: linear-gradient(135deg, #0b57af, #1a73e8);
+    border-radius: 3px;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    width: fit-content;
+}
 
 /* ---------- Controls Card ---------- */
 .gallery-controls-card {
@@ -390,6 +553,16 @@
     .table-video-list {
         min-width: 800px;
     }
+
+    .channel-switch-wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .channel-btn {
+        flex: 1 1 calc(50% - 6px);
+        min-height: 40px;
+    }
 }
 
 /* Modal styling */
@@ -484,6 +657,16 @@
         min-height: 40px;
         padding: 0.45rem 0.5rem;
         font-size: 0.8rem;
+    }
+
+    /* Channel Switch Responsive */
+    .channel-tab-group {
+        width: auto;
+    }
+
+    .channel-tab-btn {
+        padding: 9px 18px;
+        font-size: 0.85rem;
     }
 
     .table-video-list {

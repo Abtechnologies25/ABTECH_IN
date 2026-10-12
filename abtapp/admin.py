@@ -24,6 +24,19 @@ class VideoAdmin(admin.ModelAdmin):
     video_preview.short_description = "Preview"
 
 
+class Video2Admin(admin.ModelAdmin):
+    list_display = ("CODE", "UPLOADED_DATE", "TITLE", "TYPE", "YOUTUBE_LINK", "video_preview")
+    search_fields = ("TITLE", "CODE")
+    list_filter = ("TITLE",)
+
+    def video_preview(self, obj):
+        return format_html(
+            '<iframe width="200" height="120" src="{}" frameborder="0" allowfullscreen></iframe>',
+            obj.embed_link(),
+        )
+    video_preview.short_description = "Preview"
+
+
 class MoUAdmin(admin.ModelAdmin):
     list_display = ('MoU_NO', 'ORGANIZATION_NAME', 'LOCATION', 'OFFICIAL_WEBSITE', 'DATE_OF_MoU', 'VALIDITY')
     search_fields = ('MoU_NO', 'ORGANIZATION_NAME', 'LOCATION')
@@ -82,6 +95,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Video, VideoAdmin)
+admin.site.register(Video2, Video2Admin)
 admin.site.register(MoU, MoUAdmin)
 admin.site.register(GalleryCategory, GalleryCategoryAdmin)
 admin.site.register(GalleryImage)
